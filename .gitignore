@@ -28,6 +28,7 @@ hs_err_pid*
 /browser-app/coverage
 /browser-app/node_modules/
 /browser-app/build/*
+/browser-app/package-lock.json
 
 ### Maven ###
 target/
