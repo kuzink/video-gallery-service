@@ -1,0 +1,49 @@
+{
+  "name": "browser-app",
+  "version": "0.1.0",
+  "description": "Video Gallery Service",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack-dev-server",
+    "watch": "webpack --watch -d",
+    "webpack": "webpack",
+    "clean": "rm -rf node_modules coverage build"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.9.0",
+    "@babel/plugin-syntax-object-rest-spread": "^7.8.3",
+    "@babel/plugin-transform-destructuring": "^7.9.5",
+    "@babel/plugin-transform-runtime": "^7.9.0",
+    "@babel/plugin-transform-spread": "^7.8.3",
+    "@babel/preset-env": "^7.9.5",
+    "@babel/preset-react": "^7.9.4",
+    "@babel/plugin-proposal-class-properties": "^7.8.3",
+    "babel-loader": "^8.1.0",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "url-loader": "^0.6.2",
+    "file-loader": "3.0.1",
+    "html-webpack-plugin": "^4.0.0",
+    "eslint": "^6.8.0",
+    "webpack": "^4.42.1",
+    "webpack-dev-server": "^3.10.1",
+    "webpack-cli": "^3.3.11"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.9.2",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-redux": "^7.2.0",
+    "redux-thunk": "^2.3.0",
+    "axios": "0.19.2",
+    "bootstrap": "^4.4.1",
+    "react-bootstrap": "^1.0.0-beta.16",
+    "react-select": "^3.0.8",
+    "react-datepicker": "^2.8.0",
+    "moment": "^2.25.3",
+    "redux": "^4.0.5",
+    "redux-logger": "^3.0.6",
+    "redux-promise-middleware": "^6.1.2",
+    "style-loader": "^1.0.0",
+    "css-loader": "^3.2.0"
+  }
+}
