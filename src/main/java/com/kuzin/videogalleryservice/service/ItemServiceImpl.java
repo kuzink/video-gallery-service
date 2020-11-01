@@ -20,7 +20,7 @@ public class ItemServiceImpl implements ItemService {
 
 	@Override
 	public Item findById(final Integer id) {
-		playRussianRoulette();
+		//playRussianRoulette();
 		return itemsMappingConfig.stream()
 			.filter(item -> id.equals(item.getId()))
 			.findAny()

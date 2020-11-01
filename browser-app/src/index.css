@@ -30,3 +30,21 @@ html, body {
   padding: 1.25rem;
   text-align: center;
 }
+
+/*Modal Item Details*/
+.custom-modal {
+  width: 1280px;
+  max-width: 83%;
+}
+.custom-modal .modal-content {
+  border: none;
+  border-radius: unset;
+}
+video {
+  width: 100%;
+  height: 100%;
+  object-fit: inherit;
+}
+video:focus {
+  outline: none;
+}

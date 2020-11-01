@@ -6,6 +6,7 @@ const formatAlertText = (alertText) => <p><strong className='modal-alert-message
 const ModalAlertComponent = (props) => {
 
 	const {onHideAlertPanel, alertText, alertVisible, alertStyle} = props;
+
 	return(
 		<Modal id='alerts-dialog'
 		       show={alertVisible}

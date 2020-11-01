@@ -2,7 +2,8 @@ import React from "react";
 
 const ItemsComponent = (props) => {
 
-	const {items, selectedItemId, handleOnItemSelect} = props;
+	const {items, handleOnItemSelect} = props;
+
 	return (
 		<div className="container">
 			<div className="row">
@@ -14,7 +15,7 @@ const ItemsComponent = (props) => {
 							<div>
 								<hr/>
 								<p className="d-inline-block">Item (id={item.id}, name={item.name})</p>
-								<button className={`float-right btn ${selectedItemId === item.id ? ' btn-success' : ' btn-primary'}`}
+								<button className="float-right btn btn-primary"
 								        onClick={handleOnItemSelect.bind(this, item.id)}>Play</button>
 							</div>
 						))}

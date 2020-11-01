@@ -1,23 +1,25 @@
 import React from "react";
+import {Modal} from 'react-bootstrap';
 
 const ItemDetailsComponent = (props) => {
 
 	const {itemDetails, handleCancel} = props;
+	const isVisible = !!itemDetails.id;
+
 	return (
-		<div className="container mt-5">
-			<div className="row">
-				<div className="col-md-12 bg-white">
-
-					<div className="py-4">
-						<p className="d-inline-block">Item (id={itemDetails.id}, name={itemDetails.name})</p>
-						<button className="btn btn-secondary float-right"
-						        onClick={handleCancel}>Close</button>
-					</div>
-
-				</div>
-			</div>
-		</div>
-	)
+		<Modal id="item-details-modal"
+		       show={isVisible}
+		       onHide={handleCancel}
+		       centered
+		       dialogClassName="custom-modal"
+		       scrollable>
+			<Modal.Body>
+				<video className="d-block" controls autoplay="1">
+					<source src="https://mdbootstrap.com/img/video/Tropical.mp4"/>
+				</video>
+			</Modal.Body>
+		</Modal>
+	);
 };
 
 export default ItemDetailsComponent;

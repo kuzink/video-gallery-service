@@ -23,13 +23,10 @@ export class ItemsContainer extends Component {
 		return (
 			<div>
 				<ItemsComponent items={items}
-				                selectedItemId={itemDetails.id}
 				                handleOnItemSelect={this.handleOnItemSelect}/>
 
-				{itemDetails.id &&
 				<ItemDetailsComponent itemDetails={itemDetails}
 				                      handleCancel={this.handleCancel}/>
-				}
 			</div>
 		)
 	}
