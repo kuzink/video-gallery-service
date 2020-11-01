@@ -7,7 +7,7 @@ const ItemsComponent = (props) => {
 	return (
 		<div className="container">
 			<div className="row">
-				<div className="col-md-12 bg-white">
+				<div className="col-md-12 bg-white rounded shadow-sm mt-4">
 
 					<div className="py-4">
 						<h4>Items</h4>

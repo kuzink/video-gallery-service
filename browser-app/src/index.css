@@ -1,24 +1,10 @@
 html, body {
-  background-color: #efefef;
+  background-color: #F8F9FA;
 }
 
-/*Filter button in header*/
-.btn-warning {
-  background-color: #fff;
-  border-color: #ddd;
-}
-.btn-warning:hover,
-.btn-warning:active,
-.btn-warning:focus {
-  background-color: #ddd;
-  border-color: #ccc;
-}
-
-.btn-warning:not(:disabled):not(.disabled).active,
-.btn-warning:not(:disabled):not(.disabled):active,
-.show>.btn-warning.dropdown-toggle {
-  background-color: #ddd;
-  border-color: #ccc;
+/*Header*/
+.navbar-brand strong {
+  cursor: default;
 }
 
 /*Modal Alert*/
