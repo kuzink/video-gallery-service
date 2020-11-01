@@ -1,3 +1,32 @@
 html, body {
-  background-color: lawngreen;
+  background-color: #efefef;
+}
+
+/*Filter button in header*/
+.btn-warning {
+  background-color: #fff;
+  border-color: #ddd;
+}
+.btn-warning:hover,
+.btn-warning:active,
+.btn-warning:focus {
+  background-color: #ddd;
+  border-color: #ccc;
+}
+
+.btn-warning:not(:disabled):not(.disabled).active,
+.btn-warning:not(:disabled):not(.disabled):active,
+.show>.btn-warning.dropdown-toggle {
+  background-color: #ddd;
+  border-color: #ccc;
+}
+
+/*Modal Alert*/
+.modal-body {
+  padding: 0;
+}
+.alert {
+  margin-bottom: 0;
+  padding: 1.25rem;
+  text-align: center;
 }

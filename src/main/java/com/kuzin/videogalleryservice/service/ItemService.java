@@ -6,6 +6,8 @@ import java.util.List;
 
 public interface ItemService {
 
-	List<Item> getItems();
+	List<Item> findAll();
+
+	Item findById(Integer id);
 
 }
