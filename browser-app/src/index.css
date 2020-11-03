@@ -19,7 +19,7 @@ html, body {
 
 /*Modal Item Details*/
 .modal-backdrop.show {
-  opacity: .9;
+  opacity: .8;
 }
 .custom-modal {
   width: 1280px;
@@ -40,7 +40,7 @@ video:focus {
   outline: none;
 }
 
-/*Item*/
+/*Item Card*/
 .custom-card-image {
   position: relative;
   overflow: hidden;
@@ -68,4 +68,9 @@ video:focus {
   align-items: center;
   justify-content: center;
   height: 100%;
+}
+
+/*Items*/
+.album {
+  margin-top: 56px;
 }

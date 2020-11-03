@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faFilm } from '@fortawesome/free-solid-svg-icons'
 
 export const HeaderComponent = () => (
-	<nav className="navbar navbar-dark bg-dark">
+	<nav className="navbar fixed-top navbar-dark bg-dark">
 		<div className="container d-flex justify-content-between">
 
 			<div className="navbar-brand d-flex align-items-center">

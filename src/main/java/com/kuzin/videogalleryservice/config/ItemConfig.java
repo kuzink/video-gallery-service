@@ -17,7 +17,7 @@ import java.util.List;
 public class ItemConfig {
 
 	@Bean
-	public List<Item> itemsMappingConfig(@Value("classpath:item.json") final InputStream src,
+	public List<Item> itemsMappingConfig(@Value("classpath:items.json") final InputStream src,
 	                                     final ObjectMapper objectMapper,
 	                                     final Validator defaultValidator) throws IOException {
 
