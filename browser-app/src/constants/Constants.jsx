@@ -5,8 +5,8 @@ export default {
 		RESET_ALERTS: 'RESET_ALERTS',
 
 		SET_ITEMS: 'SET_ITEMS',
-		SET_ITEM_DETAILS: 'SET_ITEM_DETAILS',
-		RESET_ITEM_DETAILS: 'RESET_ITEM_DETAILS'
+		SET_ITEM_NAME: 'SET_ITEM_NAME',
+		RESET_ITEM_NAME: 'RESET_ITEM_NAME'
 	},
 
 	IMAGE_LINKS: [
@@ -31,6 +31,8 @@ export default {
 		"http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4",
 		"http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4",
 		"http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4"
-	]
+	],
+
+	BASE_URL: "http://localhost:8080"
 
 };

@@ -2,8 +2,8 @@ import React, {Component} from "react";
 import {connect} from "react-redux";
 import {
 	retrieveItems,
-	retrieveItemDetails,
-	resetItemDetails
+	setItemName,
+	resetItemName
 } from "../../actions/ItemsActions";
 import ItemsComponent from "./ItemsComponent";
 import ItemDetailsComponent from "./ItemDetailsComponent";
@@ -14,18 +14,18 @@ export class ItemsContainer extends Component {
 		this.props.retrieveItems();
 	}
 
-	handleOnItemSelect = (itemId) => this.props.retrieveItemDetails(itemId);
+	handleOnItemSelect = (itemName) => this.props.setItemName(itemName);
 
-	handleCancel = () => this.props.resetItemDetails();
+	handleCancel = () => this.props.resetItemName();
 
 	render() {
-		const {items, itemDetails} = this.props;
+		const {items, itemName} = this.props;
 		return (
 			<div>
 				<ItemsComponent items={items}
 				                handleOnItemSelect={this.handleOnItemSelect}/>
 
-				<ItemDetailsComponent itemDetails={itemDetails}
+				<ItemDetailsComponent itemName={itemName}
 				                      handleCancel={this.handleCancel}/>
 			</div>
 		)
@@ -35,7 +35,7 @@ export class ItemsContainer extends Component {
 const mapStateToProps = state => {
 	return {
 		items: state.items.items,
-		itemDetails: state.items.itemDetails
+		itemName: state.items.itemName
 	};
 };
 
@@ -44,11 +44,11 @@ const mapDispatchToProps = dispatch => {
 		retrieveItems: () => {
 			dispatch(retrieveItems());
 		},
-		retrieveItemDetails: (itemId) => {
-			dispatch(retrieveItemDetails(itemId));
+		setItemName: (itemName) => {
+			dispatch(setItemName(itemName));
 		},
-		resetItemDetails: () => {
-			dispatch(resetItemDetails());
+		resetItemName: () => {
+			dispatch(resetItemName());
 		}
 	}
 };

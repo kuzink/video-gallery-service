@@ -9,7 +9,7 @@ const ItemsComponent = (props) => {
 	const {items, handleOnItemSelect} = props;
 	const duplicates = [];
 
-	const generateUniqueLink = () => constants.IMAGE_LINKS[getRandomIntNoDuplicates(0, 8, duplicates)];
+	const generateUniqueImageLink = () => constants.IMAGE_LINKS[getRandomIntNoDuplicates(0, 8, duplicates)] || DefaultImage;
 
 	const getRandomIntNoDuplicates = (min, max, duplicates) => {
 		const randomInt = Math.floor(Math.random() * (max - min + 1)) + min;
@@ -34,13 +34,13 @@ const ItemsComponent = (props) => {
 					<div className="col-md-4">
 						<div className="card mb-4 shadow-sm">
 							<div className="custom-card-image">
-								<img src={generateUniqueLink()} className="card-img-top"/>
-								<div className="custom-mask flex-center" onClick={handleOnItemSelect.bind(this, item.id)}>
+								<img src={generateUniqueImageLink()} className="card-img-top"/>
+								<div className="custom-mask flex-center" onClick={handleOnItemSelect.bind(this, item.name)}>
 									<h1><FontAwesomeIcon icon={faPlay} className="text-white "/></h1>
 								</div>
 							</div>
 							<div className="card-body px-3 py-2">
-								<p className="card-text">{item.name}</p>
+								<p className="card-text custom-card-text" title={item.name}>{item.name}</p>
 							</div>
 						</div>
 					</div>

@@ -1,4 +1,4 @@
-import {initialItemDetails, initialItems} from './InitialState';
+import {initialItems} from './InitialState';
 import constants from '../constants/Constants';
 
 export const setItems = (state, action) => {
@@ -8,24 +8,24 @@ export const setItems = (state, action) => {
 	}
 };
 
-export const setItemDetails = (state, action) => {
+export const setItemName = (state, action) => {
 	return {
 		...state,
-		itemDetails: action.itemDetails
+		itemName: action.itemName
 	}
 };
 
-export const resetItemDetails = (state) => {
+export const resetItemName = (state) => {
 	return {
 		...state,
-		itemDetails: initialItemDetails
+		itemName: ''
 	}
 };
 
 export const reducers = {
 	[constants.REDUX_STORE_EVENTS.SET_ITEMS]: setItems,
-	[constants.REDUX_STORE_EVENTS.SET_ITEM_DETAILS]: setItemDetails,
-	[constants.REDUX_STORE_EVENTS.RESET_ITEM_DETAILS]: resetItemDetails
+	[constants.REDUX_STORE_EVENTS.SET_ITEM_NAME]: setItemName,
+	[constants.REDUX_STORE_EVENTS.RESET_ITEM_NAME]: resetItemName
 };
 
 export default (state = initialItems, action) => {

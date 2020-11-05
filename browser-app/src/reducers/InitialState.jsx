@@ -3,12 +3,7 @@ export const initialAlert = {
 	isError: false
 };
 
-export const initialItemDetails = {
-	id: null,
-	name: ''
-};
-
 export const initialItems = {
 	items: [],
-	itemDetails: initialItemDetails
+	itemName: ''
 };

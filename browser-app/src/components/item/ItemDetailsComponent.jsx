@@ -4,9 +4,8 @@ import constants from '../../constants/Constants';
 
 const ItemDetailsComponent = (props) => {
 
-	const {itemDetails, handleCancel} = props;
-	const isVisible = !!itemDetails.id;
-	const {id} = itemDetails;
+	const {itemName, handleCancel} = props;
+	const isVisible = itemName !== '';
 
 	return (
 		<Modal id="item-details-modal"
@@ -18,7 +17,7 @@ const ItemDetailsComponent = (props) => {
 		       scrollable>
 			<Modal.Body>
 				<video className="d-block" controls autoplay="1">
-					<source src={constants.VIDEO_LINKS[id - 1]}/>
+					<source src={`${constants.BASE_URL}/videos/${itemName}.mp4`}/>
 				</video>
 			</Modal.Body>
 		</Modal>

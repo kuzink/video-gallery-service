@@ -11,6 +11,7 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,7 +21,7 @@ import static java.util.stream.Collectors.toList;
 public class ItemConfig {
 
 	@Value("${videos.location}")
-	private Path videosLocation;
+	private String videosLocation;
 
 	@Bean
 	public List<Item> itemsMappingConfig(final Validator defaultValidator) throws IOException {
@@ -38,7 +39,7 @@ public class ItemConfig {
 	}
 
 	private List<File> getMP4FilesFromVideosLocation() throws IOException {
-		return Files.list(videosLocation)
+		return Files.list(Paths.get(videosLocation))
 			.map(Path::toFile)
 			.filter(it -> it.getName().substring(it.getName().length() - 4).equals(".mp4"))
 			.collect(toList());

@@ -9,16 +9,16 @@ export const setItems = (items) => {
 	}
 };
 
-export const setItemDetails = (itemDetails) => {
+export const setItemName = (itemName) => {
 	return {
-		type: constants.REDUX_STORE_EVENTS.SET_ITEM_DETAILS,
-		itemDetails: itemDetails
+		type: constants.REDUX_STORE_EVENTS.SET_ITEM_NAME,
+		itemName: itemName
 	}
 };
 
-export const resetItemDetails = () => {
+export const resetItemName = () => {
 	return {
-		type: constants.REDUX_STORE_EVENTS.RESET_ITEM_DETAILS
+		type: constants.REDUX_STORE_EVENTS.RESET_ITEM_NAME
 	}
 };
 
@@ -35,16 +35,3 @@ export const retrieveItems = () => {
 	}
 };
 
-export const retrieveItemDetails = (itemId) => {
-	return (dispatch) => {
-		axios.get('items/' + itemId,
-			{headers: {'Content-Type': 'application/json'}})
-			.then(response => {
-				dispatch(setItemDetails(response.data));
-			})
-			.catch(error => {
-				dispatch(setErrorMessage('ERROR: Item details retrieval (id - ' + itemId + ')'));
-				dispatch(resetItemDetails());
-			})
-	}
-};

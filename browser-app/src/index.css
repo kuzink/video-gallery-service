@@ -2,6 +2,13 @@ html, body {
   background-color: #F8F9FA;
 }
 
+/*Bootstrap container width*/
+@media (min-width: 1600px) {
+  .container {
+    max-width: 1500px;
+  }
+}
+
 /*Header*/
 .navbar-brand strong {
   cursor: default;
@@ -68,6 +75,12 @@ video:focus {
   align-items: center;
   justify-content: center;
   height: 100%;
+}
+.custom-card-text {
+  cursor: default;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 /*Items*/
