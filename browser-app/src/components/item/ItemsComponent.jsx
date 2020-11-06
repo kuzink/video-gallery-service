@@ -7,7 +7,7 @@ import constants from '../../constants/Constants';
 const ItemsComponent = (props) => {
 
 	const {items, handleOnItemSelect} = props;
-	const duplicates = [];
+	/*const duplicates = [];
 
 	const generateUniqueImageLink = () => constants.IMAGE_LINKS[getRandomIntNoDuplicates(0, 8, duplicates)] || DefaultImage;
 
@@ -24,6 +24,10 @@ const ItemsComponent = (props) => {
 		}
 
 		return getRandomIntNoDuplicates(min, max, duplicates);
+	};*/
+
+	const defineImageSrc = (itemName, imageName) => {
+		return imageName ? `${constants.BASE_URL}/images/${itemName}/${imageName}` : DefaultImage;
 	};
 
 	return (
@@ -34,7 +38,7 @@ const ItemsComponent = (props) => {
 					<div className="col-md-4">
 						<div className="card mb-4 shadow-sm">
 							<div className="custom-card-image">
-								<img src={generateUniqueImageLink()} className="card-img-top"/>
+								<img src={defineImageSrc(item.name, item.imageName)} className="card-img-top"/>
 								<div className="custom-mask flex-center" onClick={handleOnItemSelect.bind(this, item.name)}>
 									<h1><FontAwesomeIcon icon={faPlay} className="text-white "/></h1>
 								</div>

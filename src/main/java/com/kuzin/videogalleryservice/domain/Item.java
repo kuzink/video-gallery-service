@@ -20,4 +20,6 @@ public class Item {
 	@NotBlank
 	private String name;
 
+	private String imageName;
+
 }

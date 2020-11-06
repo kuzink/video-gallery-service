@@ -23,14 +23,18 @@ public class ItemConfig {
 	@Value("${videos.location}")
 	private String videosLocation;
 
+	@Value("${images.location}")
+	private String imagesLocation;
+
 	@Bean
 	public List<Item> itemsMappingConfig(final Validator defaultValidator) throws IOException {
 		final List<File> videoFiles = getMP4FilesFromVideosLocation();
 		final List<Item> items = new ArrayList<>();
 
 		for (int i = 0; i < videoFiles.size(); i++) {
-			final String name = videoFiles.get(i).getName();
-			items.add(new Item(i + 1, name.substring(0, name.length() - 4)));
+			final String nameWithExtension = videoFiles.get(i).getName();
+			final String name = nameWithExtension.substring(0, nameWithExtension.length() - 4);
+			items.add(createItem(i, name));
 		}
 
 		validateList(defaultValidator, items);
@@ -43,6 +47,25 @@ public class ItemConfig {
 			.map(Path::toFile)
 			.filter(it -> it.getName().substring(it.getName().length() - 4).equals(".mp4"))
 			.collect(toList());
+	}
+
+	private Item createItem(final int count, final String name) throws IOException {
+		final Path path = Paths.get(imagesLocation + "/" + name);
+
+		if (Files.exists(path)) {
+
+			final List<File> images = Files.list(path)
+				.map(Path::toFile)
+				.filter(it -> it.getName().substring(it.getName().length() - 4).equals(".jpg"))
+				.collect(toList());
+
+			return images.isEmpty() ?
+				new Item(count + 1, name, null) :
+				new Item(count + 1, name, images.get(0).getName());
+
+		} else {
+			return new Item(count + 1, name, null);
+		}
 	}
 
 	private <T> void validateList(final Validator defaultValidator, final List<T> list) {
