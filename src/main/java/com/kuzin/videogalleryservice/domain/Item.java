@@ -8,6 +8,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Data
 @Builder
 @NoArgsConstructor
@@ -20,6 +22,6 @@ public class Item {
 	@NotBlank
 	private String name;
 
-	private String imageName;
+	private List<String> images;
 
 }

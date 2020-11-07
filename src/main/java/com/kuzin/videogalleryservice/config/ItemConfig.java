@@ -15,6 +15,7 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
+import static java.util.Collections.emptyList;
 import static java.util.stream.Collectors.toList;
 
 @Configuration
@@ -54,17 +55,16 @@ public class ItemConfig {
 
 		if (Files.exists(path)) {
 
-			final List<File> images = Files.list(path)
+			final List<String> images = Files.list(path)
 				.map(Path::toFile)
 				.filter(it -> it.getName().substring(it.getName().length() - 4).equals(".jpg"))
+				.map(File::getName).sorted()
 				.collect(toList());
 
-			return images.isEmpty() ?
-				new Item(count + 1, name, null) :
-				new Item(count + 1, name, images.get(0).getName());
+			return new Item(count + 1, name, images);
 
 		} else {
-			return new Item(count + 1, name, null);
+			return new Item(count + 1, name, emptyList());
 		}
 	}
 
