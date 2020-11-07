@@ -22,10 +22,18 @@ export const resetItemName = (state) => {
 	}
 };
 
+export const setSearchText = (state, action) => {
+	return {
+		...state,
+		searchText: action.searchText
+	}
+};
+
 export const reducers = {
 	[constants.REDUX_STORE_EVENTS.SET_ITEMS]: setItems,
 	[constants.REDUX_STORE_EVENTS.SET_ITEM_NAME]: setItemName,
-	[constants.REDUX_STORE_EVENTS.RESET_ITEM_NAME]: resetItemName
+	[constants.REDUX_STORE_EVENTS.RESET_ITEM_NAME]: resetItemName,
+	[constants.REDUX_STORE_EVENTS.SET_SEARCH_TEXT]: setSearchText
 };
 
 export default (state = initialItems, action) => {

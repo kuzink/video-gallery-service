@@ -18,11 +18,16 @@ export class ItemsContainer extends Component {
 
 	handleCancel = () => this.props.resetItemName();
 
+	filterItems = (items, searchText) => {
+		const search = searchText.trim().toLowerCase();
+		return search === '' ? items : items.filter(item => item.name.toLowerCase().includes(search));
+	};
+
 	render() {
-		const {items, itemName} = this.props;
+		const {items, itemName, searchText} = this.props;
 		return (
 			<div>
-				<ItemsComponent items={items}
+				<ItemsComponent items={this.filterItems(items, searchText)}
 				                handleOnItemSelect={this.handleOnItemSelect}/>
 
 				<ItemDetailsComponent itemName={itemName}
@@ -35,7 +40,8 @@ export class ItemsContainer extends Component {
 const mapStateToProps = state => {
 	return {
 		items: state.items.items,
-		itemName: state.items.itemName
+		itemName: state.items.itemName,
+		searchText: state.items.searchText
 	};
 };
 

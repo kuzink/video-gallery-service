@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from "react-redux";
 import ModalAlertContainer from "./modalalert/ModalAlertContainer";
-import {HeaderComponent} from "../components/HeaderComponent";
+import HeaderContainer from "./HeaderContainer";
 import ItemsContainer from "../components/item/ItemsContainer";
 
 class AppContainer extends Component {
@@ -10,7 +10,7 @@ class AppContainer extends Component {
 		return (
 			<React.Fragment>
 				<ModalAlertContainer/>
-				<HeaderComponent/>
+				<HeaderContainer/>
 				<ItemsContainer/>
 			</React.Fragment>
 		);

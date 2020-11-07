@@ -22,6 +22,13 @@ export const resetItemName = () => {
 	}
 };
 
+export const setSearchText = (searchText) => {
+	return {
+		type: constants.REDUX_STORE_EVENTS.SET_SEARCH_TEXT,
+		searchText: searchText
+	}
+};
+
 export const retrieveItems = () => {
 	return (dispatch) => {
 	    axios.get('items',
