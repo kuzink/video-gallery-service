@@ -1,6 +1,7 @@
 import constants from '../constants/Constants';
 import axios from 'axios';
 import {setErrorMessage} from "./AlertActions";
+import { trackPromise } from 'react-promise-tracker';
 
 export const setItems = (items) => {
 	return {
@@ -31,14 +32,16 @@ export const setSearchText = (searchText) => {
 
 export const retrieveItems = () => {
 	return (dispatch) => {
-	    axios.get('items',
-	        {headers: {'Content-Type': 'application/json'}})
-	        .then(response => {
-	            dispatch(setItems(response.data));
-	        })
-		    .catch(error => {
-			    dispatch(setErrorMessage('ERROR: Items retrieval'));
-		    })
+		trackPromise(
+		    axios.get('items',
+		        {headers: {'Content-Type': 'application/json'}})
+		        .then(response => {
+		            dispatch(setItems(response.data));
+		        })
+			    .catch(error => {
+				    dispatch(setErrorMessage('ERROR: Items retrieval'));
+			    })
+		)
 	}
 };
 
