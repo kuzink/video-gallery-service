@@ -1,6 +1,7 @@
 import constants from '../constants/Constants';
 import axios from 'axios';
 import {setErrorMessage} from "./AlertActions";
+import {setSpinnerLoading, resetSpinnerLoading} from "./SpinnerActions";
 
 export const setItems = (items) => {
 	return {
@@ -31,13 +32,16 @@ export const setSearchText = (searchText) => {
 
 export const retrieveItems = () => {
 	return (dispatch) => {
+		dispatch(setSpinnerLoading());
 	    axios.get('items',
 	        {headers: {'Content-Type': 'application/json'}})
 	        .then(response => {
 	            dispatch(setItems(response.data));
+		        dispatch(resetSpinnerLoading());
 	        })
 		    .catch(error => {
 			    dispatch(setErrorMessage('ERROR: Items retrieval'));
+			    dispatch(resetSpinnerLoading());
 		    })
 	}
 };

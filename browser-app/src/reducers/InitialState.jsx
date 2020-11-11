@@ -3,6 +3,10 @@ export const initialAlert = {
 	isError: false
 };
 
+export const initialSpinner = {
+	loading: false
+};
+
 export const initialItems = {
 	items: [],
 	itemName: '',
