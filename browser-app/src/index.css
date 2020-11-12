@@ -112,4 +112,11 @@ video:focus {
   align-items: center;
   background-color: rgba(255,255,255,0.3);
   z-index: 930;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0.3s, opacity 0.3s linear;
+}
+.in-progress {
+  visibility: visible;
+  opacity: 1;
 }

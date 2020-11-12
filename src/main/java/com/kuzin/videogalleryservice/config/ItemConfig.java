@@ -1,6 +1,7 @@
 package com.kuzin.videogalleryservice.config;
 
 import com.kuzin.videogalleryservice.domain.Item;
+import org.apache.commons.io.FileUtils;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -55,16 +56,26 @@ public class ItemConfig {
 
 		if (Files.exists(path)) {
 
-			final List<String> images = Files.list(path)
+			final List<byte[]> images = Files.list(path)
 				.map(Path::toFile)
 				.filter(it -> it.getName().substring(it.getName().length() - 4).equals(".jpg"))
 				.map(File::getName).sorted()
+				.map(it -> loadImageAsByteArray(name, it))
 				.collect(toList());
 
 			return new Item(count + 1, name, images);
 
 		} else {
 			return new Item(count + 1, name, emptyList());
+		}
+	}
+
+	private byte[] loadImageAsByteArray(final String imageFolderName, final String imageName) {
+		final File file = Paths.get(imagesLocation + "/" + imageFolderName).resolve(imageName).toFile();
+		try {
+			return FileUtils.readFileToByteArray(file);
+		} catch (IOException e) {
+			return null;
 		}
 	}
 

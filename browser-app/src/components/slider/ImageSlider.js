@@ -3,7 +3,6 @@ import Slider from 'react-slick';
 import DefaultImage from '../../assets/defaultImage.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlay } from '@fortawesome/free-solid-svg-icons'
-import constants from "../../constants/Constants";
 
 const ImageSlider = (props) => {
 
@@ -22,7 +21,7 @@ const ImageSlider = (props) => {
 				<img className="card-img-top" src={DefaultImage}/> : images &&
 				<Slider {...settings}>
 					{images.map(image =>
-						<img className="card-img-top" src={`${constants.BASE_URL}/images/${itemName}/${image}`}/>
+						<img className="card-img-top" src={`data:image/jpeg;base64,${image}`}/>
 					)}
 				</Slider>
 			}
