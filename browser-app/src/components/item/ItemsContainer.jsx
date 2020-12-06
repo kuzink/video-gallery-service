@@ -10,10 +10,6 @@ import ItemDetailsComponent from "./ItemDetailsComponent";
 
 export class ItemsContainer extends Component {
 
-	componentDidMount() {
-		this.props.retrieveItems();
-	}
-
 	handleOnItemSelect = (itemName) => this.props.setItemName(itemName);
 
 	handleCancel = () => this.props.resetItemName();
