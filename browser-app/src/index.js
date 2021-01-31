@@ -9,19 +9,14 @@ import {applyMiddleware, compose, createStore} from "redux";
 import thunkMiddleware from 'redux-thunk';
 import {Provider} from 'react-redux';
 import rootReducer from "./reducers/RootReducer";
-import {createLogger} from 'redux-logger'
 import promiseMiddleware from 'redux-promise-middleware';
 
 const ReactReduxDevTools = window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__();
 let store;
 
-window.navigator.userAgent.includes("Chrome") && ReactReduxDevTools ?
-	store = createStore(
-		rootReducer, compose(applyMiddleware(thunkMiddleware, promiseMiddleware, createLogger()), ReactReduxDevTools)
-	) :
-	store = createStore(
-		rootReducer, compose(applyMiddleware(thunkMiddleware, promiseMiddleware, createLogger()))
-	);
+window.navigator.userAgent.includes("Chrome") && ReactReduxDevTools
+	? store = createStore(rootReducer, compose(applyMiddleware(thunkMiddleware, promiseMiddleware), ReactReduxDevTools))
+	: store = createStore(rootReducer, compose(applyMiddleware(thunkMiddleware, promiseMiddleware)));
 
 ReactDOM.render(
 	<Provider store={store}>
