@@ -2,6 +2,7 @@ import constants from '../constants/Constants';
 import axios from 'axios';
 import {setErrorMessage} from "./AlertActions";
 import { trackPromise } from 'react-promise-tracker';
+import {animateScroll as scroll} from "react-scroll";
 
 export const setItems = (items) => {
 	return {
@@ -36,18 +37,21 @@ export const setSearchText = (searchText) => {
 	}
 };
 
-export const retrieveItems = () => {
+export const retrieveItems = (size = constants.PAGE_SIZE_DEFAULT_VALUE, page = constants.PAGE_NUMBER_DEFAULT_VALUE) => {
 	return (dispatch) => {
 		trackPromise(
-		    axios.get('items',
+		    axios.get(`${constants.BASE_URL}/items?size=${size}&page=${page}`,
 		        {headers: {'Content-Type': 'application/json'}})
 		        .then(response => {
 		            dispatch(setItems(response.data));
+
+			        // scroll.scrollToTop({duration: 300});
+			        window.scrollTo(0, 0);
 		        })
 			    .catch(error => {
 				    dispatch(setErrorMessage('ERROR: Items retrieval'));
 			    })
-		)
+		);
 	}
 };
 

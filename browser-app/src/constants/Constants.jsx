@@ -1,4 +1,7 @@
 export default {
+
+	BASE_URL: "http://localhost:8080",
+
 	REDUX_STORE_EVENTS: {
 
 		SET_ERROR_MESSAGE: 'SET_ERROR_MESSAGE',
@@ -11,6 +14,25 @@ export default {
 		SET_SEARCH_TEXT: 'SET_SEARCH_TEXT'
 	},
 
-	BASE_URL: "http://localhost:8080"
+	PAGE_NUMBER_DEFAULT_VALUE: 1,
+	PAGE_SIZE_DEFAULT_VALUE: 9,
 
+	PAGE_SIZE_OPTIONS: [
+		{
+			value: 9,
+			label: '9'
+		},
+		{
+			value: 18,
+			label: '18'
+		},
+		{
+			value: 27,
+			label: '27'
+		},
+		{
+			value: 'all',
+			label: 'All'
+		}
+	]
 };

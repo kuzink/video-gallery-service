@@ -4,6 +4,7 @@ import ModalAlertContainer from "./modalalert/ModalAlertContainer";
 import HeaderContainer from "./layout/HeaderContainer";
 import ItemsContainer from "../components/item/ItemsContainer";
 import LoadingSpinner from "../components/spinner/LoadingSpinner";
+import FooterComponent from "./layout/FooterComponent";
 
 class AppContainer extends Component {
 
@@ -14,6 +15,7 @@ class AppContainer extends Component {
 				<ModalAlertContainer/>
 				<HeaderContainer/>
 				<ItemsContainer/>
+				<FooterComponent/>
 			</React.Fragment>
 		);
 	};

@@ -7,6 +7,7 @@ import {
 } from "../../actions/ItemsActions";
 import ItemsComponent from "./ItemsComponent";
 import ItemDetailsComponent from "./ItemDetailsComponent";
+import PaginationWrapperComponent from "../pagination/PaginationWrapperComponent";
 
 export class ItemsContainer extends Component {
 
@@ -20,11 +21,14 @@ export class ItemsContainer extends Component {
 	};
 
 	render() {
-		const {items, itemName, searchText} = this.props;
+		const {items, page, itemName, searchText, retrieveItems} = this.props;
 		return (
-			<div>
-				<ItemsComponent items={this.filterItems(items, searchText)}
-				                handleOnItemSelect={this.handleOnItemSelect}/>
+			<div className="custom-offset">
+				<PaginationWrapperComponent page={page}
+				                            getItems={retrieveItems}>
+					<ItemsComponent items={this.filterItems(items, searchText)}
+					                handleOnItemSelect={this.handleOnItemSelect}/>
+				</PaginationWrapperComponent>
 
 				<ItemDetailsComponent itemName={itemName}
 				                      handleCancel={this.handleCancel}/>
@@ -36,6 +40,7 @@ export class ItemsContainer extends Component {
 const mapStateToProps = state => {
 	return {
 		items: state.items.items,
+		page: state.items.page,
 		itemName: state.items.itemName,
 		searchText: state.items.searchText
 	};
@@ -43,8 +48,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
 	return {
-		retrieveItems: () => {
-			dispatch(retrieveItems());
+		retrieveItems: (size, page) => {
+			dispatch(retrieveItems(size, page));
 		},
 		setItemName: (itemName) => {
 			dispatch(setItemName(itemName));

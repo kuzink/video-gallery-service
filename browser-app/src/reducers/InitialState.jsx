@@ -5,6 +5,7 @@ export const initialAlert = {
 
 export const initialItems = {
 	items: [],
+	page: {},
 	itemName: '',
 	searchText: ''
 };

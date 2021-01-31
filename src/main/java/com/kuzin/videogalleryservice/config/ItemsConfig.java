@@ -20,7 +20,7 @@ import static java.util.Collections.emptyList;
 import static java.util.stream.Collectors.toList;
 
 @Configuration
-public class ItemConfig {
+public class ItemsConfig {
 
 	@Value("${videos.location}")
 	private String videosLocation;
@@ -29,7 +29,7 @@ public class ItemConfig {
 	private String imagesLocation;
 
 	@Bean
-	public List<Item> itemsMappingConfig(final Validator defaultValidator) throws IOException {
+	public List<Item> items(final Validator defaultValidator) throws IOException {
 		final List<File> videoFiles = getMP4FilesFromVideosLocation();
 		final List<Item> items = new ArrayList<>();
 

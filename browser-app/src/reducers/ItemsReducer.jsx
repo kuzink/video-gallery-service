@@ -4,14 +4,16 @@ import constants from '../constants/Constants';
 export const setItems = (state, action) => {
 	return {
 		...state,
-		items: action.items
+		items: action.items.items,
+		page: action.items.page
 	}
 };
 
 export const resetItems = (state) => {
 	return {
 		...state,
-		items: []
+		items: [],
+		page: {}
 	}
 };
 

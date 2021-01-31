@@ -20,8 +20,8 @@ const ImageSlider = (props) => {
 			{images && images.length === 0 ?
 				<img className="card-img-top" src={DefaultImage}/> : images &&
 				<Slider {...settings}>
-					{images.map(image =>
-						<img className="card-img-top" src={`data:image/jpeg;base64,${image}`}/>
+					{images.map((image, index) =>
+					<img key={index} className="card-img-top" src={`data:image/jpeg;base64,${image}`}/>
 					)}
 				</Slider>
 			}

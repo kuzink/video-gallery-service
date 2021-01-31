@@ -82,13 +82,18 @@ video:focus {
 }
 
 /*Items*/
-.album {
+.custom-offset {
   margin-top: 140px;
 }
 @media (min-width: 576px) {
-  .album {
+  .custom-offset {
     margin-top: 56px;
   }
+}
+
+.custom-album {
+  /* -header height, -footer height*/
+  min-height: calc(100vh - 56px - 40px);
 }
 
 /*Slider*/
@@ -115,7 +120,7 @@ video:focus {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgba(255,255,255,0.3);
+  background-color: rgba(255,255,255,0.9);
   z-index: 930;
   visibility: hidden;
   opacity: 0;
@@ -124,4 +129,69 @@ video:focus {
 .in-progress {
   visibility: visible;
   opacity: 1;
+}
+
+/*Pagination*/
+.page-link {
+  cursor: pointer;
+  color: #6c757d;
+}
+.page-link:hover {
+  color: #6c757d;
+  background-color: #e9ecef;
+  border-color: #dee2e6;
+}
+
+/*React select (page-size)*/
+.react-page-size-select__value-container {
+  min-width: 41px !important;
+}
+.react-page-size-select__control {
+  border-color: #c7cbce !important;
+  cursor: pointer !important;
+}
+.react-page-size-select__indicator-separator {
+  background-color: #c7cbce !important;
+}
+.react-page-size-select__indicator {
+  color: #b3b3b3 !important;
+}
+.react-page-size-select__indicator:hover {
+  color: #6c757d !important;
+}
+.react-page-size-select__single-value {
+  color: #6c757d !important;
+}
+.react-page-size-select__control--is-focused {
+  border-color: #b3b3b3 !important;
+  outline: 0 !important;
+  box-shadow: none !important;
+}
+.react-page-size-select__value-container--has-value {
+  padding: 2px 10px !important;
+}
+.react-page-size-select__value-container {
+  padding: 2px 10px !important;
+}
+.react-page-size-select__placeholder {
+  color: #bbbbbb !important;
+}
+.react-page-size-select__menu,
+.react-page-size-select__option {
+  cursor: pointer !important;
+  color: #6c757d !important;
+}
+.react-page-size-select__option:hover {
+  text-decoration: none !important;
+  background-color: #f8f9fa !important;
+}
+.react-page-size-select__option--is-focused {
+  background-color: transparent !important;
+}
+.react-page-size-select__menu-list .react-page-size-select__option--is-selected {
+  background-color: #007bff !important;
+  color: #ffffff !important;
+}
+.react-page-size-select__menu-list .react-page-size-select__option--is-selected:hover {
+  background-color: #007bff !important;
 }
