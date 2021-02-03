@@ -5,7 +5,6 @@ import ModalAlertContainer from "./modalalert/ModalAlertContainer";
 import HeaderContainer from "./layout/HeaderContainer";
 import ItemsContainer from "../components/item/ItemsContainer";
 import LoadingSpinner from "../components/spinner/LoadingSpinner";
-import FooterComponent from "./layout/FooterComponent";
 import LandingComponent from "../components/routes/LandingComponent";
 import PageNotFoundComponent from "../components/routes/PageNotFoundComponent";
 
@@ -23,7 +22,6 @@ class AppContainer extends Component {
 						<Route exact path="/items" component={ItemsContainer}/>
 						<Route component={PageNotFoundComponent}/>
 					</Switch>
-					<FooterComponent/>
 				</React.Fragment>
 			</Router>
 		);

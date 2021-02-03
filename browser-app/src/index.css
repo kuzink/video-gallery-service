@@ -97,14 +97,14 @@ video:focus {
 }
 
 .custom-items-wrapper {
-  /* -header height, -footer height*/
-  min-height: calc(100vh - 56px - 40px);
+  /* -header height*/
+  min-height: calc(100vh - 56px);
 }
 
 /*Landing Wrapper*/
 .custom-landing-wrapper {
-  /* -header height, -footer height*/
-  min-height: calc(100vh - 56px - 40px);
+  /* -header height*/
+  min-height: calc(100vh - 56px);
   /*background: linear-gradient(to right, #e0eafc, #cfdef3);*/
   /*background: linear-gradient(to right, #ff0084, #33001b);*/
   /*background: linear-gradient(to right, #fdfc47, #24fe41);*/
