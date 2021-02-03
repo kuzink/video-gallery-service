@@ -16,7 +16,7 @@ const ItemDetailsComponent = (props) => {
 		       dialogClassName="custom-modal"
 		       scrollable>
 			<Modal.Body>
-				<video className="d-block" controls autoplay="1">
+				<video className="d-block" controls autoPlay="1">
 					<source src={`${constants.BASE_URL}/videos/${itemName}.mp4`}/>
 				</video>
 			</Modal.Body>

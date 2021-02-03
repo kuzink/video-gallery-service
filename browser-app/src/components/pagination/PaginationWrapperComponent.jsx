@@ -6,6 +6,9 @@ const PaginationWrapperComponent = (props) => {
 
 	const {page, getItems, children} = props;
 
+	const LEFT_PAGE = 'LEFT';
+	const RIGHT_PAGE = 'RIGHT';
+
 	const range = (from, to) => {
 		let i = from;
 		const range = [];
@@ -16,12 +19,12 @@ const PaginationWrapperComponent = (props) => {
 	};
 
 	const fetchPageNumbers = (totalPages, currentPage) => {
-		const totalNumbers = (constants.PAGE_NEIGHBOURS * 2) + 3;
-		const totalBlocks = totalNumbers + 2;
+		const totalNumbers = 5;
+		const totalBlocks = 7;
 
 		if (totalPages > totalBlocks) {
-			const startPage = Math.max(2, currentPage - constants.PAGE_NEIGHBOURS);
-			const endPage = Math.min(totalPages - 1, currentPage + constants.PAGE_NEIGHBOURS);
+			const startPage = Math.max(2, currentPage - 1);
+			const endPage = Math.min(totalPages - 1, currentPage + 1);
 			let pages = range(startPage, endPage);
 			const hasLeftSpill = startPage > 2;
 			const hasRightSpill = (totalPages - endPage) > 1;
@@ -29,12 +32,12 @@ const PaginationWrapperComponent = (props) => {
 
 			if (hasLeftSpill && !hasRightSpill) {
 				const extraPages = range(startPage - spillOffset, startPage - 1);
-				pages = [constants.LEFT_PAGE, ...extraPages, ...pages];
+				pages = [LEFT_PAGE, ...extraPages, ...pages];
 			} else if (!hasLeftSpill && hasRightSpill) {
 				const extraPages = range(endPage + 1, endPage + spillOffset);
-				pages = [...pages, ...extraPages, constants.RIGHT_PAGE];
+				pages = [...pages, ...extraPages, RIGHT_PAGE];
 			} else {
-				pages = [constants.LEFT_PAGE, ...pages, constants.RIGHT_PAGE];
+				pages = [LEFT_PAGE, ...pages, RIGHT_PAGE];
 			}
 
 			return [1, ...pages, totalPages];
@@ -44,9 +47,9 @@ const PaginationWrapperComponent = (props) => {
 
 	const pages = fetchPageNumbers(page.totalPages, page.page);
 
-	const handleMoveLeft = e => gotoPage(page.page - constants.PAGE_NEIGHBOURS * 2);
+	const handleMoveLeft = e => gotoPage(page.page - 2);
 
-	const handleMoveRight = e => gotoPage(page.page + constants.PAGE_NEIGHBOURS * 2);
+	const handleMoveRight = e => gotoPage(page.page + 2);
 
 	const handleClick = pageNumber => e => gotoPage(pageNumber);
 
@@ -87,13 +90,17 @@ const PaginationWrapperComponent = (props) => {
 			<div className="container">
 				<div className="row">
 					<div className="col-12">
-						<div className="d-flex align-items-center mb-4 pb-2">
-							<h5 className="mb-0 mr-2 font-weight-normal">Size:</h5>
-							<Select options={constants.PAGE_SIZE_OPTIONS}
-							        value={definePageSizeValue()}
-							        onChange={handlePageSizeChange}
-								    classNamePrefix="react-page-size-select"/>
-							<h5 className="mb-0 ml-4 font-weight-normal">{defineShowingItemsText()}</h5>
+						<div className="d-flex align-items-center justify-content-between mb-4 pb-2">
+							<div>
+								<h5 className="mb-0 font-weight-normal">{defineShowingItemsText()}</h5>
+							</div>
+							<div className="d-flex align-items-center">
+								<h5 className="mb-0 mr-2 font-weight-normal">Size:</h5>
+								<Select options={constants.PAGE_SIZE_OPTIONS}
+								        value={definePageSizeValue()}
+								        onChange={handlePageSizeChange}
+								        classNamePrefix="react-page-size-select"/>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -108,13 +115,13 @@ const PaginationWrapperComponent = (props) => {
 					<div className="col-12">
 						<ul className="pagination mb-0 justify-content-end mt-2">
 							{pages.map((p, index) => {
-								if (p === constants.LEFT_PAGE) {
+								if (p === LEFT_PAGE) {
 									return (
 										<li key={index} className="page-item">
 											<a className="page-link" onClick={handleMoveLeft}>&laquo;</a>
 										</li>
 									);
-								} else if (p === constants.RIGHT_PAGE) {
+								} else if (p === RIGHT_PAGE) {
 									return (
 										<li key={index} className="page-item">
 											<a className="page-link" onClick={handleMoveRight}>&raquo;</a>

@@ -94,6 +94,13 @@ video:focus {
 .custom-album {
   /* -header height, -footer height*/
   min-height: calc(100vh - 56px - 40px);
+  /*background: linear-gradient(to right, #e0eafc, #cfdef3);*/
+  /*background: linear-gradient(to right, #ff0084, #33001b);*/
+  /*background: linear-gradient(to right, #fdfc47, #24fe41);*/
+  /*background: linear-gradient(to right, #83a4d4, #b6fbff);*/
+  /*background: linear-gradient(to right, #b3ffab, #12fff7);*/
+  /*background: linear-gradient(to right, #f2709c, #ff9472);*/
+  /*background: linear-gradient(to right, #fc00ff, #00dbde);*/
 }
 
 /*Slider*/
