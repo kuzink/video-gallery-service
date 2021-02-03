@@ -1,19 +1,12 @@
 import constants from '../constants/Constants';
 import axios from 'axios';
 import {setErrorMessage} from "./AlertActions";
-import { trackPromise } from 'react-promise-tracker';
-import {animateScroll as scroll} from "react-scroll";
+import {trackPromise} from 'react-promise-tracker';
 
 export const setItems = (items) => {
 	return {
 		type: constants.REDUX_STORE_EVENTS.SET_ITEMS,
 		items: items
-	}
-};
-
-export const resetItems = () => {
-	return {
-		type: constants.REDUX_STORE_EVENTS.RESET_ITEMS
 	}
 };
 
@@ -44,8 +37,6 @@ export const retrieveItems = (size = constants.PAGE_SIZE_DEFAULT_VALUE, page = c
 		        {headers: {'Content-Type': 'application/json'}})
 		        .then(response => {
 		            dispatch(setItems(response.data));
-
-			        // scroll.scrollToTop({duration: 300});
 			        window.scrollTo(0, 0);
 		        })
 			    .catch(error => {

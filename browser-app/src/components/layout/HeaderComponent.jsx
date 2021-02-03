@@ -1,17 +1,20 @@
 import React from "react";
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
+import {Link} from "react-router-dom";
 import {faFilm} from "@fortawesome/free-solid-svg-icons/index";
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 
 const HeaderComponent = (props) => {
 
-	const {searchText, handleSearchTextChange, handleLoadClick, handleCleanClick} = props;
+	const {searchText, handleSearchTextChange} = props;
 
 	return (
 		<nav className="navbar fixed-top navbar-dark bg-dark">
 
 			<div className="navbar-brand d-flex align-items-center">
-				<FontAwesomeIcon icon={faFilm} className="mr-2"/>
-				<strong>Video Gallery</strong>
+				<Link className="custom-logo" to="/">
+					<FontAwesomeIcon icon={faFilm} className="mr-2"/>
+					<strong>Video Gallery</strong>
+				</Link>
 			</div>
 
 			<div className="form-inline my-0">
@@ -20,8 +23,6 @@ const HeaderComponent = (props) => {
 				       placeholder="Search"
 				       value={searchText}
 				       onChange={handleSearchTextChange}/>
-				<button className="btn btn-outline-success ml-sm-2" onClick={handleLoadClick}>Load data</button>
-				<button className="btn btn-outline-danger ml-2" onClick={handleCleanClick}>Clean data</button>
 			</div>
 
 		</nav>

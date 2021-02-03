@@ -12,11 +12,13 @@ module.exports = {
     },
     output: {
         path: path.resolve(__dirname, './build'),
-        filename: 'bundle.js'
+        filename: 'bundle.js',
+	    publicPath: '/'
     },
     devServer: {
       port: 3000,
-      compress: true
+      compress: true,
+      historyApiFallback: true,
     },
     module: {
         rules: [
