@@ -9,14 +9,10 @@ html, body {
   }
 }
 
-/*Header*/
-.custom-logo {
-  color: #ffffff;
-  text-decoration: none;
-}
-.custom-logo:hover {
-  color: #ffffff;
-  text-decoration: none;
+/*BackButtonComponent*/
+.fixed-top {
+  right: initial;
+  z-index: 930;
 }
 
 /*Modal Alert*/
@@ -97,14 +93,12 @@ video:focus {
 }
 
 .custom-items-wrapper {
-  /* -header height*/
-  min-height: calc(100vh - 56px);
+  min-height: 100vh;
 }
 
 /*Landing Wrapper*/
 .custom-landing-wrapper {
-  /* -header height*/
-  min-height: calc(100vh - 56px);
+  min-height: 100vh;
   /*background: linear-gradient(to right, #e0eafc, #cfdef3);*/
   /*background: linear-gradient(to right, #ff0084, #33001b);*/
   /*background: linear-gradient(to right, #fdfc47, #24fe41);*/
