@@ -14,8 +14,12 @@ export default {
 	},
 
 	PAGE_NUMBER_DEFAULT_VALUE: 1,
-	PAGE_SIZE_DEFAULT_VALUE: 18,
+	PAGE_SIZE_DEFAULT_VALUE: 6,
 	PAGE_SIZE_OPTIONS: [
+		{
+			value: 6,
+			label: '6'
+		},
 		{
 			value: 9,
 			label: '9'

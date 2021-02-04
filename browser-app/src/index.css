@@ -12,7 +12,8 @@ html, body {
 /*BackButtonComponent*/
 .fixed-top {
   right: initial;
-  z-index: 930;
+  /*930 - will be on top of spinner div*/
+  z-index: 920;
 }
 
 /*Modal Alert*/
@@ -82,29 +83,19 @@ video:focus {
   text-overflow: ellipsis;
 }
 
-/*Items*/
-.custom-offset {
-  margin-top: 140px;
-}
-@media (min-width: 576px) {
-  .custom-offset {
-    margin-top: 56px;
-  }
-}
-
-.custom-items-wrapper {
+/*Wrappers*/
+.custom-items-wrapper,
+.custom-landing-wrapper,
+.custom-not-found-wrapper {
   min-height: 100vh;
 }
-
-/*Landing Wrapper*/
 .custom-landing-wrapper {
-  min-height: 100vh;
-  /*background: linear-gradient(to right, #e0eafc, #cfdef3);*/
-  /*background: linear-gradient(to right, #ff0084, #33001b);*/
-  /*background: linear-gradient(to right, #fdfc47, #24fe41);*/
   background: linear-gradient(to right, #83a4d4, #b6fbff);
-  /*background: linear-gradient(to right, #b3ffab, #12fff7);*/
-  /*background: linear-gradient(to right, #fc00ff, #00dbde);*/
+  /*background: url("./assets/bg.jpg") no-repeat center center;*/
+  /*background-size: cover;*/
+}
+.custom-not-found-wrapper {
+  background: linear-gradient(to right, #fc00ff, #00dbde);
 }
 
 /*Slider*/

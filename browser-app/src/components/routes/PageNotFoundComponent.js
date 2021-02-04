@@ -2,7 +2,7 @@ import React from 'react';
 import BackButtonComponent from "../layout/BackButtonComponent";
 
 const PageNotFoundComponent = () => (
-	<div className="custom-items-wrapper d-flex align-items-center pb-5">
+	<div className="custom-not-found-wrapper d-flex align-items-center pb-5">
 		<div className="container">
 			<div className="row">
 				<div className="col-6 mx-auto p-5 bg-white rounded shadow text-center">

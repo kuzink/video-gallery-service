@@ -84,7 +84,7 @@ const PaginationWrapperComponent = (props) => {
 	};
 
 	return (
-		<div className="custom-items-wrapper py-5">
+		<div className="custom-items-wrapper pt-3 pb-5">
 
 			{isPaginationHeaderRowVisible() &&
 			<div className="container">

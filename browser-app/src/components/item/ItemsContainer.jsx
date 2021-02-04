@@ -25,7 +25,7 @@ export class ItemsContainer extends Component {
 		const {items, page, itemName, searchText, retrieveItems} = this.props;
 		return (
 			<React.Fragment>
-				<BackButtonComponent classNames="fixed-top ml-3 mt-2 pt-1"/>
+				<BackButtonComponent classNames="fixed-top ml-3 mt-3"/>
 
 				<PaginationWrapperComponent page={page}
 				                            getItems={retrieveItems}>
