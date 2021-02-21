@@ -9,13 +9,6 @@ html, body {
   }
 }
 
-/*BackButtonComponent*/
-.fixed-top {
-  right: initial;
-  /*930 - will be on top of spinner div*/
-  z-index: 920;
-}
-
 /*Modal Alert*/
 .modal-body {
   padding: 0;
@@ -84,21 +77,18 @@ video:focus {
 }
 
 /*Wrappers*/
-.custom-items-wrapper,
-.custom-landing-wrapper,
-.custom-not-found-wrapper {
+.custom-items-wrapper {
   min-height: 100vh;
 }
-.custom-landing-wrapper {
-  background: linear-gradient(to right, #83a4d4, #b6fbff);
-  /*background: url("./assets/bg.jpg") no-repeat center center;*/
-  /*background-size: cover;*/
+.custom-landing-wrapper,
+.custom-not-found-wrapper {
+  height: 100vh;
 }
 .custom-not-found-wrapper {
   background: linear-gradient(to right, #fc00ff, #00dbde);
 }
 
-/*Slider*/
+/*ImageSlider*/
 .slick-dots {
   bottom: 0;
   z-index: 9;
@@ -196,4 +186,98 @@ video:focus {
 }
 .react-page-size-select__menu-list .react-page-size-select__option--is-selected:hover {
   background-color: #007bff !important;
+}
+
+/*LandingSlider*/
+.custom-landing-slider-img {
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+}
+
+/*Hidden and visible button*/
+.custom-hidden {
+  opacity: 0;
+  transition: opacity .5s;
+}
+.custom-visible {
+  opacity: 1;
+}
+
+/*BackButtonComponent*/
+.fixed-top {
+  right: initial;
+}
+
+/*ShowButtonComponent*/
+.custom-show-button-wrapper {
+  position: fixed;
+  bottom: 15%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 920;
+  animation: 1s linear showButton;
+}
+@keyframes showButton {
+  from {
+    visibility: hidden;
+    opacity: 0;
+  }
+  to {
+    visibility: visible;
+    opacity: 1;
+  }
+}
+
+.custom-show-button {
+  text-transform: uppercase;
+  background: linear-gradient(
+    90deg,
+    rgba(0,0,0,.4), rgba(0,0,0,.4), rgba(0,0,0,.4),
+    rgba(0,0,0,.1),
+    rgba(0,0,0,.4), rgba(0,0,0,.4), rgba(0,0,0,.4)
+  );
+  border-color: rgba(0,0,0,.2);
+  background-size: 400%;
+  transition: background-color .3s ease;
+  animation: animateButton 18s linear infinite;
+}
+.custom-show-button:hover,
+.custom-show-button:active {
+  color: #fff!important;
+  background-color: rgba(0,0,0,.3)!important;
+  border-color: transparent!important;
+}
+.custom-show-button:focus {
+  box-shadow: none!important;
+}
+@keyframes animateButton {
+  0% {
+    background-position: 400%;
+  }
+  100% {
+    background-position: 0;
+  }
+}
+
+.custom-show-arrow-wrapper {
+  width: 16px;
+  display: inline-block;
+  margin-left: .5rem;
+  text-align: left;
+}
+.custom-show-arrow-wrapper-left {
+  width: 8px;
+  display: inline-block;
+}
+.custom-show-arrow {
+  animation: animateArrow 1.5s ease-in-out infinite;
+}
+@keyframes animateArrow {
+  0%, 100% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(6px, 0);
+  }
 }

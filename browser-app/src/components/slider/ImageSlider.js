@@ -7,6 +7,7 @@ import { faPlay } from '@fortawesome/free-solid-svg-icons'
 const ImageSlider = (props) => {
 
 	const {itemName, images, handleOnItemSelect} = props;
+
 	const settings = {
 		dots: true,
 		speed: 300,
@@ -18,12 +19,12 @@ const ImageSlider = (props) => {
 	return (
 		<div className="custom-card-image">
 			{images && images.length === 0 ?
-				<img className="card-img-top" src={DefaultImage}/> : images &&
-				<Slider {...settings}>
-					{images.map((image, index) =>
-					<img key={index} className="card-img-top" src={`data:image/jpeg;base64,${image}`}/>
-					)}
-				</Slider>
+			<img className="card-img-top" src={DefaultImage}/> : images &&
+			<Slider {...settings}>
+				{images.map((image, index) =>
+				<img key={index} className="card-img-top" src={`data:image/jpeg;base64,${image}`}/>
+				)}
+			</Slider>
 			}
 			<div className="custom-mask flex-center" onClick={handleOnItemSelect.bind(this, itemName)}>
 				<h1><FontAwesomeIcon icon={faPlay} className="text-white"/></h1>

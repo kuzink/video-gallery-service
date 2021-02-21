@@ -10,6 +10,12 @@ export const setItems = (items) => {
 	}
 };
 
+export const resetItems = () => {
+	return {
+		type: constants.REDUX_STORE_EVENTS.RESET_ITEMS
+	}
+};
+
 export const setItemName = (itemName) => {
 	return {
 		type: constants.REDUX_STORE_EVENTS.SET_ITEM_NAME,
@@ -41,6 +47,7 @@ export const retrieveItems = (size = constants.PAGE_SIZE_DEFAULT_VALUE, page = c
 		        })
 			    .catch(error => {
 				    dispatch(setErrorMessage('ERROR: Items retrieval'));
+				    dispatch(resetItems());
 			    })
 		);
 	}

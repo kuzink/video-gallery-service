@@ -1,13 +1,18 @@
 import React, {Component} from 'react';
 import {connect} from "react-redux";
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
-import ModalAlertContainer from "./modalalert/ModalAlertContainer";
-import ItemsContainer from "../components/item/ItemsContainer";
+import {retrieveSlides} from "../actions/SlidesActions";
 import LoadingSpinner from "../components/spinner/LoadingSpinner";
-import LandingComponent from "../components/routes/LandingComponent";
-import PageNotFoundComponent from "../components/routes/PageNotFoundComponent";
+import ModalAlertContainer from "./modalalert/ModalAlertContainer";
+import LandingContainer from "./routes/LandingContainer";
+import ItemsContainer from "./routes/ItemsContainer";
+import PageNotFoundComponent from "./routes/PageNotFoundComponent";
 
 class AppContainer extends Component {
+
+	componentDidMount() {
+		this.props.retrieveSlides();
+	}
 
 	render() {
 		return (
@@ -16,7 +21,7 @@ class AppContainer extends Component {
 					<LoadingSpinner/>
 					<ModalAlertContainer/>
 					<Switch>
-						<Route exact path="/" component={LandingComponent}/>
+						<Route exact path="/" component={LandingContainer}/>
 						<Route exact path="/items" component={ItemsContainer}/>
 						<Route component={PageNotFoundComponent}/>
 					</Switch>
@@ -26,4 +31,15 @@ class AppContainer extends Component {
 	};
 }
 
-export default connect()(AppContainer);
+const mapDispatchToProps = dispatch => {
+	return {
+		retrieveSlides: () => {
+			dispatch(retrieveSlides());
+		}
+	}
+};
+
+export default connect(
+	null,
+	mapDispatchToProps
+)(AppContainer);

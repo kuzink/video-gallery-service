@@ -9,3 +9,7 @@ export const initialItems = {
 	itemName: '',
 	searchText: ''
 };
+
+export const initialSlides = {
+	slides: []
+};

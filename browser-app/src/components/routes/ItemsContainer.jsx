@@ -2,14 +2,18 @@ import React, {Component} from "react";
 import {connect} from "react-redux";
 import {retrieveItems, setItemName, resetItemName} from "../../actions/ItemsActions";
 import BackButtonComponent from "../layout/BackButtonComponent";
-import ItemsComponent from "./ItemsComponent";
-import ItemDetailsComponent from "./ItemDetailsComponent";
+import ItemsComponent from "../item/ItemsComponent";
+import ItemDetailsComponent from "../item/ItemDetailsComponent";
 import PaginationWrapperComponent from "../pagination/PaginationWrapperComponent";
 
 export class ItemsContainer extends Component {
 
 	componentDidMount() {
 		this.props.retrieveItems();
+	}
+
+	componentDidUpdate() {
+		this.top.classList.add('custom-visible');
 	}
 
 	handleOnItemSelect = (itemName) => this.props.setItemName(itemName);
@@ -25,7 +29,9 @@ export class ItemsContainer extends Component {
 		const {items, page, itemName, searchText, retrieveItems} = this.props;
 		return (
 			<React.Fragment>
-				<BackButtonComponent classNames="fixed-top ml-3 mt-3"/>
+				<div className="custom-hidden" ref={top => { this.top = top; }}>
+					<BackButtonComponent classNames="fixed-top ml-3 mt-3"/>
+				</div>
 
 				<PaginationWrapperComponent page={page}
 				                            getItems={retrieveItems}>
