@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from "react-redux";
-import LandingSlider from "../slider/LandingSlider";
+import LandingSliderComponent from "../slider/LandingSliderComponent";
 import ShowButtonComponent from "../layout/ShowButtonComponent";
 
 export class LandingContainer extends Component {
@@ -9,7 +9,7 @@ export class LandingContainer extends Component {
 		const {slides} = this.props;
 		return (
 			<div className="custom-landing-wrapper">
-				<LandingSlider slides={slides}/>
+				<LandingSliderComponent slides={slides}/>
 				<ShowButtonComponent/>
 			</div>
 		)

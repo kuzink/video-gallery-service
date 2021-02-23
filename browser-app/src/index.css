@@ -195,6 +195,24 @@ video:focus {
   object-fit: cover;
 }
 
+.custom-landing-slider-text-wrapper {
+  position: fixed;
+  top: 40%;
+  left: 0;
+  width: 100vw;
+  z-index: 920;
+}
+.custom-landing-slider-text {
+  width: 50%;
+  margin: 0 auto;
+  color: #fff;
+  text-align: center;
+  font-size: 3.0rem!important;
+  font-weight: 300!important;
+  line-height: 1.2!important;
+  text-shadow: black 1px 0 7px;
+}
+
 /*Hidden and visible button*/
 .custom-hidden {
   opacity: 0;
@@ -230,6 +248,7 @@ video:focus {
 }
 
 .custom-show-button {
+  padding: .5rem 2rem;
   text-transform: uppercase;
   background: linear-gradient(
     90deg,
@@ -239,7 +258,7 @@ video:focus {
   );
   border-color: rgba(0,0,0,.2);
   background-size: 400%;
-  transition: background-color .3s ease;
+  transition: all .3s ease;
   animation: animateButton 18s linear infinite;
 }
 .custom-show-button:hover,
@@ -247,6 +266,7 @@ video:focus {
   color: #fff!important;
   background-color: rgba(0,0,0,.3)!important;
   border-color: transparent!important;
+  box-shadow: 1px 1px 10px 2px rgba(0, 0, 0, 0.3);
 }
 .custom-show-button:focus {
   box-shadow: none!important;

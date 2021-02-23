@@ -1,5 +1,5 @@
 import React from "react";
-import ImageSlider from '../slider/ImageSlider';
+import ImageSliderComponent from '../slider/ImageSliderComponent';
 
 const ItemsComponent = (props) => {
 
@@ -11,9 +11,9 @@ const ItemsComponent = (props) => {
 				{items.map((item, index) => (
 				<div key={index} className="col-md-4">
 					<div className="card mb-4 shadow-sm">
-						<ImageSlider itemName={item.name}
-						             images={item.images}
-						             handleOnItemSelect={handleOnItemSelect}/>
+						<ImageSliderComponent itemName={item.name}
+						                      images={item.images}
+						                      handleOnItemSelect={handleOnItemSelect}/>
 						<div className="card-body px-3 py-2">
 							<p className="card-text custom-card-text" title={item.name}>{item.name}</p>
 						</div>

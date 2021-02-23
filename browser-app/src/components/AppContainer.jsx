@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {connect} from "react-redux";
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import {retrieveSlides} from "../actions/SlidesActions";
-import LoadingSpinner from "../components/spinner/LoadingSpinner";
+import LoadingSpinnerComponent from "./spinner/LoadingSpinnerComponent";
 import ModalAlertContainer from "./modalalert/ModalAlertContainer";
 import LandingContainer from "./routes/LandingContainer";
 import ItemsContainer from "./routes/ItemsContainer";
@@ -18,7 +18,7 @@ class AppContainer extends Component {
 		return (
 			<Router>
 				<React.Fragment>
-					<LoadingSpinner/>
+					<LoadingSpinnerComponent/>
 					<ModalAlertContainer/>
 					<Switch>
 						<Route exact path="/" component={LandingContainer}/>

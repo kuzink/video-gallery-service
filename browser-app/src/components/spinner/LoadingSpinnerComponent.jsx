@@ -2,7 +2,7 @@ import React from "react";
 import { usePromiseTracker } from "react-promise-tracker";
 import Loading from '../../assets/loading.gif';
 
-const LoadingSpinner = () => {
+const LoadingSpinnerComponent = () => {
 
 	const { promiseInProgress } = usePromiseTracker();
 
@@ -13,4 +13,4 @@ const LoadingSpinner = () => {
 	);
 };
 
-export default LoadingSpinner;
+export default LoadingSpinnerComponent;
