@@ -11,15 +11,13 @@ class AppContainer extends Component {
 	render() {
 		return (
 			<Router>
-				<React.Fragment>
-					<LoadingSpinnerComponent/>
-					<ModalAlertContainer/>
-					<Switch>
-						<Route exact path="/" component={LandingContainer}/>
-						<Route exact path="/items" component={ItemsContainer}/>
-						<Route component={PageNotFoundComponent}/>
-					</Switch>
-				</React.Fragment>
+				<LoadingSpinnerComponent/>
+				<ModalAlertContainer/>
+				<Switch>
+					<Route exact path="/" component={LandingContainer}/>
+					<Route exact path="/items" component={ItemsContainer}/>
+					<Route component={PageNotFoundComponent}/>
+				</Switch>
 			</Router>
 		);
 	};
