@@ -1,7 +1,5 @@
 import React, {Component} from 'react';
-import {connect} from "react-redux";
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
-import {retrieveSlides} from "../actions/SlidesActions";
 import LoadingSpinnerComponent from "./spinner/LoadingSpinnerComponent";
 import ModalAlertContainer from "./modalalert/ModalAlertContainer";
 import LandingContainer from "./routes/LandingContainer";
@@ -9,10 +7,6 @@ import ItemsContainer from "./routes/ItemsContainer";
 import PageNotFoundComponent from "./routes/PageNotFoundComponent";
 
 class AppContainer extends Component {
-
-	componentDidMount() {
-		this.props.retrieveSlides();
-	}
 
 	render() {
 		return (
@@ -31,15 +25,4 @@ class AppContainer extends Component {
 	};
 }
 
-const mapDispatchToProps = dispatch => {
-	return {
-		retrieveSlides: () => {
-			dispatch(retrieveSlides());
-		}
-	}
-};
-
-export default connect(
-	null,
-	mapDispatchToProps
-)(AppContainer);
+export default AppContainer;

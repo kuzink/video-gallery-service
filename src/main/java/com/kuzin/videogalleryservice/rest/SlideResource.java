@@ -17,7 +17,7 @@ import java.util.Random;
 @CrossOrigin
 public class SlideResource {
 
-	private static final int MAXIMUM_SLIDES_COUNT = 5;
+	private static final int MAXIMUM_SLIDES_COUNT = 10;
 
 	private final List<Slide> slides;
 

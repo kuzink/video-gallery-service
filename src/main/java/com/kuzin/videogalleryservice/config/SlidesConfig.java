@@ -15,7 +15,6 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.*;
 
-import static java.lang.String.format;
 import static java.util.stream.Collectors.toList;
 
 @Configuration
@@ -49,9 +48,44 @@ public class SlidesConfig {
 	private Slide createSlide(final int count, final String slideNameWithExtension) {
 		return Slide.builder()
 			.id(count + 1)
-			.text(format("Slide %d text", count + 1))
+			.text(getSlideText(count + 1))
 			.bytes(loadSlideAsByteArray(slideNameWithExtension))
 			.build();
+	}
+
+	private String getSlideText(final int slideNumber) {
+
+//		final Map<Integer, String> textMap = Map.of(
+//			1, "Lorem ipsum dolor sit amet consectetur adipisicing id impedit",
+//			2, "Ad enim necessitatibus nulla porro possimus ullam quibusdam saepe",
+//			3, "Architecto ipsa mollitia nemo reprehenderit repudiandae tenetur",
+//			4, "At ex itaque optio saepe tempora velit facere labore eius",
+//			5, "Accusamus eius ex id impedit sit velit mollitia quasi quis",
+//			6, "Aut consequuntur libero expedita facere labore suscipit vel",
+//			7, "Exercitationem in labore optio saepe commodi deserunt ea eos",
+//			8, "Accusantium minima quod ipsum libero praesentium quas",
+//			9, "Esse porro quibusdam saepe sed itaque soluta velit tenetur",
+//			10, "Aliquid cumque harum mollitia quasi libero quis tenetur tempora"
+//		);
+
+		final Map<Integer, String> textMap = Map.of(
+			1, "Первый слайд - ",
+			2, "Второй слайд - ",
+			3, "Третий слайд - ",
+			4, "Четвертый слайд - ",
+			5, "Пятый слайд - ",
+			6, "Шестой слайд - ",
+			7, "Седьмой слайд - ",
+			8, "Восьмой слайд - ",
+			9, "Девятый слайд - ",
+			10, "Десятый слайд - "
+		);
+
+		if (slideNumber <= textMap.size()) {
+			return textMap.get(slideNumber);
+		} else {
+			return textMap.get(1);
+		}
 	}
 
 	private byte[] loadSlideAsByteArray(final String slideNameWithExtension) {
