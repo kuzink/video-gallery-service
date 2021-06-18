@@ -20,7 +20,7 @@ const LandingSlider = (props) => {
 	return (
 		<Slider {...settings}>
 			{slides.map(slide =>
-			<React.Fragment key={slide.id}>
+			<React.Fragment key={slide.text}>
 				<img className="custom-landing-slider-img" src={`data:image/jpeg;base64,${slide.bytes}`}/>
 				<div className="custom-landing-slider-text-wrapper">
 					<h1 className="custom-landing-slider-text">{slide.text}</h1>

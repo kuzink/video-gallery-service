@@ -1,54 +1,65 @@
 package com.kuzin.videogalleryservice.rest;
 
-import com.kuzin.videogalleryservice.domain.Slide;
-import lombok.AllArgsConstructor;
+import com.kuzin.videogalleryservice.domain.*;
+import org.apache.commons.io.*;
+import org.springframework.beans.factory.annotation.*;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 
-import java.util.ArrayList;
+import java.io.*;
+import java.nio.file.*;
 import java.util.List;
 import java.util.Random;
 
+import static java.util.stream.Collectors.toList;
+
 @RestController
-@AllArgsConstructor
 @RequestMapping("/slides")
 @CrossOrigin
 public class SlideResource {
 
-	private static final int MAXIMUM_SLIDES_COUNT = 10;
+	private String slidesLocation;
+	private List<SlideGroup> slideGroups;
 
-	private final List<Slide> slides;
+	@Autowired
+	public SlideResource(@Value("${slides.location}") String slidesLocation, List<SlideGroup> slideGroups) {
+		this.slidesLocation = slidesLocation;
+		this.slideGroups = slideGroups;
+	}
 
 	@GetMapping
 	public List<Slide> getSlides() {
+		return slideGroups.stream()
+			.map(this::toSlide)
+			.collect(toList());
+	}
 
-		if (slides.size() > MAXIMUM_SLIDES_COUNT) {
+	private Slide toSlide(final SlideGroup slideGroup) {
+		return Slide.builder()
+			.text(getSlideText(slideGroup))
+			.bytes(getSlideBytes(slideGroup))
+			.build();
+	}
 
-			final List<Slide> randomSlides = new ArrayList<>();
+	private String getSlideText(final SlideGroup slideGroup) {
+		return slideGroup.getName().split("_")[1];
+	}
 
-			final int minimumIndex = 0;
-			final int maximumIndex = slides.size() - 1;
+	private byte[] getSlideBytes(final SlideGroup slideGroup) {
+		final String slideName = getRandomSlideName(slideGroup.getSlideNames());
+		final Path path = Paths.get(slidesLocation + "/" + slideGroup.getName()).resolve(slideName);
 
-			while (randomSlides.size() != MAXIMUM_SLIDES_COUNT) {
-
-				final Slide randomSlide = slides.get(getRandomNumberInRange(minimumIndex, maximumIndex));
-
-				if (!randomSlides.contains(randomSlide)) {
-					randomSlides.add(randomSlide);
-				}
-			}
-
-			return randomSlides;
-
-		} else {
-			return slides;
+		try {
+			return FileUtils.readFileToByteArray(path.toFile());
+		} catch (IOException e) {
+			return null;
 		}
 	}
 
-	private int getRandomNumberInRange(final int min, final int max) {
-		return new Random().nextInt((max - min) + 1) + min;
+	private String getRandomSlideName(final List<String> slideNames) {
+		return slideNames.get(new Random().nextInt(slideNames.size()));
 	}
 
 }
