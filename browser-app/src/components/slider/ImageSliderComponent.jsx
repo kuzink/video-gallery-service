@@ -1,6 +1,6 @@
 import React from 'react';
 import Slider from 'react-slick';
-import DefaultImage from '../../assets/defaultImage.png';
+import DefaultThumbnail from '../../assets/defaultThumbnail.jpg';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlay } from '@fortawesome/free-solid-svg-icons'
 
@@ -19,7 +19,7 @@ const ImageSlider = (props) => {
 	return (
 		<div className="custom-card-image">
 			{images && images.length === 0 ?
-			<img className="card-img-top" src={DefaultImage}/> : images &&
+			<img className="card-img-top" src={DefaultThumbnail}/> : images &&
 			<Slider {...settings}>
 				{images.map((image, index) =>
 				<img key={index} className="card-img-top" src={`data:image/jpeg;base64,${image}`}/>
