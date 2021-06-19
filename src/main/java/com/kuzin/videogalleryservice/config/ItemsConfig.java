@@ -25,17 +25,20 @@ public class ItemsConfig {
 	@Value("${videos.location}")
 	private String videosLocation;
 
-	@Value("${images.location}")
-	private String imagesLocation;
+	@Value("${thumbnails.location}")
+	private String thumbnailsLocation;
 
 	@Bean
 	public List<Item> items(final Validator defaultValidator) throws IOException {
+
 		final List<File> videoFiles = getMP4FilesFromVideosLocation();
 		final List<Item> items = new ArrayList<>();
 
 		for (int i = 0; i < videoFiles.size(); i++) {
+
 			final String nameWithExtension = videoFiles.get(i).getName();
 			final String name = nameWithExtension.substring(0, nameWithExtension.length() - 4);
+
 			items.add(createItem(i, name));
 		}
 
@@ -52,26 +55,32 @@ public class ItemsConfig {
 	}
 
 	private Item createItem(final int count, final String name) throws IOException {
-		final Path path = Paths.get(imagesLocation + "/" + name);
 
-		if (Files.exists(path)) {
+		final Path thumbnailsPath = Paths.get(thumbnailsLocation + "/" + name);
 
-			final List<byte[]> images = Files.list(path)
+		if (Files.exists(thumbnailsPath)) {
+
+			final List<byte[]> thumbnails = Files.list(thumbnailsPath)
 				.map(Path::toFile)
 				.filter(it -> it.getName().substring(it.getName().length() - 4).equals(".jpg"))
-				.map(File::getName).sorted()
-				.map(it -> loadImageAsByteArray(name, it))
+				.map(File::getName)
+				.sorted()
+				.map(it -> loadThumbnailBytes(name, it))
 				.collect(toList());
 
-			return new Item(count + 1, name, images);
+			return new Item(count + 1, name, thumbnails);
 
 		} else {
 			return new Item(count + 1, name, emptyList());
 		}
 	}
 
-	private byte[] loadImageAsByteArray(final String imageFolderName, final String imageName) {
-		final File file = Paths.get(imagesLocation + "/" + imageFolderName).resolve(imageName).toFile();
+	private byte[] loadThumbnailBytes(final String thumbnailFolderName, final String thumbnailName) {
+
+		final File file = Paths.get(thumbnailsLocation + "/" + thumbnailFolderName)
+			.resolve(thumbnailName)
+			.toFile();
+
 		try {
 			return FileUtils.readFileToByteArray(file);
 		} catch (IOException e) {
@@ -79,9 +88,9 @@ public class ItemsConfig {
 		}
 	}
 
-	private <T> void validateList(final Validator defaultValidator, final List<T> list) {
+	private void validateList(final Validator validator, final List<Item> list) {
 		list.stream()
-			.map(item -> defaultValidator.validate(item))
+			.map(item -> validator.validate(item))
 			.filter(violations -> !violations.isEmpty())
 			.findFirst()
 			.ifPresent(violations -> { throw new ConstraintViolationException(violations); });

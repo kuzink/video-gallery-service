@@ -48,8 +48,10 @@ public class SlideResource {
 	}
 
 	private byte[] getSlideBytes(final SlideGroup slideGroup) {
+
 		final String slideName = getRandomSlideName(slideGroup.getSlideNames());
-		final Path path = Paths.get(slidesLocation + "/" + slideGroup.getName()).resolve(slideName);
+		final Path path = Paths.get(slidesLocation + "/" + slideGroup.getName())
+			.resolve(slideName);
 
 		try {
 			return FileUtils.readFileToByteArray(path.toFile());

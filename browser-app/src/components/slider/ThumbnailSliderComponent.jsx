@@ -6,7 +6,7 @@ import { faPlay } from '@fortawesome/free-solid-svg-icons'
 
 const ImageSlider = (props) => {
 
-	const {itemName, images, handleOnItemSelect} = props;
+	const {itemName, thumbnails, handleOnItemSelect} = props;
 
 	const settings = {
 		dots: true,
@@ -18,11 +18,11 @@ const ImageSlider = (props) => {
 
 	return (
 		<div className="custom-card-image">
-			{images && images.length === 0 ?
-			<img className="card-img-top" src={DefaultThumbnail}/> : images &&
+			{thumbnails && thumbnails.length === 0 ?
+			<img className="card-img-top" src={DefaultThumbnail}/> : thumbnails &&
 			<Slider {...settings}>
-				{images.map((image, index) =>
-				<img key={index} className="card-img-top" src={`data:image/jpeg;base64,${image}`}/>
+				{thumbnails.map((thumbnail, index) =>
+				<img key={index} className="card-img-top" src={`data:image/jpeg;base64,${thumbnail}`}/>
 				)}
 			</Slider>
 			}
