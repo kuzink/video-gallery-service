@@ -150,23 +150,20 @@ video:focus {
   min-width: 41px !important;
 }
 .react-page-size-select__control {
-  border-color: #c7cbce !important;
+  border-color: #DEE2E6 !important;
   cursor: pointer !important;
 }
 .react-page-size-select__indicator-separator {
-  background-color: #c7cbce !important;
+  background-color: #DEE2E6 !important;
 }
 .react-page-size-select__indicator {
-  color: #b3b3b3 !important;
-}
-.react-page-size-select__indicator:hover {
-  color: #6c757d !important;
+  color: #c7cbce !important;
 }
 .react-page-size-select__single-value {
   color: #6c757d !important;
 }
 .react-page-size-select__control--is-focused {
-  border-color: #b3b3b3 !important;
+  border-color: #DEE2E6 !important;
   outline: 0 !important;
   box-shadow: none !important;
 }
@@ -198,29 +195,29 @@ video:focus {
 .react-page-size-select__menu-list .react-page-size-select__option--is-selected:hover {
   background-color: #007bff !important;
 }
+.react-page-size-select__input > input {
+  caret-color: transparent;
+}
 
 /*React select (sort-by)*/
 .react-sort-by-select__value-container {
   min-width: 82px !important;
 }
 .react-sort-by-select__control {
-  border-color: #c7cbce !important;
+  border-color: #DEE2E6 !important;
   cursor: pointer !important;
 }
 .react-sort-by-select__indicator-separator {
-  background-color: #c7cbce !important;
+  background-color: #DEE2E6 !important;
 }
 .react-sort-by-select__indicator {
-  color: #b3b3b3 !important;
-}
-.react-sort-by-select__indicator:hover {
-  color: #6c757d !important;
+  color: #c7cbce !important;
 }
 .react-sort-by-select__single-value {
   color: #6c757d !important;
 }
 .react-sort-by-select__control--is-focused {
-  border-color: #b3b3b3 !important;
+  border-color: #DEE2E6 !important;
   outline: 0 !important;
   box-shadow: none !important;
 }
@@ -251,6 +248,9 @@ video:focus {
 }
 .react-sort-by-select__menu-list .react-sort-by-select__option--is-selected:hover {
   background-color: #007bff !important;
+}
+.react-sort-by-select__input > input {
+  caret-color: transparent;
 }
 
 /*LandingSlider*/
