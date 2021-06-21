@@ -4,7 +4,13 @@ import constants from "../../constants/Constants";
 
 const PaginationWrapperComponent = (props) => {
 
-	const {page, getItems, children} = props;
+	const {
+		page,
+		sortBy,
+		sortByChange,
+		getItems,
+		children
+	} = props;
 
 	const LEFT_PAGE = 'LEFT';
 	const RIGHT_PAGE = 'RIGHT';
@@ -53,7 +59,7 @@ const PaginationWrapperComponent = (props) => {
 
 	const handleClick = pageNumber => e => gotoPage(pageNumber);
 
-	const gotoPage = pageNumber => getItems(page.size, pageNumber);
+	const gotoPage = pageNumber => getItems(page.size, pageNumber, sortBy);
 
 	const isPaginationHeaderRowVisible = () => !!page.totalPages;
 
@@ -66,10 +72,21 @@ const PaginationWrapperComponent = (props) => {
 			: constants.PAGE_SIZE_OPTIONS.find(pS => pS.value === constants.PAGE_SIZE_DEFAULT_VALUE);
 	};
 
+	const defineSortByValue = () => {
+		return sortBy
+			? constants.SORT_CRITERIA_OPTIONS.find(sB => sB.value === sortBy)
+			: constants.SORT_CRITERIA_OPTIONS.find(sB => sB.value === constants.SORT_CRITERIA_DEFAULT_VALUE);
+	};
+
 	const handlePageSizeChange = (selected) => {
 		selected.value === 'all'
-			? getItems(page.totalElements, constants.PAGE_NUMBER_DEFAULT_VALUE)
-			: getItems(selected.value, constants.PAGE_NUMBER_DEFAULT_VALUE);
+			? getItems(page.totalElements, constants.PAGE_NUMBER_DEFAULT_VALUE, sortBy)
+			: getItems(selected.value, constants.PAGE_NUMBER_DEFAULT_VALUE, sortBy);
+	};
+
+	const handleSortByChange = (selected) => {
+		sortByChange(selected.value);
+		return getItems(page.size, page.page, selected.value);
 	};
 
 	const defineShowingItemsText = () => {
@@ -95,7 +112,12 @@ const PaginationWrapperComponent = (props) => {
 								<h5 className="mb-0 font-weight-normal">{defineShowingItemsText()}</h5>
 							</div>
 							<div className="d-flex align-items-center">
-								<h5 className="mb-0 mr-2 font-weight-normal">Size:</h5>
+								<h5 className="mb-0 mr-2 font-weight-normal">Sort by</h5>
+								<Select options={constants.SORT_CRITERIA_OPTIONS}
+								        value={defineSortByValue()}
+								        onChange={handleSortByChange}
+								        classNamePrefix="react-sort-by-select"/>
+								<h5 className="mb-0 ml-4 mr-2 font-weight-normal">Size</h5>
 								<Select options={constants.PAGE_SIZE_OPTIONS}
 								        value={definePageSizeValue()}
 								        onChange={handlePageSizeChange}

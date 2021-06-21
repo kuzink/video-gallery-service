@@ -36,10 +36,19 @@ export const setSearchText = (searchText) => {
 	}
 };
 
-export const retrieveItems = (size = constants.PAGE_SIZE_DEFAULT_VALUE, page = constants.PAGE_NUMBER_DEFAULT_VALUE) => {
+export const setSortBy = (sortBy) => {
+	return {
+		type: constants.REDUX_STORE_EVENTS.SET_SORT_BY,
+		sortBy: sortBy
+	}
+};
+
+export const retrieveItems = (size = constants.PAGE_SIZE_DEFAULT_VALUE,
+                              page = constants.PAGE_NUMBER_DEFAULT_VALUE,
+							  sortCriteria = constants.SORT_CRITERIA_DEFAULT_VALUE) => {
 	return (dispatch) => {
 		trackPromise(
-		    axios.get(`${constants.BASE_URL}/items?size=${size}&page=${page}`,
+		    axios.get(`${constants.BASE_URL}/items?size=${size}&page=${page}&sortBy=${sortCriteria}`,
 		        {headers: {'Content-Type': 'application/json'}})
 		        .then(response => {
 		            dispatch(setItems(response.data));

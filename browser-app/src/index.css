@@ -75,6 +75,17 @@ video:focus {
   overflow: hidden;
   text-overflow: ellipsis;
 }
+.custom-card-popover {
+  position: absolute;
+  top: 6px;
+  left: 7px;
+  padding: 3px 8px;
+  background-color: rgba(0,0,0,0.5);
+  border-radius: 3px;
+  font-size: 11px;
+  color: #fff;
+  text-align: center;
+}
 
 /*Wrappers*/
 .custom-items-wrapper {
@@ -94,7 +105,7 @@ video:focus {
   z-index: 9;
   cursor: default;
   line-height: .6;
-  background-color: rgba(255,255,255,0.3);
+  background-color: rgba(255,255,255,0.5);
 }
 .slick-dots li.slick-active button:before {
   opacity: 1;
@@ -185,6 +196,60 @@ video:focus {
   color: #ffffff !important;
 }
 .react-page-size-select__menu-list .react-page-size-select__option--is-selected:hover {
+  background-color: #007bff !important;
+}
+
+/*React select (sort-by)*/
+.react-sort-by-select__value-container {
+  min-width: 82px !important;
+}
+.react-sort-by-select__control {
+  border-color: #c7cbce !important;
+  cursor: pointer !important;
+}
+.react-sort-by-select__indicator-separator {
+  background-color: #c7cbce !important;
+}
+.react-sort-by-select__indicator {
+  color: #b3b3b3 !important;
+}
+.react-sort-by-select__indicator:hover {
+  color: #6c757d !important;
+}
+.react-sort-by-select__single-value {
+  color: #6c757d !important;
+}
+.react-sort-by-select__control--is-focused {
+  border-color: #b3b3b3 !important;
+  outline: 0 !important;
+  box-shadow: none !important;
+}
+.react-sort-by-select__value-container--has-value {
+  padding: 2px 10px !important;
+}
+.react-sort-by-select__value-container {
+  padding: 2px 10px !important;
+}
+.react-sort-by-select__placeholder {
+  color: #bbbbbb !important;
+}
+.react-sort-by-select__menu,
+.react-sort-by-select__option {
+  cursor: pointer !important;
+  color: #6c757d !important;
+}
+.react-sort-by-select__option:hover {
+  text-decoration: none !important;
+  background-color: #f8f9fa !important;
+}
+.react-sort-by-select__option--is-focused {
+  background-color: transparent !important;
+}
+.react-sort-by-select__menu-list .react-sort-by-select__option--is-selected {
+  background-color: #007bff !important;
+  color: #ffffff !important;
+}
+.react-sort-by-select__menu-list .react-sort-by-select__option--is-selected:hover {
   background-color: #007bff !important;
 }
 

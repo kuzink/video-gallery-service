@@ -1,15 +1,15 @@
 package com.kuzin.videogalleryservice.rest;
 
-import com.kuzin.videogalleryservice.domain.Item;
+import com.kuzin.videogalleryservice.domain.*;
 import com.kuzin.videogalleryservice.dto.PagedItemsResponse;
 
+import static com.kuzin.videogalleryservice.domain.SortCriteria.getComparator;
 import static com.kuzin.videogalleryservice.dto.PagedItemsResponse.Page;
 
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 @RestController
 @AllArgsConstructor
@@ -21,11 +21,14 @@ public class ItemResource {
 
 	@GetMapping
 	public PagedItemsResponse getItems(@RequestParam(value = "size", defaultValue = "9") int size,
-	                                   @RequestParam(value = "page", defaultValue = "1") int page) {
+	                                   @RequestParam(value = "page", defaultValue = "1") int page,
+	                                   @RequestParam(value = "sortBy", required = false) String criteria) {
 
 		if (size <= 0 || page <= 0) {
 			throw new RuntimeException("Error: size and page must be greater than 0");
 		}
+
+		items.sort(getComparator(criteria));
 
 		return PagedItemsResponse.builder()
 			.page(buildPage(size, page))

@@ -22,6 +22,9 @@ public class Item {
 	@NotBlank
 	private String name;
 
+	@NotBlank
+	private String size;
+
 	private List<byte[]> thumbnails;
 
 }

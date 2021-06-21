@@ -38,12 +38,20 @@ export const setSearchText = (state, action) => {
 	}
 };
 
+export const setSortBy = (state, action) => {
+	return {
+		...state,
+		sortBy: action.sortBy
+	}
+};
+
 export const reducers = {
 	[constants.REDUX_STORE_EVENTS.SET_ITEMS]: setItems,
 	[constants.REDUX_STORE_EVENTS.RESET_ITEMS]: resetItems,
 	[constants.REDUX_STORE_EVENTS.SET_ITEM_NAME]: setItemName,
 	[constants.REDUX_STORE_EVENTS.RESET_ITEM_NAME]: resetItemName,
-	[constants.REDUX_STORE_EVENTS.SET_SEARCH_TEXT]: setSearchText
+	[constants.REDUX_STORE_EVENTS.SET_SEARCH_TEXT]: setSearchText,
+	[constants.REDUX_STORE_EVENTS.SET_SORT_BY]: setSortBy
 };
 
 export default (state = initialItems, action) => {

@@ -13,6 +13,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.text.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -36,10 +37,12 @@ public class ItemsConfig {
 
 		for (int i = 0; i < videoFiles.size(); i++) {
 
-			final String nameWithExtension = videoFiles.get(i).getName();
-			final String name = nameWithExtension.substring(0, nameWithExtension.length() - 4);
+			final File videoFile = videoFiles.get(i);
 
-			items.add(createItem(i, name));
+			final String name = videoFile.getName().substring(0, videoFile.getName().length() - 4);
+			final String size = convertToHumanReadableByteCount(videoFile.length());
+
+			items.add(createItem(i, name, size));
 		}
 
 		validateList(defaultValidator, items);
@@ -54,7 +57,7 @@ public class ItemsConfig {
 			.collect(toList());
 	}
 
-	private Item createItem(final int count, final String name) throws IOException {
+	private Item createItem(final int count, final String name, final String size) throws IOException {
 
 		final Path thumbnailsPath = Paths.get(thumbnailsLocation + "/" + name);
 
@@ -68,10 +71,10 @@ public class ItemsConfig {
 				.map(it -> loadThumbnailBytes(name, it))
 				.collect(toList());
 
-			return new Item(count + 1, name, thumbnails);
+			return new Item(count + 1, name, size, thumbnails);
 
 		} else {
-			return new Item(count + 1, name, emptyList());
+			return new Item(count + 1, name, size, emptyList());
 		}
 	}
 
@@ -86,6 +89,28 @@ public class ItemsConfig {
 		} catch (IOException e) {
 			return null;
 		}
+	}
+
+	private String convertToHumanReadableByteCount(final long bytes) {
+
+		final long absB = bytes == Long.MIN_VALUE ? Long.MAX_VALUE : Math.abs(bytes);
+
+		if (absB < 1024) {
+			return bytes + " B";
+		}
+
+		long value = absB;
+		final CharacterIterator ci = new StringCharacterIterator("KMGTPE");
+
+		for (int i = 40; i >= 0 && absB > 0xfffccccccccccccL >> i; i -= 10) {
+			value >>= 10;
+			ci.next();
+		}
+		value *= Long.signum(bytes);
+
+		return String.format("%.2f %cB", value / 1024.0, ci.current())
+			.replace(",", ".")
+			.replace("B", "b");
 	}
 
 	private void validateList(final Validator validator, final List<Item> list) {

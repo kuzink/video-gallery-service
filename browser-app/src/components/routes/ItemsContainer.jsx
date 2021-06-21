@@ -1,6 +1,11 @@
 import React, {Component} from "react";
 import {connect} from "react-redux";
-import {retrieveItems, setItemName, resetItemName} from "../../actions/ItemsActions";
+import {
+	retrieveItems,
+	setItemName,
+	resetItemName,
+	setSortBy
+} from "../../actions/ItemsActions";
 import BackButtonComponent from "../layout/BackButtonComponent";
 import ItemsComponent from "../item/ItemsComponent";
 import ItemDetailsComponent from "../item/ItemDetailsComponent";
@@ -18,6 +23,8 @@ export class ItemsContainer extends Component {
 
 	handleOnItemSelect = (itemName) => this.props.setItemName(itemName);
 
+	handleSortByChange = (sortBy) => this.props.setSortBy(sortBy);
+
 	handleCancel = () => this.props.resetItemName();
 
 	filterItems = (items, searchText) => {
@@ -26,7 +33,7 @@ export class ItemsContainer extends Component {
 	};
 
 	render() {
-		const {items, page, itemName, searchText, retrieveItems} = this.props;
+		const {items, page, itemName, searchText, sortBy, retrieveItems} = this.props;
 		return (
 			<React.Fragment>
 				<div className="custom-hidden" ref={top => { this.top = top; }}>
@@ -34,6 +41,8 @@ export class ItemsContainer extends Component {
 				</div>
 
 				<PaginationWrapperComponent page={page}
+				                            sortBy={sortBy}
+				                            sortByChange={this.handleSortByChange}
 				                            getItems={retrieveItems}>
 					<ItemsComponent items={this.filterItems(items, searchText)}
 					                handleOnItemSelect={this.handleOnItemSelect}/>
@@ -51,20 +60,24 @@ const mapStateToProps = state => {
 		items: state.items.items,
 		page: state.items.page,
 		itemName: state.items.itemName,
-		searchText: state.items.searchText
+		searchText: state.items.searchText,
+		sortBy: state.items.sortBy
 	};
 };
 
 const mapDispatchToProps = dispatch => {
 	return {
-		retrieveItems: (size, page) => {
-			dispatch(retrieveItems(size, page));
+		retrieveItems: (size, page, sortBy) => {
+			dispatch(retrieveItems(size, page, sortBy));
 		},
 		setItemName: (itemName) => {
 			dispatch(setItemName(itemName));
 		},
 		resetItemName: () => {
 			dispatch(resetItemName());
+		},
+		setSortBy: (sortBy) => {
+			dispatch(setSortBy(sortBy));
 		}
 	}
 };

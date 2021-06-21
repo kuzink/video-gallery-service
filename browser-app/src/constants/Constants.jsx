@@ -12,6 +12,7 @@ export default {
 		SET_ITEM_NAME: 'SET_ITEM_NAME',
 		RESET_ITEM_NAME: 'RESET_ITEM_NAME',
 		SET_SEARCH_TEXT: 'SET_SEARCH_TEXT',
+		SET_SORT_BY: 'SET_SORT_BY',
 
 		SET_SLIDES: 'SET_SLIDES',
 		RESET_SLIDES: 'RESET_SLIDES'
@@ -39,6 +40,25 @@ export default {
 		{
 			value: 'all',
 			label: 'All'
+		}
+	],
+	SORT_CRITERIA_DEFAULT_VALUE: 'nameUp',
+	SORT_CRITERIA_OPTIONS: [
+		{
+			value: 'nameUp',
+			label: 'name ↑'
+		},
+		{
+			value: 'nameDown',
+			label: 'name ↓'
+		},
+		{
+			value: 'sizeUp',
+			label: 'size ↑'
+		},
+		{
+			value: 'sizeDown',
+			label: 'size ↓'
 		}
 	]
 };

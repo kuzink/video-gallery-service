@@ -7,7 +7,8 @@ export const initialItems = {
 	items: [],
 	page: {},
 	itemName: '',
-	searchText: ''
+	searchText: '',
+	sortBy: ''
 };
 
 export const initialSlides = {
