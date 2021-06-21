@@ -2,9 +2,11 @@ import React, {Component} from "react";
 import {connect} from "react-redux";
 import {
 	retrieveItems,
+	resetItems,
 	setItemName,
 	resetItemName,
-	setSortBy
+	setSortBy,
+	resetSortBy
 } from "../../actions/ItemsActions";
 import BackButtonComponent from "../layout/BackButtonComponent";
 import ItemsComponent from "../item/ItemsComponent";
@@ -19,6 +21,11 @@ export class ItemsContainer extends Component {
 
 	componentDidUpdate() {
 		this.top.classList.add('custom-visible');
+	}
+
+	componentWillUnmount() {
+		this.props.resetItems();
+		this.props.resetSortBy();
 	}
 
 	handleOnItemSelect = (itemName) => this.props.setItemName(itemName);
@@ -70,6 +77,9 @@ const mapDispatchToProps = dispatch => {
 		retrieveItems: (size, page, sortBy) => {
 			dispatch(retrieveItems(size, page, sortBy));
 		},
+		resetItems: () => {
+			dispatch(resetItems());
+		},
 		setItemName: (itemName) => {
 			dispatch(setItemName(itemName));
 		},
@@ -78,6 +88,9 @@ const mapDispatchToProps = dispatch => {
 		},
 		setSortBy: (sortBy) => {
 			dispatch(setSortBy(sortBy));
+		},
+		resetSortBy: () => {
+			dispatch(resetSortBy());
 		}
 	}
 };
