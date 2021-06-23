@@ -12,6 +12,7 @@ export default {
 		SET_ITEM_NAME: 'SET_ITEM_NAME',
 		RESET_ITEM_NAME: 'RESET_ITEM_NAME',
 		SET_SEARCH_TEXT: 'SET_SEARCH_TEXT',
+		RESET_SEARCH_TEXT: 'RESET_SEARCH_TEXT',
 		SET_SORT_BY: 'SET_SORT_BY',
 		RESET_SORT_BY: 'RESET_SORT_BY',
 
@@ -24,42 +25,43 @@ export default {
 	PAGE_SIZE_OPTIONS: [
 		{
 			value: 6,
-			label: '6'
+			label: 'Show 6'
 		},
 		{
 			value: 9,
-			label: '9'
+			label: 'Show 9'
 		},
 		{
 			value: 18,
-			label: '18'
+			label: 'Show 18'
 		},
 		{
 			value: 27,
-			label: '27'
+			label: 'Show 27'
 		},
 		{
 			value: 'all',
-			label: 'All'
+			label: 'Show all'
 		}
 	],
 	SORT_CRITERIA_DEFAULT_VALUE: 'nameUp',
 	SORT_CRITERIA_OPTIONS: [
 		{
 			value: 'nameUp',
-			label: 'name ↑'
+			label: 'Sort by name ↑'
 		},
 		{
 			value: 'nameDown',
-			label: 'name ↓'
+			label: 'Sort by name ↓'
 		},
 		{
 			value: 'sizeUp',
-			label: 'size ↑'
+			label: 'Sort by size ↑'
 		},
 		{
 			value: 'sizeDown',
-			label: 'size ↓'
+			label: 'Sort by size ↓'
 		}
-	]
+	],
+	SEARCH__DEFAULT_VALUE: ''
 };

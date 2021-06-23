@@ -1,6 +1,8 @@
 import React from 'react';
 import Select from 'react-select';
 import constants from "../../constants/Constants";
+import {faSearch} from "@fortawesome/free-solid-svg-icons/index";
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 
 const PaginationWrapperComponent = (props) => {
 
@@ -8,6 +10,8 @@ const PaginationWrapperComponent = (props) => {
 		page,
 		sortBy,
 		sortByChange,
+		searchText,
+		searchTextChange,
 		getItems,
 		children
 	} = props;
@@ -59,9 +63,7 @@ const PaginationWrapperComponent = (props) => {
 
 	const handleClick = pageNumber => e => gotoPage(pageNumber);
 
-	const gotoPage = pageNumber => getItems(page.size, pageNumber, sortBy);
-
-	const isPaginationHeaderRowVisible = () => !!page.totalPages;
+	const gotoPage = pageNumber => getItems(page.size, pageNumber, sortBy, searchText);
 
 	const isPaginationButtonsVisible = () => !(!page.totalPages || page.totalPages === 1);
 
@@ -80,16 +82,20 @@ const PaginationWrapperComponent = (props) => {
 
 	const handlePageSizeChange = (selected) => {
 		selected.value === 'all'
-			? getItems(page.totalElements, constants.PAGE_NUMBER_DEFAULT_VALUE, sortBy)
-			: getItems(selected.value, constants.PAGE_NUMBER_DEFAULT_VALUE, sortBy);
+			? getItems((page.totalElements || 1), constants.PAGE_NUMBER_DEFAULT_VALUE, sortBy, searchText)
+			: getItems(selected.value, constants.PAGE_NUMBER_DEFAULT_VALUE, sortBy, searchText);
 	};
 
 	const handleSortByChange = (selected) => {
 		sortByChange(selected.value);
-		return getItems(page.size, page.page, selected.value);
+		return getItems(page.size, page.page, selected.value, searchText);
 	};
 
 	const defineShowingItemsText = () => {
+		if (!page.totalElements) {
+			return 'Items not found';
+		}
+
 		let endIndex = page.size * page.page;
 		const startIndex = endIndex - page.size + 1;
 
@@ -100,10 +106,16 @@ const PaginationWrapperComponent = (props) => {
 		return 'Showing items ' + startIndex + '-' + endIndex + ' of ' + page.totalElements;
 	};
 
+	const handleKeyPress = (event) => {
+		if(event.key === 'Enter'){
+			const search = searchText.trim().toLowerCase();
+			return getItems(constants.PAGE_SIZE_DEFAULT_VALUE, constants.PAGE_NUMBER_DEFAULT_VALUE, sortBy, search);
+		}
+	};
+
 	return (
 		<div className="custom-items-wrapper pt-3 pb-5">
 
-			{isPaginationHeaderRowVisible() &&
 			<div className="container">
 				<div className="row">
 					<div className="col-12">
@@ -112,22 +124,32 @@ const PaginationWrapperComponent = (props) => {
 								<h5 className="mb-0 font-weight-normal">{defineShowingItemsText()}</h5>
 							</div>
 							<div className="d-flex align-items-center">
-								<h5 className="mb-0 mr-2 font-weight-normal">Sort by</h5>
-								<Select options={constants.SORT_CRITERIA_OPTIONS}
-								        value={defineSortByValue()}
-								        onChange={handleSortByChange}
-								        classNamePrefix="react-sort-by-select"/>
-								<h5 className="mb-0 ml-4 mr-2 font-weight-normal">Size</h5>
-								<Select options={constants.PAGE_SIZE_OPTIONS}
-								        value={definePageSizeValue()}
-								        onChange={handlePageSizeChange}
-								        classNamePrefix="react-page-size-select"/>
+								<div className="form-inline my-0 mr-4 position-relative">
+									<FontAwesomeIcon icon={faSearch} className="custom-search-icon"/>
+									<input className="form-control custom-search-items-input"
+									       type="text"
+									       placeholder="Search"
+									       value={searchText}
+									       onKeyPress={handleKeyPress}
+									       onChange={searchTextChange}/>
+								</div>
+								<div className="mr-4">
+									<Select options={constants.SORT_CRITERIA_OPTIONS}
+									        value={defineSortByValue()}
+									        onChange={handleSortByChange}
+									        classNamePrefix="react-sort-by-select"/>
+								</div>
+								<div>
+									<Select options={constants.PAGE_SIZE_OPTIONS}
+									        value={definePageSizeValue()}
+									        onChange={handlePageSizeChange}
+									        classNamePrefix="react-page-size-select"/>
+								</div>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-			}
 
 			{children}
 

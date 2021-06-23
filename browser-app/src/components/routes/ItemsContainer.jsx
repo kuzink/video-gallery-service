@@ -6,7 +6,9 @@ import {
 	setItemName,
 	resetItemName,
 	setSortBy,
-	resetSortBy
+	resetSortBy,
+	setSearchText,
+	resetSearchText
 } from "../../actions/ItemsActions";
 import BackButtonComponent from "../layout/BackButtonComponent";
 import ItemsComponent from "../item/ItemsComponent";
@@ -26,18 +28,16 @@ export class ItemsContainer extends Component {
 	componentWillUnmount() {
 		this.props.resetItems();
 		this.props.resetSortBy();
+		this.props.resetSearchText();
 	}
 
 	handleOnItemSelect = (itemName) => this.props.setItemName(itemName);
 
 	handleSortByChange = (sortBy) => this.props.setSortBy(sortBy);
 
-	handleCancel = () => this.props.resetItemName();
+	handleSearchTextChange = (event) => this.props.setSearchText(event.target.value);
 
-	filterItems = (items, searchText) => {
-		const search = searchText.trim().toLowerCase();
-		return search === '' ? items : items.filter(item => item.name.toLowerCase().includes(search));
-	};
+	handleCancel = () => this.props.resetItemName();
 
 	render() {
 		const {items, page, itemName, searchText, sortBy, retrieveItems} = this.props;
@@ -50,8 +50,10 @@ export class ItemsContainer extends Component {
 				<PaginationWrapperComponent page={page}
 				                            sortBy={sortBy}
 				                            sortByChange={this.handleSortByChange}
+				                            searchText={searchText}
+				                            searchTextChange={this.handleSearchTextChange}
 				                            getItems={retrieveItems}>
-					<ItemsComponent items={this.filterItems(items, searchText)}
+					<ItemsComponent items={items}
 					                handleOnItemSelect={this.handleOnItemSelect}/>
 				</PaginationWrapperComponent>
 
@@ -74,8 +76,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
 	return {
-		retrieveItems: (size, page, sortBy) => {
-			dispatch(retrieveItems(size, page, sortBy));
+		retrieveItems: (size, page, sortBy, search) => {
+			dispatch(retrieveItems(size, page, sortBy, search));
 		},
 		resetItems: () => {
 			dispatch(resetItems());
@@ -91,6 +93,12 @@ const mapDispatchToProps = dispatch => {
 		},
 		resetSortBy: () => {
 			dispatch(resetSortBy());
+		},
+		setSearchText: (searchText) => {
+			dispatch(setSearchText(searchText));
+		},
+		resetSearchText: () => {
+			dispatch(resetSearchText());
 		}
 	}
 };

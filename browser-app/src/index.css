@@ -147,7 +147,7 @@ video:focus {
 
 /*React select (page-size)*/
 .react-page-size-select__value-container {
-  min-width: 41px !important;
+  min-width: 82px !important;
 }
 .react-page-size-select__control {
   border-color: #DEE2E6 !important;
@@ -201,7 +201,7 @@ video:focus {
 
 /*React select (sort-by)*/
 .react-sort-by-select__value-container {
-  min-width: 82px !important;
+  min-width: 132px !important;
 }
 .react-sort-by-select__control {
   border-color: #DEE2E6 !important;
@@ -251,6 +251,25 @@ video:focus {
 }
 .react-sort-by-select__input > input {
   caret-color: transparent;
+}
+
+/*Search*/
+.custom-search-items-input {
+  min-width: 250px;
+  padding-left: 36px;
+  color: #6c757d;
+  border-color: #DEE2E6;
+}
+.custom-search-items-input:focus {
+  box-shadow: none;
+  text-shadow: none;
+  color: #6c757d;
+  border-color: #DEE2E6;
+}
+.custom-search-icon {
+  position: absolute;
+  left: 10px;
+  color: #c7cbce;
 }
 
 /*LandingSlider*/
