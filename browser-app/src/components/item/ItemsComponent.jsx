@@ -1,7 +1,7 @@
 import React from "react";
 
-import GridViewItemComponent from "./GridViewItemComponent";
-import ListViewItemComponent from "./ListViewItemComponent";
+import GridViewItemsComponent from "./GridViewItemsComponent";
+import ListViewItemsComponent from "./ListViewItemsComponent";
 
 const ItemsComponent = (props) => {
 
@@ -11,8 +11,8 @@ const ItemsComponent = (props) => {
 		<div className="container">
 			<div className="row">
 				{isGridView
-					? <GridViewItemComponent items={items} handleOnItemSelect={handleOnItemSelect}/>
-					: <ListViewItemComponent items={items} handleOnItemSelect={handleOnItemSelect}/>
+					? <GridViewItemsComponent items={items} handleOnItemSelect={handleOnItemSelect}/>
+					: <ListViewItemsComponent items={items} handleOnItemSelect={handleOnItemSelect}/>
 				}
 			</div>
 		</div>

@@ -1,7 +1,9 @@
 import React from "react";
 import DefaultThumbnail from '../../assets/defaultThumbnail.jpg';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {faPlay} from "@fortawesome/free-solid-svg-icons/index";
 
-const ListViewItemComponent = (props) => {
+const ListViewItemsComponent = (props) => {
 
 	const {items, handleOnItemSelect} = props;
 
@@ -15,6 +17,9 @@ const ListViewItemComponent = (props) => {
 								<img src={item.thumbnails.length
 									? `data:image/jpeg;base64,${item.thumbnails[0]}`
 									: DefaultThumbnail}/>
+								<div className="custom-mask flex-center" title="Play video">
+									<h3><FontAwesomeIcon icon={faPlay} className="text-white"/></h3>
+								</div>
 							</div>
 							<div className="p-4 custom-list-view-item-right">
 								<div className="d-flex flex-row justify-content-between">
@@ -30,4 +35,4 @@ const ListViewItemComponent = (props) => {
 	);
 };
 
-export default ListViewItemComponent;
+export default ListViewItemsComponent;

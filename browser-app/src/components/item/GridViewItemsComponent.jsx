@@ -1,7 +1,7 @@
 import React from "react";
 import ThumbnailSliderComponent from '../slider/ThumbnailSliderComponent';
 
-const GridViewItemComponent = (props) => {
+const GridViewItemsComponent = (props) => {
 
 	const {items, handleOnItemSelect} = props;
 
@@ -24,4 +24,4 @@ const GridViewItemComponent = (props) => {
 	);
 };
 
-export default GridViewItemComponent;
+export default GridViewItemsComponent;

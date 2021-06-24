@@ -124,11 +124,30 @@ video:focus {
   border-bottom-left-radius: calc(.25rem - 1px);
   width: 100%;
 }
+.custom-list-view-item .custom-mask {
+  opacity: 0;
+  transition: .3s ease;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-top-left-radius: calc(.25rem - 1px);
+  border-bottom-left-radius: calc(.25rem - 1px);
+  overflow: hidden;
+  background: rgba(158, 158, 158, 0.1) fixed;
+}
+.custom-list-view-item:hover .custom-mask {
+  opacity: 1;
+}
 .custom-list-view-size {
   min-width: 100px;
 }
 .custom-list-view-item-left {
   flex: 0 0 150px;
+  position: relative;
 }
 .custom-list-view-item-right {
   flex: 1;
