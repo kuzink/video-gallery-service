@@ -8,7 +8,8 @@ export const initialItems = {
 	page: {},
 	itemName: '',
 	searchText: '',
-	sortBy: ''
+	sortBy: '',
+	isGridView: true
 };
 
 export const initialSlides = {

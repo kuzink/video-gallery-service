@@ -55,6 +55,13 @@ export const resetSortBy = () => {
 	}
 };
 
+export const setIsGridView = (isGridView) => {
+	return {
+		type: constants.REDUX_STORE_EVENTS.SET_IS_GRID_VIEW,
+		isGridView: isGridView
+	}
+};
+
 export const retrieveItems = (size = constants.PAGE_SIZE_DEFAULT_VALUE,
                               page = constants.PAGE_NUMBER_DEFAULT_VALUE,
 							  sortCriteria = constants.SORT_CRITERIA_DEFAULT_VALUE,

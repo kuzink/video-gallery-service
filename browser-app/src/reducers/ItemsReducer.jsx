@@ -59,6 +59,13 @@ export const resetSortBy = (state) => {
 	}
 };
 
+export const setIsGridView = (state, action) => {
+	return {
+		...state,
+		isGridView: action.isGridView
+	}
+};
+
 export const reducers = {
 	[constants.REDUX_STORE_EVENTS.SET_ITEMS]: setItems,
 	[constants.REDUX_STORE_EVENTS.RESET_ITEMS]: resetItems,
@@ -67,7 +74,8 @@ export const reducers = {
 	[constants.REDUX_STORE_EVENTS.SET_SEARCH_TEXT]: setSearchText,
 	[constants.REDUX_STORE_EVENTS.RESET_SEARCH_TEXT]: resetSearchText,
 	[constants.REDUX_STORE_EVENTS.SET_SORT_BY]: setSortBy,
-	[constants.REDUX_STORE_EVENTS.RESET_SORT_BY]: resetSortBy
+	[constants.REDUX_STORE_EVENTS.RESET_SORT_BY]: resetSortBy,
+	[constants.REDUX_STORE_EVENTS.SET_IS_GRID_VIEW]: setIsGridView
 };
 
 export default (state = initialItems, action) => {

@@ -87,6 +87,53 @@ video:focus {
   text-align: center;
 }
 
+/*Toggle view button*/
+.custom-toggle-view-button {
+  color: #6c757d;
+  border-color: #DEE2E6;
+  background-color: #fff;
+  z-index: 1;
+}
+.custom-toggle-view-button.active,
+.custom-toggle-view-button.active > .custom-toggle-view-icon {
+  color: #fff;
+  background-color: #007bff;
+  border-color: #007bff;
+}
+.custom-toggle-view-button:hover,
+.custom-toggle-view-button:active {
+  color: #6c757d;
+  z-index: 1;
+}
+.custom-toggle-view-icon {
+  color: #c7cbce;
+}
+
+/*ListViewItemComponent*/
+.custom-list-view-item {
+  display: flex;
+  cursor: pointer;
+  transition: .3s ease;
+}
+.custom-list-view-item:hover {
+  color: #007bff;
+  box-shadow: 0 .25rem 1rem rgba(0,0,0,.075)!important;
+}
+.custom-list-view-item img {
+  border-top-left-radius: calc(.25rem - 1px);
+  border-bottom-left-radius: calc(.25rem - 1px);
+  width: 100%;
+}
+.custom-list-view-size {
+  min-width: 100px;
+}
+.custom-list-view-item-left {
+  flex: 0 0 150px;
+}
+.custom-list-view-item-right {
+  flex: 1;
+}
+
 /*Wrappers*/
 .custom-items-wrapper {
   min-height: 100vh;

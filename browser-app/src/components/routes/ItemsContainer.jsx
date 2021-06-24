@@ -8,7 +8,8 @@ import {
 	setSortBy,
 	resetSortBy,
 	setSearchText,
-	resetSearchText
+	resetSearchText,
+	setIsGridView
 } from "../../actions/ItemsActions";
 import BackButtonComponent from "../layout/BackButtonComponent";
 import ItemsComponent from "../item/ItemsComponent";
@@ -29,6 +30,7 @@ export class ItemsContainer extends Component {
 		this.props.resetItems();
 		this.props.resetSortBy();
 		this.props.resetSearchText();
+		this.props.setIsGridView(true);
 	}
 
 	handleOnItemSelect = (itemName) => this.props.setItemName(itemName);
@@ -37,10 +39,12 @@ export class ItemsContainer extends Component {
 
 	handleSearchTextChange = (event) => this.props.setSearchText(event.target.value);
 
+	handleIsGridViewChange = (isGridView) => this.props.setIsGridView(isGridView);
+
 	handleCancel = () => this.props.resetItemName();
 
 	render() {
-		const {items, page, itemName, searchText, sortBy, retrieveItems} = this.props;
+		const {items, page, itemName, searchText, sortBy, isGridView, retrieveItems} = this.props;
 		return (
 			<React.Fragment>
 				<div className="custom-hidden" ref={top => { this.top = top; }}>
@@ -52,8 +56,11 @@ export class ItemsContainer extends Component {
 				                            sortByChange={this.handleSortByChange}
 				                            searchText={searchText}
 				                            searchTextChange={this.handleSearchTextChange}
+				                            isGridView={isGridView}
+				                            isGridViewChange={this.handleIsGridViewChange}
 				                            getItems={retrieveItems}>
 					<ItemsComponent items={items}
+					                isGridView={isGridView}
 					                handleOnItemSelect={this.handleOnItemSelect}/>
 				</PaginationWrapperComponent>
 
@@ -70,7 +77,8 @@ const mapStateToProps = state => {
 		page: state.items.page,
 		itemName: state.items.itemName,
 		searchText: state.items.searchText,
-		sortBy: state.items.sortBy
+		sortBy: state.items.sortBy,
+		isGridView: state.items.isGridView
 	};
 };
 
@@ -99,6 +107,9 @@ const mapDispatchToProps = dispatch => {
 		},
 		resetSearchText: () => {
 			dispatch(resetSearchText());
+		},
+		setIsGridView: (isGridView) => {
+			dispatch(setIsGridView(isGridView));
 		}
 	}
 };

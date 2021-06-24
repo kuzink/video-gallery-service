@@ -1,7 +1,7 @@
 import React from 'react';
 import Select from 'react-select';
 import constants from "../../constants/Constants";
-import {faSearch} from "@fortawesome/free-solid-svg-icons/index";
+import {faSearch, faList, faTh} from "@fortawesome/free-solid-svg-icons/index";
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 
 const PaginationWrapperComponent = (props) => {
@@ -12,6 +12,8 @@ const PaginationWrapperComponent = (props) => {
 		sortByChange,
 		searchText,
 		searchTextChange,
+		isGridView,
+		isGridViewChange,
 		getItems,
 		children
 	} = props;
@@ -113,6 +115,10 @@ const PaginationWrapperComponent = (props) => {
 		}
 	};
 
+	const handleIsGridViewChange = (isGridView) => {
+		return isGridViewChange(isGridView);
+	};
+
 	return (
 		<div className="custom-items-wrapper pt-3 pb-5">
 
@@ -139,11 +145,23 @@ const PaginationWrapperComponent = (props) => {
 									        onChange={handleSortByChange}
 									        classNamePrefix="react-sort-by-select"/>
 								</div>
-								<div>
+								<div className="mr-4">
 									<Select options={constants.PAGE_SIZE_OPTIONS}
 									        value={definePageSizeValue()}
 									        onChange={handlePageSizeChange}
 									        classNamePrefix="react-page-size-select"/>
+								</div>
+								<div className="btn-group">
+									<div className={`btn custom-toggle-view-button ${isGridView ? '' : 'active'}`}
+									     onClick={handleIsGridViewChange.bind(this, false)}
+									     title="List view">
+										<FontAwesomeIcon icon={faList} className="custom-toggle-view-icon"/>
+									</div>
+									<div className={`btn custom-toggle-view-button ${isGridView ? 'active' : ''}`}
+									     onClick={handleIsGridViewChange.bind(this, true)}
+									     title="Grid view">
+										<FontAwesomeIcon icon={faTh} className="custom-toggle-view-icon"/>
+									</div>
 								</div>
 							</div>
 						</div>
