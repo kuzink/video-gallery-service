@@ -15,6 +15,7 @@ import BackButtonComponent from "../layout/BackButtonComponent";
 import ItemsComponent from "../item/ItemsComponent";
 import ItemDetailsComponent from "../item/ItemDetailsComponent";
 import PaginationWrapperComponent from "../pagination/PaginationWrapperComponent";
+import ScrollTopButtonComponent from "../layout/ScrollTopButtonComponent";
 
 export class ItemsContainer extends Component {
 
@@ -63,6 +64,8 @@ export class ItemsContainer extends Component {
 					                isGridView={isGridView}
 					                handleOnItemSelect={this.handleOnItemSelect}/>
 				</PaginationWrapperComponent>
+
+				<ScrollTopButtonComponent/>
 
 				<ItemDetailsComponent itemName={itemName}
 				                      handleCancel={this.handleCancel}/>
