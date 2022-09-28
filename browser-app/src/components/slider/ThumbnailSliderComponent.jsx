@@ -6,7 +6,12 @@ import { faPlay } from '@fortawesome/free-solid-svg-icons'
 
 const ImageSlider = (props) => {
 
-	const {itemName, thumbnails, handleOnItemSelect} = props;
+	const {
+		itemName,
+		thumbnails,
+		handleOnItemSelect,
+		initialThumbnailIndex
+	} = props;
 
 	const settings = {
 		dots: true,
@@ -14,6 +19,7 @@ const ImageSlider = (props) => {
 		draggable: false,
 		arrows: false,
 		fade: true,
+		initialSlide: initialThumbnailIndex
 	};
 
 	return (

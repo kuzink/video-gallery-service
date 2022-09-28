@@ -125,7 +125,7 @@ const PaginationWrapperComponent = (props) => {
 			<div className="container">
 				<div className="row">
 					<div className="col-12">
-						<div className="d-flex align-items-center justify-content-between mb-4 pb-2">
+						<div className="d-flex align-items-center justify-content-between">
 							<div>
 								<h5 className="mb-0 font-weight-normal">{defineShowingItemsText()}</h5>
 							</div>
@@ -175,7 +175,7 @@ const PaginationWrapperComponent = (props) => {
 			<div className="container">
 				<div className="row">
 					<div className="col-12">
-						<ul className="pagination mb-0 justify-content-end mt-2">
+						<ul className="pagination mb-0 justify-content-end">
 							{pages.map((p, index) => {
 								if (p === LEFT_PAGE) {
 									return (

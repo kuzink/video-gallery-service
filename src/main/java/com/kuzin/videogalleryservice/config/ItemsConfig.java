@@ -14,14 +14,15 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.text.*;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 import static java.util.Collections.emptyList;
 import static java.util.stream.Collectors.toList;
 
 @Configuration
 public class ItemsConfig {
+
+	private static final String INITIAL_THUMBNAIL_POSTFIX = "_init";
 
 	@Value("${videos.location}")
 	private String videosLocation;
@@ -63,18 +64,23 @@ public class ItemsConfig {
 
 		if (Files.exists(thumbnailsPath)) {
 
-			final List<byte[]> thumbnails = Files.list(thumbnailsPath)
+			final List<String> thumbnailNames = Files.list(thumbnailsPath)
 				.map(Path::toFile)
 				.filter(it -> it.getName().substring(it.getName().length() - 4).equals(".jpg"))
 				.map(File::getName)
 				.sorted()
+				.collect(toList());
+
+			final List<byte[]> thumbnails = thumbnailNames.stream()
 				.map(it -> loadThumbnailBytes(name, it))
 				.collect(toList());
 
-			return new Item(count + 1, name, size, thumbnails);
+			final int initialThumbnailIndex = determineInitialThumbnailIndex(thumbnailNames);
+
+			return new Item(count + 1, name, size, thumbnails, initialThumbnailIndex);
 
 		} else {
-			return new Item(count + 1, name, size, emptyList());
+			return new Item(count + 1, name, size, emptyList(), 0);
 		}
 	}
 
@@ -119,6 +125,14 @@ public class ItemsConfig {
 			.filter(violations -> !violations.isEmpty())
 			.findFirst()
 			.ifPresent(violations -> { throw new ConstraintViolationException(violations); });
+	}
+
+	private int determineInitialThumbnailIndex(final List<String> thumbnailNames) {
+		return thumbnailNames.stream()
+			.filter(name -> name.contains(INITIAL_THUMBNAIL_POSTFIX))
+			.findFirst()
+			.map(thumbnailNames::indexOf)
+			.orElse(new Random().nextInt(thumbnailNames.size()));
 	}
 
 }

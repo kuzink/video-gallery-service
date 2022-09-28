@@ -22,23 +22,23 @@ export default {
 	},
 
 	PAGE_NUMBER_DEFAULT_VALUE: 1,
-	PAGE_SIZE_DEFAULT_VALUE: 6,
+	PAGE_SIZE_DEFAULT_VALUE: 24,
 	PAGE_SIZE_OPTIONS: [
 		{
 			value: 6,
 			label: 'Show 6'
 		},
 		{
-			value: 9,
-			label: 'Show 9'
+			value: 12,
+			label: 'Show 12'
 		},
 		{
 			value: 18,
 			label: 'Show 18'
 		},
 		{
-			value: 27,
-			label: 'Show 27'
+			value: 24,
+			label: 'Show 24'
 		},
 		{
 			value: 'all',

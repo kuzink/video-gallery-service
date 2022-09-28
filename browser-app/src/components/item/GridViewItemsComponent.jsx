@@ -8,13 +8,14 @@ const GridViewItemsComponent = (props) => {
 	return (
 		<React.Fragment>
 			{items.map((item, index) => (
-				<div key={index} className="col-md-4">
-					<div className="card mb-4 shadow-sm position-relative">
+				<div key={index} className="col-md-4 mb-4 pb-1">
+					<div className="card shadow-sm position-relative">
 						<ThumbnailSliderComponent itemName={item.name}
 						                          thumbnails={item.thumbnails}
+						                          initialThumbnailIndex={item.initialThumbnailIndex}
 						                          handleOnItemSelect={handleOnItemSelect}/>
 						<div className="custom-card-popover">{item.size}</div>
-						<div className="card-body px-3 py-2">
+						<div className="card-body px-2 mx-1 py-1">
 							<p className="card-text custom-card-text" title={item.name}>{item.name}</p>
 						</div>
 					</div>

@@ -67,6 +67,7 @@ export const retrieveItems = (size = constants.PAGE_SIZE_DEFAULT_VALUE,
 							  sortCriteria = constants.SORT_CRITERIA_DEFAULT_VALUE,
                               search = constants.SEARCH__DEFAULT_VALUE) => {
 	return (dispatch) => {
+		dispatch(resetItems());
 		trackPromise(
 		    axios.get(`${constants.BASE_URL}/items?size=${size}&page=${page}&sortBy=${sortCriteria}&search=${search}`,
 		        {headers: {'Content-Type': 'application/json'}})

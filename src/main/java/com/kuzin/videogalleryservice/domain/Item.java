@@ -27,4 +27,6 @@ public class Item {
 
 	private List<byte[]> thumbnails;
 
+	private Integer initialThumbnailIndex;
+
 }

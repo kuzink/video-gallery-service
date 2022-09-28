@@ -74,6 +74,7 @@ video:focus {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  color: #444;
 }
 .custom-card-popover {
   position: absolute;
@@ -85,6 +86,7 @@ video:focus {
   font-size: 11px;
   color: #fff;
   text-align: center;
+  z-index: 1;
 }
 
 /*Toggle view button*/
@@ -166,18 +168,53 @@ video:focus {
 }
 
 /*ImageSlider*/
+/*slick-dots(ul)*/
 .slick-dots {
   bottom: 0;
-  z-index: 9;
+  right: 0;
+  left: 0;
+  width: fit-content;
+  height: 21px;
+  margin: 0 auto;
   cursor: default;
-  line-height: .6;
-  background-color: rgba(255,255,255,0.5);
+  line-height: 10px;
+  z-index: 21;
 }
+.slick-dots li {
+  width: 26px;
+  height: 21px;
+  margin: 0;
+}
+.slick-dots li button {
+  width: 26px;
+  height: 21px;
+  padding: 0;
+  font-size: inherit;
+}
+.slick-dots li button::before,
 .slick-dots li.slick-active button:before {
-  opacity: 1;
+  width: 10px;
+  padding-left: 8px;
+  padding-right: 8px;
+  height: 21px;
+  content: url("assets/circle-dot-default.svg");
 }
 .slick-dots li button::before {
-  opacity: .5;
+  opacity: 1;
+}
+.slick-dots li.slick-active button:before {
+  content: url("assets/circle-dot-active.svg");
+  opacity: 1;
+}
+.slick-dots li button:hover:before,
+.slick-dots li button:focus:before {
+  content: url("assets/circle-dot-hover.svg");
+  opacity: 1;
+}
+.slick-dots li.slick-active button:hover:before,
+.slick-dots li.slick-active button:focus:before {
+  content: url("assets/circle-dot-active.svg");
+  opacity: 1;
 }
 
 /*Spinner*/
@@ -246,6 +283,7 @@ video:focus {
 .react-page-size-select__option {
   cursor: pointer !important;
   color: #6c757d !important;
+  z-index: 31!important;
 }
 .react-page-size-select__option:hover {
   text-decoration: none !important;
@@ -300,6 +338,7 @@ video:focus {
 .react-sort-by-select__option {
   cursor: pointer !important;
   color: #6c757d !important;
+  z-index: 31!important;
 }
 .react-sort-by-select__option:hover {
   text-decoration: none !important;
