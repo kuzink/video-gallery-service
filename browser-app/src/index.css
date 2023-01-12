@@ -382,7 +382,13 @@ video:focus {
   width: 100vw;
   height: 100vh;
   object-fit: cover;
+  animation: zoom-0 20s;
 }
+@keyframes zoom-0 { from {transform: scale(1, 1);} to {transform: scale(1.5, 1.5);} }
+@keyframes zoom-1 { from {transform: scale(1, 1);} to {transform: scale(1.5, 1.5);} }
+@keyframes zoom-2 { from {transform: scale(1, 1);} to {transform: scale(1.5, 1.5);} }
+@keyframes zoom-3 { from {transform: scale(1, 1);} to {transform: scale(1.5, 1.5);} }
+@keyframes zoom-4 { from {transform: scale(1, 1);} to {transform: scale(1.5, 1.5);} }
 
 .custom-landing-slider-text-wrapper {
   position: fixed;

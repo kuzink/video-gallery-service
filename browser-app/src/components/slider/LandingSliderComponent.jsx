@@ -5,6 +5,34 @@ const LandingSlider = (props) => {
 
 	const {slides} = props;
 
+	const handleBeforeChange = (currentIndex, nextIndex) => {
+		const currentImage = document.querySelector(`[data-index="${currentIndex}"]`)
+			.getElementsByTagName('div')[0].getElementsByTagName('img')[0];
+		const nextImage = document.querySelector(`[data-index="${nextIndex}"]`)
+			.getElementsByTagName('div')[0].getElementsByTagName('img')[0];
+
+		currentImage.style.animation = `zoom-${currentIndex % 5} 20s`;
+		nextImage.style.animation = `zoom-${nextIndex % 5} 20s`;
+	};
+
+	const handleAfterChange = (currentIndex) => {
+		const previousImage = currentIndex !== 0
+			? document.querySelector(`[data-index="${currentIndex - 1}"]`)
+				.getElementsByTagName('div')[0].getElementsByTagName('img')[0]
+			: document.querySelector(`[data-index="${slides.length - 1}"]`)
+				.getElementsByTagName('div')[0].getElementsByTagName('img')[0];
+
+		previousImage.style.animation = 'none';
+
+		if (currentIndex === 1) {
+			const lastImage = document.querySelector(`[data-index="5"]`)
+				.getElementsByTagName('div')[0]
+				.getElementsByTagName('img')[0];
+
+			lastImage.style.animation = 'none';
+		}
+	};
+
 	const settings = {
 		draggable: false,
 		arrows: false,
@@ -14,7 +42,9 @@ const LandingSlider = (props) => {
 		autoplay: true,
 		speed: 2000,
 		autoplaySpeed: 6000,
-		cssEase: "linear"
+		cssEase: "linear",
+		beforeChange: handleBeforeChange,
+		afterChange: handleAfterChange
 	};
 
 	return (
