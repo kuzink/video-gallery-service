@@ -384,11 +384,11 @@ video:focus {
   object-fit: cover;
   animation: zoom-0 20s;
 }
-@keyframes zoom-0 { from {transform: scale(1, 1);} to {transform: scale(1.5, 1.5);} }
-@keyframes zoom-1 { from {transform: scale(1, 1);} to {transform: scale(1.5, 1.5);} }
-@keyframes zoom-2 { from {transform: scale(1, 1);} to {transform: scale(1.5, 1.5);} }
-@keyframes zoom-3 { from {transform: scale(1, 1);} to {transform: scale(1.5, 1.5);} }
-@keyframes zoom-4 { from {transform: scale(1, 1);} to {transform: scale(1.5, 1.5);} }
+@keyframes zoom-0 { from {transform: scale(1, 1);} to {transform: scale(1.5, 1.5) translate(0px, 0px);} }
+@keyframes zoom-1 { from {transform: scale(1, 1);} to {transform: scale(1.5, 1.5) translate(0px, 0px);} }
+@keyframes zoom-2 { from {transform: scale(1, 1);} to {transform: scale(1.5, 1.5) translate(0px, 0px);} }
+@keyframes zoom-3 { from {transform: scale(1, 1);} to {transform: scale(1.5, 1.5) translate(0px, 0px);} }
+@keyframes zoom-4 { from {transform: scale(1, 1);} to {transform: scale(1.5, 1.5) translate(0px, 0px);} }
 
 .custom-landing-slider-text-wrapper {
   position: fixed;
@@ -448,11 +448,11 @@ video:focus {
 /*ShowButtonComponent*/
 .custom-show-button-wrapper {
   position: fixed;
-  bottom: 15%;
+  bottom: 20%;
   left: 50%;
   transform: translateX(-50%);
   z-index: 920;
-  animation: 1s linear showButton;
+  animation: .5s linear showButton;
 }
 @keyframes showButton {
   from {
@@ -466,7 +466,9 @@ video:focus {
 }
 
 .custom-show-button {
-  padding: .5rem 2rem;
+  letter-spacing: 3px;
+  word-spacing: 5px;
+  padding: .5rem 1.7rem;
   text-transform: uppercase;
   background: linear-gradient(
     90deg,
@@ -474,8 +476,8 @@ video:focus {
     rgba(0,0,0,.1),
     rgba(0,0,0,.4), rgba(0,0,0,.4), rgba(0,0,0,.4)
   );
-  border-color: rgba(0,0,0,.2);
   background-size: 400%;
+  box-shadow: 1px 1px 10px 2px rgba(0, 0, 0, 0.3);
   transition: all .3s ease;
   animation: animateButton 18s linear infinite;
 }
@@ -483,8 +485,7 @@ video:focus {
 .custom-show-button:active {
   color: #fff!important;
   background-color: rgba(0,0,0,.3)!important;
-  border-color: transparent!important;
-  box-shadow: 1px 1px 10px 2px rgba(0, 0, 0, 0.3);
+  box-shadow: 1px 1px 10px 2px rgba(0, 0, 0, 0.5);
 }
 .custom-show-button:focus {
   box-shadow: none!important;
