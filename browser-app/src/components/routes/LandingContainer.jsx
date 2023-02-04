@@ -3,6 +3,8 @@ import {connect} from "react-redux";
 import {retrieveSlides} from "../../actions/SlidesActions";
 import LandingSliderComponent from "../slider/LandingSliderComponent";
 import ShowButtonComponent from "../layout/ShowButtonComponent";
+import withRequestStatusSpinner from "../spinner/RequestStatusSpinner";
+import RequestStatus from "../../constants/RequestStatus";
 
 export class LandingContainer extends Component {
 
@@ -14,18 +16,23 @@ export class LandingContainer extends Component {
 	}
 
 	render() {
-		const {slides} = this.props;
+		const {retrieveSlidesRequestStatus, slides} = this.props;
 		return (
-			<div className="custom-landing-wrapper">
-				<LandingSliderComponent slides={slides}/>
-				<ShowButtonComponent/>
-			</div>
+			<React.Fragment>
+				{withRequestStatusSpinner(retrieveSlidesRequestStatus)(
+				<div className="custom-landing-wrapper">
+					<LandingSliderComponent slides={slides}/>
+					<ShowButtonComponent/>
+				</div>
+				)}
+			</React.Fragment>
 		)
 	}
 }
 
 const mapStateToProps = state => {
 	return {
+		retrieveSlidesRequestStatus: state.slides.retrieveSlidesRequest.status,
 		slides: state.slides.slides
 	};
 };
