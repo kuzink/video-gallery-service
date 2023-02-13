@@ -1,5 +1,10 @@
 html, body {
   background-color: #F8F9FA;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+body::-webkit-scrollbar{
+  display: none;
 }
 
 /*Bootstrap container width*/
@@ -218,7 +223,7 @@ video:focus {
 }
 
 /*Spinner*/
-.custom-spinner {
+.spinner-overlay {
   position: fixed;
   top: 0;
   width: 100%;
@@ -226,15 +231,70 @@ video:focus {
   display: flex;
   justify-content: center;
   align-items: center;
-  /*background-color: rgba(255,255,255,0.9);*/
+  flex-direction: column;
+  background-color: white;
   z-index: 930;
-  visibility: hidden;
-  opacity: 0;
-  /*transition: visibility 0.3s, opacity 0.3s linear;*/
+  transition: visibility 0.3s, opacity 0.3s linear;
 }
-.in-progress {
+.loading {
   visibility: visible;
   opacity: 1;
+}
+.loaded {
+  visibility: hidden;
+  opacity: 0;
+}
+.spinner-wrapper {
+  width: 130px;
+  height: 130px;
+  position: relative;
+}
+.spinner-div {
+  width: 116px;
+  height: 116px;
+  background-color: white;
+  position: absolute;
+  top: 7px;
+  left: 7px;
+  border-top: 4px solid lime;
+  border-left: 4px solid transparent;
+  border-radius: 50%;
+  animation: Spin 1s linear infinite;
+}
+.spinner-img {
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  border-radius: 50%;
+}
+.spinner-text {
+  font-weight: 400;
+  margin-bottom: 1.5rem;
+  background-image: linear-gradient(
+    90deg,
+    rgba(0,0,0,1), rgba(0,0,0,1), rgba(0,0,0,1),
+    rgba(0,0,0,1), rgba(0,0,0,1), rgba(0,0,0,1),
+    lime
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  /*color: transparent;*/
+  animation: Color 1s linear;
+}
+@keyframes Spin {
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+@keyframes Color{
+  to {
+    background-position: 7vh;
+  }
 }
 
 /*Pagination*/
@@ -419,6 +479,7 @@ video:focus {
 
 /*BackButtonComponent*/
 .fixed-top {
+  z-index: 910;
   right: initial;
 }
 

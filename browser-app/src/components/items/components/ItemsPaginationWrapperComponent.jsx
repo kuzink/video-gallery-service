@@ -1,10 +1,10 @@
 import React from 'react';
 import Select from 'react-select';
-import constants from "../../constants/Constants";
+import constants from "../../../constants/Constants";
 import {faSearch, faList, faTh} from "@fortawesome/free-solid-svg-icons/index";
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 
-const PaginationWrapperComponent = (props) => {
+const ItemsPaginationWrapperComponent = (props) => {
 
 	const {
 		page,
@@ -71,9 +71,11 @@ const PaginationWrapperComponent = (props) => {
 
 	const definePageSizeValue = () => {
 		const {size} = page;
-		return size
-			? constants.PAGE_SIZE_OPTIONS.find(pS => pS.value === size)
-			: constants.PAGE_SIZE_OPTIONS.find(pS => pS.value === constants.PAGE_SIZE_DEFAULT_VALUE);
+		if (size) {
+			const foundValue = constants.PAGE_SIZE_OPTIONS.find(pS => pS.value === size);
+			return foundValue ? foundValue : constants.PAGE_SIZE_OPTIONS.find(pS => pS.value === 'all');
+		}
+		return constants.PAGE_SIZE_OPTIONS.find(pS => pS.value === constants.PAGE_SIZE_DEFAULT_VALUE);
 	};
 
 	const defineSortByValue = () => {
@@ -95,7 +97,7 @@ const PaginationWrapperComponent = (props) => {
 
 	const defineShowingItemsText = () => {
 		if (!page.totalElements) {
-			return 'Items not found';
+			return 'Videos not found';
 		}
 
 		let endIndex = page.size * page.page;
@@ -105,7 +107,7 @@ const PaginationWrapperComponent = (props) => {
 			endIndex = page.totalElements;
 		}
 
-		return 'Showing items ' + startIndex + '-' + endIndex + ' of ' + page.totalElements;
+		return 'Showing videos ' + startIndex + '-' + endIndex + ' of ' + page.totalElements;
 	};
 
 	const handleKeyPress = (event) => {
@@ -129,6 +131,7 @@ const PaginationWrapperComponent = (props) => {
 							<div>
 								<h5 className="mb-0 font-weight-normal">{defineShowingItemsText()}</h5>
 							</div>
+							{page.totalElements ?
 							<div className="d-flex align-items-center">
 								<div className="form-inline my-0 mr-4 position-relative">
 									<FontAwesomeIcon icon={faSearch} className="custom-search-icon"/>
@@ -163,7 +166,8 @@ const PaginationWrapperComponent = (props) => {
 										<FontAwesomeIcon icon={faTh} className="custom-toggle-view-icon"/>
 									</div>
 								</div>
-							</div>
+							</div> : <div/>
+							}
 						</div>
 					</div>
 				</div>
@@ -207,4 +211,4 @@ const PaginationWrapperComponent = (props) => {
 	);
 };
 
-export default PaginationWrapperComponent;
+export default ItemsPaginationWrapperComponent;

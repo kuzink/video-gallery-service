@@ -1,7 +1,7 @@
 import React from 'react';
-import BackButtonComponent from "../layout/BackButtonComponent";
+import BackButtonComponent from "../items/components/BackButtonComponent";
 
-const PageNotFoundComponent = () => (
+const NotFoundComponent = () => (
 	<div className="custom-not-found-wrapper d-flex align-items-center pb-5">
 		<div className="container">
 			<div className="row">
@@ -16,4 +16,4 @@ const PageNotFoundComponent = () => (
 	</div>
 );
 
-export default PageNotFoundComponent;
+export default NotFoundComponent;

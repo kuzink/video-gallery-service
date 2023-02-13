@@ -1,12 +1,18 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
 import ModalAlertComponent from './ModalAlertComponent';
-import {resetAlerts} from "../../actions/AlertActions";
+import {resetAlerts} from "../../../actions/AlertActions";
 
 export class ModalAlertContainer extends Component {
 
 	render(){
-		const {onHideAlertPanel, alertText, alertVisible, alertStyle} = this.props;
+		const {
+			onHideAlertPanel,
+			alertText,
+			alertVisible,
+			alertStyle
+		} = this.props;
+
 		return(
 			<ModalAlertComponent onHideAlertPanel={onHideAlertPanel}
 			                     alertText={alertText}

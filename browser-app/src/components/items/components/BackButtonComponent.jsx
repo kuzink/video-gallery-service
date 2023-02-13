@@ -10,7 +10,8 @@ const BackButtonComponent = (props) => {
 	return (
 		<div className={`${classNames ? classNames : ''}`}>
 			<Link className="btn btn-secondary" to="/">
-				<FontAwesomeIcon icon={faAngleLeft} className="mr-2"/>Back
+				<FontAwesomeIcon icon={faAngleLeft} className="mr-2"/>
+				Back
 			</Link>
 		</div>
 	);

@@ -25,7 +25,7 @@ public class Item {
 	@NotBlank
 	private String size;
 
-	private List<byte[]> thumbnails;
+	private List<String> thumbnailNames;
 
 	private Integer initialThumbnailIndex;
 

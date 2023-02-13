@@ -76,7 +76,7 @@ export const retrieveItems = (size = constants.PAGE_SIZE_DEFAULT_VALUE,
 			        window.scrollTo(0, 0);
 		        })
 			    .catch(error => {
-				    dispatch(setErrorMessage('ERROR: Items retrieval'));
+				    dispatch(setErrorMessage('Items retrieval ' + error));
 				    dispatch(resetItems());
 			    })
 		);

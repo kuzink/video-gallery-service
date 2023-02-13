@@ -10,21 +10,31 @@ import {
 	setSearchText,
 	resetSearchText,
 	setIsGridView
-} from "../../actions/ItemsActions";
-import BackButtonComponent from "../layout/BackButtonComponent";
-import ItemsComponent from "../item/ItemsComponent";
-import ItemDetailsComponent from "../item/ItemDetailsComponent";
-import PaginationWrapperComponent from "../pagination/PaginationWrapperComponent";
-import ScrollTopButtonComponent from "../layout/ScrollTopButtonComponent";
+} from "../../../actions/ItemsActions";
+import BackButtonComponent from "../components/BackButtonComponent";
+import ItemsComponent from "../components/ItemsComponent";
+import ItemDetailsComponent from "../components/ItemDetailsComponent";
+import ItemsPaginationWrapperComponent from "../components/ItemsPaginationWrapperComponent";
+import ScrollTopButtonComponent from "../components/ScrollTopButtonComponent";
+import ModalAlertContainer from "../../utilities/modalalert/ModalAlertContainer";
+import Image from '../../../assets/100x100/2.gif';
+import Spinner from "../../utilities/spinner/Spinner";
 
 export class ItemsContainer extends Component {
 
+	state = {
+		isLoading: true
+	};
+
 	componentDidMount() {
 		this.props.retrieveItems();
-	}
 
-	componentDidUpdate() {
-		this.top.classList.add('custom-visible');
+		setTimeout(() => {
+			this.setState({
+				...this.state,
+				isLoading: false
+			})
+		}, 1500);
 	}
 
 	componentWillUnmount() {
@@ -46,24 +56,29 @@ export class ItemsContainer extends Component {
 
 	render() {
 		const {items, page, itemName, searchText, sortBy, isGridView, retrieveItems} = this.props;
+		const {isLoading} = this.state;
+
 		return (
 			<React.Fragment>
-				<div className="custom-hidden" ref={top => { this.top = top; }}>
-					<BackButtonComponent classNames="fixed-top ml-3 mt-3"/>
-				</div>
+				<ModalAlertContainer/>
 
-				<PaginationWrapperComponent page={page}
-				                            sortBy={sortBy}
-				                            sortByChange={this.handleSortByChange}
-				                            searchText={searchText}
-				                            searchTextChange={this.handleSearchTextChange}
-				                            isGridView={isGridView}
-				                            isGridViewChange={this.handleIsGridViewChange}
-				                            getItems={retrieveItems}>
+				<Spinner isLoading={isLoading}
+				         image={Image}/>
+
+				<BackButtonComponent classNames="fixed-top ml-3 mt-3"/>
+
+				<ItemsPaginationWrapperComponent page={page}
+				                                 sortBy={sortBy}
+				                                 sortByChange={this.handleSortByChange}
+				                                 searchText={searchText}
+				                                 searchTextChange={this.handleSearchTextChange}
+				                                 isGridView={isGridView}
+				                                 isGridViewChange={this.handleIsGridViewChange}
+				                                 getItems={retrieveItems}>
 					<ItemsComponent items={items}
 					                isGridView={isGridView}
 					                handleOnItemSelect={this.handleOnItemSelect}/>
-				</PaginationWrapperComponent>
+				</ItemsPaginationWrapperComponent>
 
 				<ScrollTopButtonComponent/>
 

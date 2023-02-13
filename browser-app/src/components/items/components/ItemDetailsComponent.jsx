@@ -1,6 +1,6 @@
 import React from "react";
 import {Modal} from 'react-bootstrap';
-import constants from '../../constants/Constants';
+import constants from '../../../constants/Constants';
 
 const ItemDetailsComponent = (props) => {
 

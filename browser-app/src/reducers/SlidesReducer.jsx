@@ -15,19 +15,9 @@ export const resetSlides = (state) => {
 	}
 };
 
-export const setRetrieveSlidesRequestStatus = (state, action) => {
-	return {
-		...state,
-		retrieveSlidesRequest: {
-			status: action.status
-		}
-	}
-};
-
 export const reducers = {
 	[constants.REDUX_STORE_EVENTS.SET_SLIDES]: setSlides,
-	[constants.REDUX_STORE_EVENTS.RESET_SLIDES]: resetSlides,
-	[constants.REDUX_STORE_EVENTS.SET_RETRIEVE_SLIDES_REQUEST_STATUS]: setRetrieveSlidesRequestStatus,
+	[constants.REDUX_STORE_EVENTS.RESET_SLIDES]: resetSlides
 };
 
 export default (state = initialSlides, action) => {

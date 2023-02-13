@@ -1,5 +1,3 @@
-import RequestStatus from "../constants/RequestStatus";
-
 export const initialAlert = {
 	message: '',
 	isError: false
@@ -14,10 +12,6 @@ export const initialItems = {
 	isGridView: true
 };
 
-export const initialRetrieveSlidesRequest = {
-	status: RequestStatus.LOADING
-};
 export const initialSlides = {
-	retrieveSlidesRequest: initialRetrieveSlidesRequest,
 	slides: []
 };

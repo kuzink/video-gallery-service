@@ -1,24 +1,20 @@
 import React, {Component} from 'react';
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
-import LoadingSpinnerComponent from "./spinner/LoadingSpinnerComponent";
-import ModalAlertContainer from "./modalalert/ModalAlertContainer";
-import LandingContainer from "./routes/LandingContainer";
-import ItemsContainer from "./routes/ItemsContainer";
-import PageNotFoundComponent from "./routes/PageNotFoundComponent";
-import TestWithSpinner from "./routes/TestWithSpinner";
+import LandingContainer from "./landing/containers/LandingContainer";
+import ItemsContainer from "./items/containers/ItemsContainer";
+import NotFoundComponent from "./notfound/NotFoundComponent";
+import TestContainer from "./test/TestContainer";
 
 class AppContainer extends Component {
 
 	render() {
 		return (
 			<Router>
-				{/*<LoadingSpinnerComponent/>*/}
-				<ModalAlertContainer/>
 				<Switch>
 					<Route exact path="/" component={LandingContainer}/>
-					<Route exact path="/items" component={ItemsContainer}/>
-					<Route exact path="/spinner" component={TestWithSpinner}/>
-					<Route component={PageNotFoundComponent}/>
+					<Route exact path="/videos" component={ItemsContainer}/>
+					<Route exact path="/test" component={TestContainer}/>
+					<Route exact path="*" component={NotFoundComponent}/>
 				</Switch>
 			</Router>
 		);

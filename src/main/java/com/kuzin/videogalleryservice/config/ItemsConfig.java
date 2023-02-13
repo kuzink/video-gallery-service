@@ -1,7 +1,6 @@
 package com.kuzin.videogalleryservice.config;
 
 import com.kuzin.videogalleryservice.domain.Item;
-import org.apache.commons.io.FileUtils;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -71,29 +70,11 @@ public class ItemsConfig {
 				.sorted()
 				.collect(toList());
 
-			final List<byte[]> thumbnails = thumbnailNames.stream()
-				.map(it -> loadThumbnailBytes(name, it))
-				.collect(toList());
-
 			final int initialThumbnailIndex = determineInitialThumbnailIndex(thumbnailNames);
 
-			return new Item(count + 1, name, size, thumbnails, initialThumbnailIndex);
-
+			return new Item(count + 1, name, size, thumbnailNames, initialThumbnailIndex);
 		} else {
 			return new Item(count + 1, name, size, emptyList(), 0);
-		}
-	}
-
-	private byte[] loadThumbnailBytes(final String thumbnailFolderName, final String thumbnailName) {
-
-		final File file = Paths.get(thumbnailsLocation + "/" + thumbnailFolderName)
-			.resolve(thumbnailName)
-			.toFile();
-
-		try {
-			return FileUtils.readFileToByteArray(file);
-		} catch (IOException e) {
-			return null;
 		}
 	}
 
