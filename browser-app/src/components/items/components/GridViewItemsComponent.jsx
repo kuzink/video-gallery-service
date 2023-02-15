@@ -10,9 +10,8 @@ const GridViewItemsComponent = (props) => {
 			{items.map((item, index) => (
 				<div id={index} key={index} className="col-2 mb-4 pb-1">
 					<div className="card shadow-sm position-relative">
-						<ThumbnailSliderComponent itemId={item.id}
-												  itemName={item.name}
-						                          thumbnailNames={item.thumbnailNames}
+						<ThumbnailSliderComponent itemName={item.name}
+						                          thumbnails={item.thumbnails}
 						                          initialThumbnailIndex={item.initialThumbnailIndex}
 						                          handleOnItemSelect={handleOnItemSelect}/>
 						<div className="custom-card-popover">{item.size}</div>

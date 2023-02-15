@@ -223,7 +223,8 @@ video:focus {
 }
 
 /*Spinner*/
-.spinner-overlay {
+.spinner-overlay,
+.request-spinner-overlay {
   position: fixed;
   top: 0;
   width: 100%;
@@ -235,6 +236,11 @@ video:focus {
   background-color: white;
   z-index: 930;
   transition: visibility 0.3s, opacity 0.3s linear;
+}
+.request-spinner-overlay {
+  top: 78px;
+  height: calc(100vh - 78px);
+  /*background-color: orchid;*/
 }
 .loading {
   visibility: visible;
@@ -249,7 +255,8 @@ video:focus {
   height: 130px;
   position: relative;
 }
-.spinner-div {
+.spinner-div,
+.request-spinner-div {
   width: 116px;
   height: 116px;
   background-color: white;
@@ -260,6 +267,10 @@ video:focus {
   border-left: 4px solid transparent;
   border-radius: 50%;
   animation: Spin 1s linear infinite;
+}
+.request-spinner-div {
+  border-top: 4px solid fuchsia;
+  animation: Spin .5s linear infinite;
 }
 .spinner-img {
   width: 100px;

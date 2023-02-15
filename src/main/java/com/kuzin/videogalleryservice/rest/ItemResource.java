@@ -8,28 +8,18 @@ import static com.kuzin.videogalleryservice.dto.PagedItemsResponse.Page;
 import static java.util.stream.Collectors.toList;
 import static org.apache.commons.lang3.StringUtils.isNotBlank;
 
-import org.apache.commons.io.*;
-import org.springframework.beans.factory.annotation.*;
+import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
-import java.io.*;
-import java.nio.file.*;
 import java.util.*;
 
 @RestController
+@AllArgsConstructor
 @RequestMapping("/items")
 @CrossOrigin
 public class ItemResource {
 
 	private final List<Item> items;
-	private final String thumbnailsLocation;
-
-	@Autowired
-	public ItemResource(final List<Item> items,
-	                    @Value("${thumbnails.location}") final String thumbnailsLocation) {
-		this.items = items;
-		this.thumbnailsLocation = thumbnailsLocation;
-	}
 
 	@GetMapping
 	public PagedItemsResponse getItems(@RequestParam(value = "size", defaultValue = "9") final int size,
@@ -51,11 +41,6 @@ public class ItemResource {
 			.page(buildPage(foundItems, size, page))
 			.items(buildItems(foundItems, size, page))
 			.build();
-	}
-
-	@GetMapping("/{itemId}/thumbnails/{thumbnailName}")
-	public byte[] getItemThumbnail(@PathVariable final Integer itemId, @PathVariable final String thumbnailName) {
-		return loadThumbnailBytes(itemId, thumbnailName);
 	}
 
 	private List<Item> findItemsBySearchCondition(final String search) {
@@ -97,29 +82,6 @@ public class ItemResource {
 		}
 
 		return filteredItems;
-	}
-
-	private byte[] loadThumbnailBytes(final Integer itemId, final String thumbnailName) {
-
-		final Optional<String> foundItemName = items.stream()
-			.filter(item -> item.getId().equals(itemId))
-			.map(Item::getName)
-			.findFirst();
-
-		if (foundItemName.isPresent()) {
-
-			final File file = Paths.get(thumbnailsLocation + "/" + foundItemName.get())
-				.resolve(thumbnailName)
-				.toFile();
-
-			try {
-				return FileUtils.readFileToByteArray(file);
-			} catch (IOException e) {
-				return null;
-			}
-		}
-
-		return null;
 	}
 
 }

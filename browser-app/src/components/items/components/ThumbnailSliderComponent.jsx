@@ -3,14 +3,12 @@ import Slider from 'react-slick';
 import DefaultThumbnail from '../../../assets/defaultThumbnail.jpg';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlay } from '@fortawesome/free-solid-svg-icons'
-import constants from "../../../constants/Constants";
 
 const ImageSlider = (props) => {
 
 	const {
-		itemId,
 		itemName,
-		thumbnailNames,
+		thumbnails,
 		handleOnItemSelect,
 		initialThumbnailIndex
 	} = props;
@@ -21,17 +19,16 @@ const ImageSlider = (props) => {
 		draggable: false,
 		arrows: false,
 		fade: true,
-		lazyLoad: true,
 		initialSlide: initialThumbnailIndex
 	};
 
 	return (
 		<div className="custom-card-image">
-			{thumbnailNames && thumbnailNames.length === 0 ?
-			<img className="card-img-top" src={DefaultThumbnail}/> :
+			{thumbnails && thumbnails.length === 0 ?
+			<img className="card-img-top" src={DefaultThumbnail}/> : thumbnails &&
 			<Slider {...settings}>
-				{thumbnailNames.map((thumbnailName, index) =>
-				<img key={index} className="card-img-top" src={`${constants.BASE_URL}/items/${itemId}/thumbnails/${thumbnailName}`}/>
+				{thumbnails.map((thumbnail, index) =>
+				<img key={index} className="card-img-top" src={`data:image/jpeg;base64,${thumbnail}`}/>
 				)}
 			</Slider>
 			}
