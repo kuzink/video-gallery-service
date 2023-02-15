@@ -15,8 +15,8 @@ const ListViewItemsComponent = (props) => {
 					<div className={`card shadow-sm ${index === items.length - 1 ? 'mb-4' : 'mb-2'}`}>
 						<div className="custom-list-view-item" onClick={handleOnItemSelect.bind(this, item.name)}>
 							<div className="custom-list-view-item-left">
-								<img src={item.thumbnails.length
-									? `data:image/jpeg;base64,${item.thumbnails[0]}`
+								<img src={item.thumbnailNames.length
+									? `data:image/jpeg;base64,${item.initialThumbnail}`
 									: DefaultThumbnail}/>
 								<div className="custom-mask flex-center" title="Play video">
 									<h3><FontAwesomeIcon icon={faPlay} className="text-white"/></h3>

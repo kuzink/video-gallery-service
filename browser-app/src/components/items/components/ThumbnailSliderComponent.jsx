@@ -3,12 +3,15 @@ import Slider from 'react-slick';
 import DefaultThumbnail from '../../../assets/defaultThumbnail.jpg';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlay } from '@fortawesome/free-solid-svg-icons'
+import constants from "../../../constants/Constants";
 
 const ImageSlider = (props) => {
 
 	const {
+		itemId,
 		itemName,
-		thumbnails,
+		initialThumbnail,
+		thumbnailNames,
 		handleOnItemSelect,
 		initialThumbnailIndex
 	} = props;
@@ -19,16 +22,31 @@ const ImageSlider = (props) => {
 		draggable: false,
 		arrows: false,
 		fade: true,
+		lazyLoad: true,
 		initialSlide: initialThumbnailIndex
 	};
 
 	return (
 		<div className="custom-card-image">
-			{thumbnails && thumbnails.length === 0 ?
-			<img className="card-img-top" src={DefaultThumbnail}/> : thumbnails &&
+			{thumbnailNames && thumbnailNames.length === 0 ?
+			<img className="card-img" src={DefaultThumbnail}/> : thumbnailNames &&
 			<Slider {...settings}>
-				{thumbnails.map((thumbnail, index) =>
-				<img key={index} className="card-img-top" src={`data:image/jpeg;base64,${thumbnail}`}/>
+				{thumbnailNames.map((thumbnailName, index) => {
+						if (index === initialThumbnailIndex) {
+							return (
+								<img key={index}
+								     className="card-img"
+								     src={`data:image/jpeg;base64,${initialThumbnail}`}/>
+							)
+						} else {
+							return (
+								<img key={index}
+								     className="card-img"
+								     src={`${constants.BASE_URL}/items/${itemId}/thumbnails/${thumbnailName}`}/>
+							)
+						}
+					}
+
 				)}
 			</Slider>
 			}

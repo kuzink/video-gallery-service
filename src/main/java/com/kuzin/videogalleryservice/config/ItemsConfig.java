@@ -71,15 +71,13 @@ public class ItemsConfig {
 				.sorted()
 				.collect(toList());
 
-			final List<byte[]> thumbnails = thumbnailNames.stream()
-				.map(it -> loadThumbnailBytes(name, it))
-				.collect(toList());
-
 			final int initialThumbnailIndex = determineInitialThumbnailIndex(thumbnailNames);
 
-			return new Item(count + 1, name, size, thumbnails, initialThumbnailIndex);
+			final byte[] initialThumbnail = getInitialThumbnailBytes(name, thumbnailNames, initialThumbnailIndex);
+
+			return new Item(count + 1, name, size, initialThumbnail, initialThumbnailIndex, thumbnailNames);
 		} else {
-			return new Item(count + 1, name, size, emptyList(), 0);
+			return new Item(count + 1, name, size, null, 0, emptyList());
 		}
 	}
 
@@ -127,11 +125,26 @@ public class ItemsConfig {
 	}
 
 	private int determineInitialThumbnailIndex(final List<String> thumbnailNames) {
-		return thumbnailNames.stream()
-			.filter(name -> name.contains(INITIAL_THUMBNAIL_POSTFIX))
-			.findFirst()
-			.map(thumbnailNames::indexOf)
-			.orElse(new Random().nextInt(thumbnailNames.size()));
+		if (thumbnailNames.size() > 0) {
+			return thumbnailNames.stream()
+				.filter(name -> name.contains(INITIAL_THUMBNAIL_POSTFIX))
+				.findFirst()
+				.map(thumbnailNames::indexOf)
+				.orElse(new Random().nextInt(thumbnailNames.size()));
+		}
+
+		return 0;
 	}
 
+	private byte[] getInitialThumbnailBytes(final String thumbnailFolderName, final List<String> thumbnailNames,
+	                                        final int initialThumbnailIndex) {
+
+		if (thumbnailNames.size() > 0) {
+			final String initialThumbnailName = thumbnailNames.get(initialThumbnailIndex);
+
+			return loadThumbnailBytes(thumbnailFolderName, initialThumbnailName);
+		}
+
+		return null;
+	}
 }
