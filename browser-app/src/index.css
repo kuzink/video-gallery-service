@@ -489,7 +489,7 @@ video:focus {
 }
 
 /*BackButtonComponent*/
-.fixed-top {
+.back-button-fixed-top {
   z-index: 910;
   right: initial;
 }
@@ -591,4 +591,34 @@ video:focus {
   50% {
     transform: translate(6px, 0);
   }
+}
+
+/*FOR TEST*/
+.test-header {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 56px;
+  z-index: 1030;
+  background-color: dodgerblue;
+}
+.test-sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 300px;
+  height: 100vh;
+  z-index: 1020;
+  padding-top: 56px;
+  background-color: lightcoral;
+}
+.test-content-outer {
+  padding-top: 56px;
+  padding-left: 300px;
+  background-color: darkolivegreen;
+}
+.test-content-inner {
+  padding: 20px;
+  background-color: lightgoldenrodyellow;
 }
