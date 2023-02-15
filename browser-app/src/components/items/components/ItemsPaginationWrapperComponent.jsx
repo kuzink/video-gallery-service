@@ -124,10 +124,10 @@ const ItemsPaginationWrapperComponent = (props) => {
 	return (
 		<div className="custom-items-wrapper pt-3 pb-5">
 
-			<div className="container">
+			<div className="container-fluid">
 				<div className="row">
 					<div className="col-12">
-						<div className="d-flex align-items-center justify-content-between">
+						<div className="d-flex align-items-end justify-content-between">
 							<div>
 								<h5 className="mb-0 font-weight-normal">{defineShowingItemsText()}</h5>
 							</div>
@@ -177,9 +177,9 @@ const ItemsPaginationWrapperComponent = (props) => {
 
 			{isPaginationButtonsVisible() &&
 			<div className="container">
-				<div className="row">
+				<div className="row ">
 					<div className="col-12">
-						<ul className="pagination mb-0 justify-content-end">
+						<ul className="pagination mb-0 justify-content-center">
 							{pages.map((p, index) => {
 								if (p === LEFT_PAGE) {
 									return (

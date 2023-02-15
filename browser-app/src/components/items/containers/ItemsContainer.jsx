@@ -57,38 +57,64 @@ export class ItemsContainer extends Component {
 	render() {
 		const {items, page, itemName, searchText, sortBy, isGridView, retrieveItems} = this.props;
 		const {isLoading} = this.state;
+		// const isLoading = true;
 
 		return (
 			<React.Fragment>
+
 				<ModalAlertContainer/>
 
 				<Spinner isLoading={isLoading}/>
 
-				{!isLoading &&
-				<React.Fragment>
-					<RequestSpinner/>
+				<div className="test-header">
+					<p className="text-white">Navbar</p>
+				</div>
 
-					<BackButtonComponent classNames="back-button-fixed-top ml-3 mt-3"/>
+				<div className="test-sidebar">
+					<p>Sidebar</p>
+				</div>
 
-					<ItemsPaginationWrapperComponent page={page}
-					                                 sortBy={sortBy}
-					                                 sortByChange={this.handleSortByChange}
-					                                 searchText={searchText}
-					                                 searchTextChange={this.handleSearchTextChange}
-					                                 isGridView={isGridView}
-					                                 isGridViewChange={this.handleIsGridViewChange}
-					                                 getItems={retrieveItems}>
-						<ItemsComponent items={items}
-						                isGridView={isGridView}
-						                handleOnItemSelect={this.handleOnItemSelect}/>
-					</ItemsPaginationWrapperComponent>
+				<div className="test-content-outer">
+					<div className="test-content-inner">
 
-					<ScrollTopButtonComponent/>
 
-					<ItemDetailsComponent itemName={itemName}
-					                      handleCancel={this.handleCancel}/>
-				</React.Fragment>
-				}
+
+
+						{!isLoading &&
+						<React.Fragment>
+							<RequestSpinner/>
+
+							{/*<BackButtonComponent classNames="back-button-fixed-top ml-3 mt-3"/>*/}
+
+							<ItemsPaginationWrapperComponent page={page}
+							                                 sortBy={sortBy}
+							                                 sortByChange={this.handleSortByChange}
+							                                 searchText={searchText}
+							                                 searchTextChange={this.handleSearchTextChange}
+							                                 isGridView={isGridView}
+							                                 isGridViewChange={this.handleIsGridViewChange}
+							                                 getItems={retrieveItems}>
+								<ItemsComponent items={items}
+								                isGridView={isGridView}
+								                handleOnItemSelect={this.handleOnItemSelect}/>
+							</ItemsPaginationWrapperComponent>
+
+							<ScrollTopButtonComponent/>
+
+							<ItemDetailsComponent itemName={itemName}
+							                      handleCancel={this.handleCancel}/>
+						</React.Fragment>
+						}
+
+
+					</div>
+				</div>
+
+
+
+
+
+
 			</React.Fragment>
 		)
 	}

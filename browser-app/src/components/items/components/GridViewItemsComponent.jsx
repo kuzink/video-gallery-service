@@ -8,7 +8,7 @@ const GridViewItemsComponent = (props) => {
 	return (
 		<React.Fragment>
 			{items.map((item, index) => (
-				<div id={index} key={index} className="col-2 mb-4 pb-1">
+				<div id={index} key={index} className="col mb-4 pb-1">
 					<div className="card shadow-sm position-relative">
 						<ThumbnailSliderComponent itemId={item.id}
 						                          itemName={item.name}

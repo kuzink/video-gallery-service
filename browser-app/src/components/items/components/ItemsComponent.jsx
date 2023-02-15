@@ -9,7 +9,7 @@ const ItemsComponent = (props) => {
 
 	return (
 		<div className="container-fluid mt-4 pt-2 pb-1">
-			<div className="row">
+			<div className="row row-cols-5">
 				{isGridView
 					? <GridViewItemsComponent items={items} handleOnItemSelect={handleOnItemSelect}/>
 					: <ListViewItemsComponent items={items} handleOnItemSelect={handleOnItemSelect}/>

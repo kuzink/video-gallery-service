@@ -162,7 +162,7 @@ video:focus {
 
 /*Wrappers*/
 .custom-items-wrapper {
-  min-height: 100vh;
+  /*min-height: 100vh;*/
 }
 .custom-landing-wrapper,
 .custom-not-found-wrapper {
@@ -234,12 +234,14 @@ video:focus {
   align-items: center;
   flex-direction: column;
   background-color: white;
-  z-index: 930;
+  z-index: 2030;
   transition: visibility 0.3s, opacity 0.3s linear;
 }
 .request-spinner-overlay {
-  top: 78px;
-  height: calc(100vh - 78px);
+  top: 56px;
+  width: calc(100% - 302px);
+  height: calc(100vh - 56px);
+  transition: none;
   /*background-color: orchid;*/
 }
 .loading {
@@ -269,6 +271,7 @@ video:focus {
   animation: Spin 1s linear infinite;
 }
 .request-spinner-div {
+  /*background-color: red;*/
   border-top: 4px solid fuchsia;
   animation: Spin .5s linear infinite;
 }
@@ -601,7 +604,7 @@ video:focus {
   left: 0;
   height: 56px;
   z-index: 1030;
-  background-color: dodgerblue;
+  background-color: darkgrey;
 }
 .test-sidebar {
   position: fixed;
@@ -611,14 +614,16 @@ video:focus {
   height: 100vh;
   z-index: 1020;
   padding-top: 56px;
-  background-color: lightcoral;
+  background-color: lightgray;
 }
 .test-content-outer {
   padding-top: 56px;
   padding-left: 300px;
+  min-height: 100vh;
   background-color: darkolivegreen;
 }
 .test-content-inner {
-  padding: 20px;
-  background-color: lightgoldenrodyellow;
+  /*padding: 20px;*/
+  /*background-color: lightgoldenrodyellow;*/
+  background-color: white;
 }
