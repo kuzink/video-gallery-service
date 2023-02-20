@@ -79,7 +79,8 @@ video:focus {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  color: #444;
+  font-size: 14px;
+  color: #555;
 }
 .custom-card-popover {
   position: absolute;
@@ -89,6 +90,7 @@ video:focus {
   background-color: rgba(0,0,0,0.5);
   border-radius: 3px;
   font-size: 11px;
+  line-height: 1.15;
   color: #fff;
   text-align: center;
   z-index: 1;
@@ -160,9 +162,30 @@ video:focus {
   flex: 1;
 }
 
+/*Custom col for items grid view*/
+.custom-col {
+  padding-left: 7px;
+  padding-right: 8px;
+  margin-bottom: 15px;
+}
+
 /*Wrappers*/
+.custom-items-with-pagination-and-toolbar-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100vh - 56px);
+}
 .custom-items-wrapper {
-  /*min-height: 100vh;*/
+  padding: 32px 7px 16px 8px;
+}
+.custom-pagination-wrapper {
+  min-height: 38px;
+  flex-grow: 3;
+  position: relative;
+}
+.custom-pagination-wrapper > div {
+  position: absolute;
+  bottom: 0;
 }
 .custom-landing-wrapper,
 .custom-not-found-wrapper {
@@ -175,50 +198,60 @@ video:focus {
 /*ImageSlider*/
 /*slick-dots(ul)*/
 .slick-dots {
-  bottom: 0;
-  right: 0;
-  left: 0;
+  position: absolute;
+  bottom: 6px;
+  left: 7px;
   width: fit-content;
-  height: 21px;
-  margin: 0 auto;
+  background-color: rgba(0,0,0,0.5);
+  border-radius: 3px;
+  font-size: 11px;
+  padding-left: 2px;
+  padding-right: 2px;
   cursor: default;
-  line-height: 10px;
   z-index: 21;
 }
 .slick-dots li {
-  width: 26px;
-  height: 21px;
+  width: 14px;
+  height: 19px;
   margin: 0;
 }
 .slick-dots li button {
-  width: 26px;
-  height: 21px;
+  width: 14px;
+  height: 19px;
   padding: 0;
   font-size: inherit;
 }
 .slick-dots li button::before,
 .slick-dots li.slick-active button:before {
   width: 10px;
-  padding-left: 8px;
-  padding-right: 8px;
-  height: 21px;
-  content: url("assets/circle-dot-default.svg");
+  margin-top: 3px;
+  margin-bottom: 4px;
+  margin-left: 2px;
+  margin-right: 2px;
+  height: 12px;
+  background-color: transparent;
+  content: "";
+  border: 1px solid white;
+  border-radius: 2px;
+  transition: all .2s ease-in-out;
 }
 .slick-dots li button::before {
   opacity: 1;
 }
 .slick-dots li.slick-active button:before {
-  content: url("assets/circle-dot-active.svg");
+  background-color: limegreen;
+  border: 1px solid white;
   opacity: 1;
 }
 .slick-dots li button:hover:before,
 .slick-dots li button:focus:before {
-  content: url("assets/circle-dot-hover.svg");
+  border: 1px solid #ccc;
   opacity: 1;
 }
 .slick-dots li.slick-active button:hover:before,
 .slick-dots li.slick-active button:focus:before {
-  content: url("assets/circle-dot-active.svg");
+  background-color: limegreen;
+  border: 1px solid white;
   opacity: 1;
 }
 
@@ -239,10 +272,10 @@ video:focus {
 }
 .request-spinner-overlay {
   top: 56px;
-  width: calc(100% - 302px);
+  width: calc(100% - 300px);
   height: calc(100vh - 56px);
   transition: none;
-  /*background-color: orchid;*/
+  background-color: #F8F9FA;
 }
 .loading {
   visibility: visible;
@@ -271,8 +304,8 @@ video:focus {
   animation: Spin 1s linear infinite;
 }
 .request-spinner-div {
-  /*background-color: red;*/
   border-top: 4px solid fuchsia;
+  background-color: #F8F9FA;
   animation: Spin .5s linear infinite;
 }
 .spinner-img {
@@ -294,7 +327,6 @@ video:focus {
   );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  /*color: transparent;*/
   animation: Color 1s linear;
 }
 @keyframes Spin {
@@ -434,7 +466,7 @@ video:focus {
 
 /*Search*/
 .custom-search-items-input {
-  min-width: 250px;
+  min-width: 280px;
   padding-left: 36px;
   color: #6c757d;
   border-color: #DEE2E6;
@@ -449,6 +481,9 @@ video:focus {
   position: absolute;
   left: 10px;
   color: #c7cbce;
+}
+.custom-showing-text {
+  color: #6c757d;
 }
 
 /*LandingSlider*/
@@ -620,10 +655,7 @@ video:focus {
   padding-top: 56px;
   padding-left: 300px;
   min-height: 100vh;
-  background-color: darkolivegreen;
 }
 .test-content-inner {
-  /*padding: 20px;*/
-  /*background-color: lightgoldenrodyellow;*/
-  background-color: white;
+  background-color: red;
 }

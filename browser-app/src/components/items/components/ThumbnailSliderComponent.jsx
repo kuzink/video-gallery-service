@@ -1,9 +1,8 @@
 import React from 'react';
 import Slider from 'react-slick';
-import DefaultThumbnail from '../../../assets/defaultThumbnail.jpg';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faPlay } from '@fortawesome/free-solid-svg-icons'
+import DefaultThumbnail from '../../../assets/320x180.gif';
 import constants from "../../../constants/Constants";
+import PlayIcon from '../../../assets/play-circle.svg';
 
 const ImageSlider = (props) => {
 
@@ -29,20 +28,33 @@ const ImageSlider = (props) => {
 	return (
 		<div className="custom-card-image">
 			{thumbnailNames && thumbnailNames.length === 0 ?
-			<img className="card-img" src={DefaultThumbnail}/> : thumbnailNames &&
+			<img className="card-img-top" src={DefaultThumbnail}/> : thumbnailNames &&
 			<Slider {...settings}>
+				{/*{thumbnailNames.map((thumbnailName, index) => {*/}
+						{/*if (index === initialThumbnailIndex) {*/}
+							{/*return (*/}
+								{/*<img key={index}*/}
+								     {/*className="card-img-top"*/}
+								     {/*src={`data:image/jpeg;base64,${initialThumbnail}`}/>*/}
+							{/*)*/}
+						{/*} else {*/}
+							{/*return (*/}
+								{/*<img key={index}*/}
+								     {/*className="card-img-top"*/}
+								     {/*src={`${constants.BASE_URL}/items/${itemId}/thumbnails/${thumbnailName}`}/>*/}
+							{/*)*/}
+						{/*}*/}
+					{/*}*/}
+
+				{/*)}*/}
 				{thumbnailNames.map((thumbnailName, index) => {
 						if (index === initialThumbnailIndex) {
 							return (
-								<img key={index}
-								     className="card-img"
-								     src={`data:image/jpeg;base64,${initialThumbnail}`}/>
+								<img className="card-img-top" src={DefaultThumbnail}/>
 							)
 						} else {
 							return (
-								<img key={index}
-								     className="card-img"
-								     src={`${constants.BASE_URL}/items/${itemId}/thumbnails/${thumbnailName}`}/>
+								<img className="card-img-top" src={DefaultThumbnail}/>
 							)
 						}
 					}
@@ -51,7 +63,7 @@ const ImageSlider = (props) => {
 			</Slider>
 			}
 			<div className="custom-mask flex-center" onClick={handleOnItemSelect.bind(this, itemName)}>
-				<h1><FontAwesomeIcon icon={faPlay} className="text-white"/></h1>
+				<h1 className="mb-0"><img src={PlayIcon} className="text-white"/></h1>
 			</div>
 		</div>
 	);
