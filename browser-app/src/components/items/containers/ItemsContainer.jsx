@@ -80,8 +80,6 @@ export class ItemsContainer extends Component {
 					<React.Fragment>
 						<RequestSpinner/>
 
-						{/*<BackButtonComponent classNames="back-button-fixed-top ml-3 mt-3"/>*/}
-
 						<ItemsPaginationWrapperComponent page={page}
 						                                 sortBy={sortBy}
 						                                 sortByChange={this.handleSortByChange}

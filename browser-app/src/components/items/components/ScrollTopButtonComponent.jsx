@@ -12,7 +12,7 @@ const Icon = () =>
 const ScrollTopButtonComponent = () =>
 	<ScrollTop distance={100}
 	           target={0}
-	           breakpoint={1921}
+	           breakpoint={500}
 	           speed={250}
 	           className="custom-scroll-top-button"
 	           icon={<Icon/>}/>

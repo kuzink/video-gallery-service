@@ -122,48 +122,50 @@ const ItemsPaginationWrapperComponent = (props) => {
 	};
 
 	return (
-		<div className="custom-items-with-pagination-and-toolbar-wrapper pt-5 pb-5">
+		<div className="custom-items-with-pagination-and-toolbar-wrapper">
+			<div className="inner">
 
-			<div className="custom-toolbar-wrapper">
-				<div className="container-fluid">
-					<div className="row">
-						<div className="col-12">
-							<div className="d-flex align-items-baseline justify-content-between">
-								<div>
-									<p className="mb-0 pl-2 custom-showing-text">{defineShowingItemsText()}</p>
-								</div>
-								<div className="d-flex align-items-center">
-									<div className="form-inline my-0 mr-4 position-relative">
-										<FontAwesomeIcon icon={faSearch} className="custom-search-icon"/>
-										<input className="form-control custom-search-items-input"
-										       type="text"
-										       placeholder="Search"
-										       value={searchText}
-										       onKeyPress={handleKeyPress}
-										       onChange={searchTextChange}/>
+				<div className="custom-toolbar-wrapper">
+					<div className="container-fluid">
+						<div className="row">
+							<div className="col-12 custom-col">
+								<div className="d-flex align-items-baseline justify-content-between">
+									<div>
+										<h4 className="custom-showing-text">{defineShowingItemsText()}</h4>
 									</div>
-									<div className="mr-4">
-										<Select options={constants.SORT_CRITERIA_OPTIONS}
-										        value={defineSortByValue()}
-										        onChange={handleSortByChange}
-										        classNamePrefix="react-sort-by-select"/>
-									</div>
-									<div className="mr-4">
-										<Select options={constants.PAGE_SIZE_OPTIONS}
-										        value={definePageSizeValue()}
-										        onChange={handlePageSizeChange}
-										        classNamePrefix="react-page-size-select"/>
-									</div>
-									<div className="btn-group">
-										<div className={`btn custom-toggle-view-button ${isGridView ? '' : 'active'}`}
-										     onClick={handleIsGridViewChange.bind(this, false)}
-										     title="List view">
-											<FontAwesomeIcon icon={faList} className="custom-toggle-view-icon"/>
+									<div className="d-flex align-items-center">
+										{/*<div className="form-inline my-0 mr-4 position-relative">*/}
+										{/*<FontAwesomeIcon icon={faSearch} className="custom-search-icon"/>*/}
+										{/*<input className="form-control custom-search-items-input"*/}
+										{/*type="text"*/}
+										{/*placeholder="Search"*/}
+										{/*value={searchText}*/}
+										{/*onKeyPress={handleKeyPress}*/}
+										{/*onChange={searchTextChange}/>*/}
+										{/*</div>*/}
+										<div className="mr-4">
+											<Select options={constants.SORT_CRITERIA_OPTIONS}
+											        value={defineSortByValue()}
+											        onChange={handleSortByChange}
+											        classNamePrefix="react-sort-by-select"/>
 										</div>
-										<div className={`btn custom-toggle-view-button ${isGridView ? 'active' : ''}`}
-										     onClick={handleIsGridViewChange.bind(this, true)}
-										     title="Grid view">
-											<FontAwesomeIcon icon={faTh} className="custom-toggle-view-icon"/>
+										<div className="mr-4">
+											<Select options={constants.PAGE_SIZE_OPTIONS}
+											        value={definePageSizeValue()}
+											        onChange={handlePageSizeChange}
+											        classNamePrefix="react-page-size-select"/>
+										</div>
+										<div className="btn-group">
+											<div className={`btn custom-toggle-view-button ${isGridView ? '' : 'active'}`}
+											     onClick={handleIsGridViewChange.bind(this, false)}
+											     title="List view">
+												<FontAwesomeIcon icon={faList} className="custom-toggle-view-icon"/>
+											</div>
+											<div className={`btn custom-toggle-view-button ${isGridView ? 'active' : ''}`}
+											     onClick={handleIsGridViewChange.bind(this, true)}
+											     title="Grid view">
+												<FontAwesomeIcon icon={faTh} className="custom-toggle-view-icon"/>
+											</div>
 										</div>
 									</div>
 								</div>
@@ -171,44 +173,44 @@ const ItemsPaginationWrapperComponent = (props) => {
 						</div>
 					</div>
 				</div>
-			</div>
 
-			{children}
+				{children}
 
-			<div className="custom-pagination-wrapper">
-				<div className="container-fluid">
-					<div className="row ">
-						<div className="col-12">
-							{isPaginationButtonsVisible() &&
-							<ul className="pagination mb-0 justify-content-center">
-								{pages.map((p, index) => {
-									if (p === LEFT_PAGE) {
-										return (
-											<li key={index} className="page-item">
-												<a className="page-link" onClick={handleMoveLeft}>&laquo;</a>
-											</li>
-										);
-									} else if (p === RIGHT_PAGE) {
-										return (
-											<li key={index} className="page-item">
-												<a className="page-link" onClick={handleMoveRight}>&raquo;</a>
-											</li>
-										);
-									} else {
-										return (
-											<li key={index} className={`page-item ${ page.page === p ? ' active' : ''}`}>
-												<a className="page-link" onClick={handleClick(p)}>{p}</a>
-											</li>
-										);
-									}
-								})}
-							</ul>
-							}
+				<div className="custom-pagination-wrapper">
+					<div className="container-fluid">
+						<div className="row ">
+							<div className="col-12 custom-col">
+								{isPaginationButtonsVisible() &&
+								<ul className="pagination mb-0 justify-content-center">
+									{pages.map((p, index) => {
+										if (p === LEFT_PAGE) {
+											return (
+												<li key={index} className="page-item">
+													<a className="page-link" onClick={handleMoveLeft}>&laquo;</a>
+												</li>
+											);
+										} else if (p === RIGHT_PAGE) {
+											return (
+												<li key={index} className="page-item">
+													<a className="page-link" onClick={handleMoveRight}>&raquo;</a>
+												</li>
+											);
+										} else {
+											return (
+												<li key={index} className={`page-item ${ page.page === p ? ' active' : ''}`}>
+													<a className="page-link" onClick={handleClick(p)}>{p}</a>
+												</li>
+											);
+										}
+									})}
+								</ul>
+								}
+							</div>
 						</div>
 					</div>
 				</div>
-			</div>
 
+			</div>
 		</div>
 	);
 };
