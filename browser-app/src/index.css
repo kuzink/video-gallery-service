@@ -233,13 +233,14 @@ video:focus {
 /*Wrappers*/
 .custom-items-with-pagination-and-toolbar-wrapper {
   background-color: #FAFBFE;
-  padding: 30px 12px 40px 12px;
+  padding: 0px 12px 40px 12px;
   max-height: calc(100vh - 56px);
   min-height: calc(100vh - 56px);
   overflow-y: auto;
 }
 .inner {
-  min-height: calc(100vh - 56px - 30px - 40px);
+  padding-top: 30px;
+  min-height: calc(100vh - 56px - 0px - 40px);
   display: flex;
   flex-direction: column;
 }
@@ -261,6 +262,14 @@ video:focus {
 .custom-pagination-wrapper > div {
   position: absolute;
   bottom: 0;
+}
+.pagination-and-scrolltop-inner {
+  position: relative;
+}
+.custom-scroll-top-div {
+  position: absolute;
+  bottom: 0;
+  right: 0;
 }
 .custom-landing-wrapper,
 .custom-not-found-wrapper {
@@ -613,25 +622,25 @@ video:focus {
 
 /*Scroll Top Button*/
 .custom-scroll-top-button {
-  bottom: 3rem!important;
-  right: 1rem!important;
-  border: 1px solid #6c757d!important;
-  padding: .375rem .75rem!important;
-  font-size: 1rem!important;
-  line-height: 1.5!important;
-  border-radius: .25rem!important;
-  color: #fff!important;
-  background-color: #6c757d!important;
-  display: inline-block!important;
-  font-weight: 400!important;
-  text-align: center!important;
-  vertical-align: middle!important;
-  transition: all .15s ease-in-out!important;
+  /*bottom: 3rem!important;*/
+  /*right: 1rem!important;*/
+  /*border: 1px solid #6c757d!important;*/
+  /*padding: .375rem .75rem!important;*/
+  /*font-size: 1rem!important;*/
+  /*line-height: 1.5!important;*/
+  /*border-radius: .25rem!important;*/
+  /*color: #fff!important;*/
+  /*background-color: #6c757d!important;*/
+  /*display: inline-block!important;*/
+  /*font-weight: 400!important;*/
+  /*text-align: center!important;*/
+  /*vertical-align: middle!important;*/
+  /*transition: all .15s ease-in-out!important;*/
 }
 .custom-scroll-top-button:hover {
-  color: #fff!important;
-  background-color: #5a6268!important;
-  border-color: #545b62!important;
+  /*color: #fff!important;*/
+  /*background-color: #5a6268!important;*/
+  /*border-color: #545b62!important;*/
 }
 
 /*ShowButtonComponent*/

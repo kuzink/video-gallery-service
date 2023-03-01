@@ -1,5 +1,4 @@
 import React from "react";
-import ScrollTop from "react-scrolltop-button";
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faAngleUp} from "@fortawesome/free-solid-svg-icons/index";
 
@@ -9,13 +8,22 @@ const Icon = () =>
 	</React.Fragment>
 ;
 
-const ScrollTopButtonComponent = () =>
-	<ScrollTop distance={100}
-	           target={0}
-	           breakpoint={500}
-	           speed={250}
-	           className="custom-scroll-top-button"
-	           icon={<Icon/>}/>
-;
+const ScrollTopButtonComponent = () => {
+
+	const handleClick = () => {
+		const element = document.getElementById('inner-id-for-scroll-top-button');
+		if (element) {
+			element.scrollIntoView({ behavior: 'smooth' });
+		}
+	};
+
+	return (
+		<div className="custom-scroll-top-div">
+			<button className="btn btn-secondary custom-scroll-top-button" onClick={handleClick}>
+				<Icon/>
+			</button>
+		</div>
+	);
+};
 
 export default ScrollTopButtonComponent;

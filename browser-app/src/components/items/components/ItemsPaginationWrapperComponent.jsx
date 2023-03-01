@@ -3,6 +3,7 @@ import Select from 'react-select';
 import constants from "../../../constants/Constants";
 import {faSearch, faList, faTh} from "@fortawesome/free-solid-svg-icons/index";
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import ScrollTopButtonComponent from "./ScrollTopButtonComponent";
 
 const ItemsPaginationWrapperComponent = (props) => {
 
@@ -123,7 +124,7 @@ const ItemsPaginationWrapperComponent = (props) => {
 
 	return (
 		<div className="custom-items-with-pagination-and-toolbar-wrapper">
-			<div className="inner">
+			<div id="inner-id-for-scroll-top-button" className="inner">
 
 				<div className="custom-toolbar-wrapper">
 					<div className="container-fluid">
@@ -178,33 +179,36 @@ const ItemsPaginationWrapperComponent = (props) => {
 
 				<div className="custom-pagination-wrapper">
 					<div className="container-fluid">
-						<div className="row ">
-							<div className="col-12 custom-col">
-								{isPaginationButtonsVisible() &&
-								<ul className="pagination mb-0 justify-content-center">
-									{pages.map((p, index) => {
-										if (p === LEFT_PAGE) {
-											return (
-												<li key={index} className="page-item">
-													<a className="page-link" onClick={handleMoveLeft}>&laquo;</a>
-												</li>
-											);
-										} else if (p === RIGHT_PAGE) {
-											return (
-												<li key={index} className="page-item">
-													<a className="page-link" onClick={handleMoveRight}>&raquo;</a>
-												</li>
-											);
-										} else {
-											return (
-												<li key={index} className={`page-item ${ page.page === p ? ' active' : ''}`}>
-													<a className="page-link" onClick={handleClick(p)}>{p}</a>
-												</li>
-											);
-										}
-									})}
-								</ul>
-								}
+						<div className="row">
+							<div className="col custom-col">
+								<div className="pagination-and-scrolltop-inner">
+									{isPaginationButtonsVisible() &&
+									<ul className="pagination mb-0 justify-content-center">
+										{pages.map((p, index) => {
+											if (p === LEFT_PAGE) {
+												return (
+													<li key={index} className="page-item">
+														<a className="page-link" onClick={handleMoveLeft}>&laquo;</a>
+													</li>
+												);
+											} else if (p === RIGHT_PAGE) {
+												return (
+													<li key={index} className="page-item">
+														<a className="page-link" onClick={handleMoveRight}>&raquo;</a>
+													</li>
+												);
+											} else {
+												return (
+													<li key={index} className={`page-item ${ page.page === p ? ' active' : ''}`}>
+														<a className="page-link" onClick={handleClick(p)}>{p}</a>
+													</li>
+												);
+											}
+										})}
+									</ul>
+									}
+									<ScrollTopButtonComponent/>
+								</div>
 							</div>
 						</div>
 					</div>

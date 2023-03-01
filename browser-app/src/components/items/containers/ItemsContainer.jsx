@@ -15,7 +15,6 @@ import BackButtonComponent from "../components/BackButtonComponent";
 import ItemsComponent from "../components/ItemsComponent";
 import ItemDetailsComponent from "../components/ItemDetailsComponent";
 import ItemsPaginationWrapperComponent from "../components/ItemsPaginationWrapperComponent";
-import ScrollTopButtonComponent from "../components/ScrollTopButtonComponent";
 import ModalAlertContainer from "../../utilities/modalalert/ModalAlertContainer";
 import Spinner from "../../utilities/spinner/Spinner";
 import RequestSpinner from "../../utilities/spinner/RequestSpinner";
@@ -93,19 +92,12 @@ export class ItemsContainer extends Component {
 							                handleOnItemSelect={this.handleOnItemSelect}/>
 						</ItemsPaginationWrapperComponent>
 
-						<ScrollTopButtonComponent/>
-
 						<ItemDetailsComponent itemName={itemName}
 						                      handleCancel={this.handleCancel}/>
 					</React.Fragment>
 					}
 
 				</div>
-
-
-
-
-
 
 			</React.Fragment>
 		)
