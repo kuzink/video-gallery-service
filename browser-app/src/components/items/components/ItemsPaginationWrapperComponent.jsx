@@ -122,8 +122,21 @@ const ItemsPaginationWrapperComponent = (props) => {
 		return isGridViewChange(isGridView);
 	};
 
+	const handleScroll = (event) => {
+		const {scrollTop} = event.target;
+		const el = document.getElementById('custom-scroll-top-div');
+
+		if (scrollTop > 0) {
+			el.classList.remove('d-none');
+			el.classList.add('d-block');
+		} else {
+			el.classList.remove('d-block');
+			el.classList.add('d-none');
+		}
+	};
+
 	return (
-		<div className="custom-items-with-pagination-and-toolbar-wrapper">
+		<div onScroll={handleScroll} id="custom-items-with-pagination-and-toolbar-wrapper" className="custom-items-with-pagination-and-toolbar-wrapper">
 			<div id="inner-id-for-scroll-top-button" className="inner">
 
 				<div className="custom-toolbar-wrapper">
@@ -181,38 +194,37 @@ const ItemsPaginationWrapperComponent = (props) => {
 					<div className="container-fluid">
 						<div className="row">
 							<div className="col custom-col">
-								<div className="pagination-and-scrolltop-inner">
-									{isPaginationButtonsVisible() &&
-									<ul className="pagination mb-0 justify-content-center">
-										{pages.map((p, index) => {
-											if (p === LEFT_PAGE) {
-												return (
-													<li key={index} className="page-item">
-														<a className="page-link" onClick={handleMoveLeft}>&laquo;</a>
-													</li>
-												);
-											} else if (p === RIGHT_PAGE) {
-												return (
-													<li key={index} className="page-item">
-														<a className="page-link" onClick={handleMoveRight}>&raquo;</a>
-													</li>
-												);
-											} else {
-												return (
-													<li key={index} className={`page-item ${ page.page === p ? ' active' : ''}`}>
-														<a className="page-link" onClick={handleClick(p)}>{p}</a>
-													</li>
-												);
-											}
-										})}
-									</ul>
-									}
-									<ScrollTopButtonComponent/>
-								</div>
+								{isPaginationButtonsVisible() &&
+								<ul className="pagination mb-0 justify-content-center">
+									{pages.map((p, index) => {
+										if (p === LEFT_PAGE) {
+											return (
+												<li key={index} className="page-item">
+													<a className="page-link" onClick={handleMoveLeft}>&laquo;</a>
+												</li>
+											);
+										} else if (p === RIGHT_PAGE) {
+											return (
+												<li key={index} className="page-item">
+													<a className="page-link" onClick={handleMoveRight}>&raquo;</a>
+												</li>
+											);
+										} else {
+											return (
+												<li key={index} className={`page-item ${ page.page === p ? ' active' : ''}`}>
+													<a className="page-link" onClick={handleClick(p)}>{p}</a>
+												</li>
+											);
+										}
+									})}
+								</ul>
+								}
 							</div>
 						</div>
 					</div>
 				</div>
+
+				<ScrollTopButtonComponent/>
 
 			</div>
 		</div>

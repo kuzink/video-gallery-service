@@ -18,7 +18,7 @@ const ScrollTopButtonComponent = () => {
 	};
 
 	return (
-		<div className="custom-scroll-top-div">
+		<div id="custom-scroll-top-div" className="custom-scroll-top-div d-none">
 			<button className="btn btn-secondary custom-scroll-top-button" onClick={handleClick}>
 				<Icon/>
 			</button>

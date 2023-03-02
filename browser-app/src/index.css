@@ -263,13 +263,10 @@ video:focus {
   position: absolute;
   bottom: 0;
 }
-.pagination-and-scrolltop-inner {
-  position: relative;
-}
 .custom-scroll-top-div {
-  position: absolute;
-  bottom: 0;
-  right: 0;
+  position: fixed;
+  bottom: 40px;
+  right: 41px;
 }
 .custom-landing-wrapper,
 .custom-not-found-wrapper {
