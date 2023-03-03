@@ -17,7 +17,7 @@ import java.nio.file.*;
 import java.util.*;
 
 @RestController
-@RequestMapping("/items")
+@RequestMapping("/api/items")
 @CrossOrigin
 public class ItemResource {
 

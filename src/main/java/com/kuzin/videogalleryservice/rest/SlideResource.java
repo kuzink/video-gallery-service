@@ -16,7 +16,7 @@ import java.util.Random;
 import static java.util.stream.Collectors.toList;
 
 @RestController
-@RequestMapping("/slides")
+@RequestMapping("/api/slides")
 @CrossOrigin
 public class SlideResource {
 
