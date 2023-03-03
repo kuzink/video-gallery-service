@@ -26,11 +26,19 @@ body::-webkit-scrollbar{
 
 /*Modal Item Details*/
 .modal-backdrop.show {
-  opacity: .8;
+  /*opacity: .8;*/
+}
+.modal {
+  /*background-color: black!important;*/
 }
 .custom-modal {
-  width: 1280px;
-  max-width: 83%;
+  width: 50%!important;
+  max-width: 50%!important;
+  min-width: 50%!important;
+  height: 100% !important;
+  max-height: 100% !important;
+  min-height: 100%!important;
+  margin: auto!important;
 }
 .custom-modal .modal-content {
   border: none;
@@ -38,10 +46,12 @@ body::-webkit-scrollbar{
   background-color: transparent;
 }
 video {
+  display: block;
   width: 100%;
   height: 100%;
   object-fit: contain;
   background-color: transparent;
+  transition: visibility 0.3s, opacity 0.3s linear;
 }
 video:focus {
   outline: none;
@@ -359,11 +369,11 @@ video:focus {
   /*background-color: #F8F9FA;*/
   background-color: #FAFBFE;
 }
-.loading {
+.visible {
   visibility: visible;
   opacity: 1;
 }
-.loaded {
+.hidden {
   visibility: hidden;
   opacity: 0;
 }

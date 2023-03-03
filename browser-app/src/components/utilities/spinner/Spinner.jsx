@@ -24,7 +24,7 @@ const Spinner = (props) => {
 	}, []);
 
 	return (
-		<div className={`spinner-overlay ${isLoading ? 'loading' : 'loaded'}`}>
+		<div className={`spinner-overlay ${isLoading ? 'visible' : 'hidden'}`}>
 			<div className="spinner-wrapper">
 				<div className="spinner-div"/>
 				<img className="spinner-img" src={icon}/>

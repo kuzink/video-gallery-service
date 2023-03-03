@@ -7,7 +7,7 @@ const RequestSpinner = () => {
 	// const promiseInProgress = true;
 
 	return (
-		<div className={`request-spinner-overlay ${promiseInProgress ? 'loading' : 'loaded'}`}>
+		<div className={`request-spinner-overlay ${promiseInProgress ? 'visible' : 'hidden'}`}>
 			<div className="spinner-wrapper">
 				<div className="request-spinner-div"/>
 			</div>
