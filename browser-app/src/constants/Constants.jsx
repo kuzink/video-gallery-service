@@ -22,7 +22,7 @@ export default {
 	},
 
 	PAGE_NUMBER_DEFAULT_VALUE: 1,
-	PAGE_SIZE_DEFAULT_VALUE: 8,
+	PAGE_SIZE_DEFAULT_VALUE: 20,
 	PAGE_SIZE_OPTIONS: [
 		{
 			value: 4,

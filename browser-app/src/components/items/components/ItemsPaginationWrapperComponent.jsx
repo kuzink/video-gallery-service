@@ -32,8 +32,9 @@ const ItemsPaginationWrapperComponent = (props) => {
 	};
 
 	const fetchPageNumbers = (totalPages, currentPage) => {
-		const totalNumbers = 5;
-		const totalBlocks = 7;
+		//Works correct but can be confusing if pages > 10, assume is not :)
+		const totalNumbers = 10; //was 5
+		const totalBlocks = 10; //was 7
 
 		if (totalPages > totalBlocks) {
 			const startPage = Math.max(2, currentPage - 1);
