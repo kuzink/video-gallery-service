@@ -2,7 +2,7 @@ import React, {useState} from "react"
 
 const SidebarItem = (props) => {
 
-    const {item} = props;
+    const {item, activeItemId, setActiveItemId} = props;
     const [open, setOpen] = useState(false);
     const [height, setHeight] = useState('0');
 
@@ -15,10 +15,16 @@ const SidebarItem = (props) => {
 	    setOpen(!open);
     };
 
+    const setItemId = (id) => setActiveItemId(id);
+
+    const shouldParentBeActive = (items) => {
+        return items.map(el => el.id).includes(activeItemId);
+    };
+
     if (item.children) {
         return (
             <li className="side-nav-item">
-                <div className={`side-nav-link ${open ? 'opened' : 'closed'}`} onClick={handleClick}>
+                <div className={`side-nav-link ${open ? 'opened' : ''} ${shouldParentBeActive(item.children)  ? 'active' : ''}`} onClick={handleClick}>
 	                {item.icon && <i className={item.icon}/>}
                     <span>{item.title}</span>
                     <span className="menu-arrow">
@@ -27,7 +33,10 @@ const SidebarItem = (props) => {
                 </div>
                 <ul className="side-nav-second-level" style={{height: height}}>
                     {item.children.map((child, index) =>
-                    <SidebarItem key={index} item={child}/>)
+                    <SidebarItem key={index}
+                                 item={child}
+                                 activeItemId={activeItemId}
+                                 setActiveItemId={setActiveItemId}/>)
                     }
                 </ul>
             </li>
@@ -40,7 +49,7 @@ const SidebarItem = (props) => {
         }
         return (
             <li className="side-nav-item">
-                <div className="side-nav-link">
+                <div className={`side-nav-link ${item.id === activeItemId ? 'active' : ''}`} onClick={setItemId.bind(this, item.id)}>
 	                {item.icon && <i className={item.icon}/>}
                     <span>{item.title}</span>
                 </div>

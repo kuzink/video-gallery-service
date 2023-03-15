@@ -2,9 +2,11 @@ import {combineReducers} from 'redux';
 import alertReducer from './AlertReducer';
 import itemsReducer from './ItemsReducer';
 import slidesReducer from './SlidesReducer';
+import sidebarReducer from './SidebarReducer';
 
 export default combineReducers({
 	alert: alertReducer,
 	items: itemsReducer,
-	slides: slidesReducer
+	slides: slidesReducer,
+	sidebar: sidebarReducer
 });

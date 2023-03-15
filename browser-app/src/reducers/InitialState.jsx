@@ -15,3 +15,7 @@ export const initialItems = {
 export const initialSlides = {
 	slides: []
 };
+
+export const initialSidebar = {
+	activeItemId: null
+};

@@ -10,7 +10,6 @@ const ItemDetailsComponent = (props) => {
 	const [source, setSource] = useState('');
 
 	useEffect(() => {
-		console.log('COMPONENT DID UPDATE');
 		if (isVisible) {
 			setSource(`${constants.BASE_URL}/videos/${itemName}.mp4`);
 			setTimeout(() => {
