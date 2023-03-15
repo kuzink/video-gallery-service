@@ -726,90 +726,72 @@ video:focus {
   }
 }
 
-
-
-
 /*Sidebar*/
 .side-nav {
   margin-bottom: 0;
-  padding-inline-start: 0;
+  padding: 0;
   list-style-type: none;
-  /*width: 260px;*/
-  /*flex-shrink: 0;*/
-  /*background-color: red;*/
-  /*height: 100%;*/
-  /*overflow: auto;*/
 }
 .side-nav-title {
   letter-spacing: .05em;
-  pointer-events: none;
   cursor: default;
-  white-space: nowrap;
   text-transform: uppercase;
   color: #8391a2;
   font-weight: 700;
-  padding: 15px 20px;
+  padding: 25px 30px 10px 30px;
   font-size: 12px;
 }
-
-
-
-.sidebar-item {
+.side-nav-link {
+  cursor: pointer;
   color: #8391a2;
-  cursor: pointer;
-  padding: .75em 1em;
-  display: block;
-  transition: all .25s ease-in-out;
-  /*border-radius: 5px;*/
+  padding: 10px 30px;
+  position: relative;
+  transition: all .3s ease-in-out;
+  list-style: none;
 }
-.sidebar-item i {
-  display: inline-block;
-  width: 1.7em;
-}
-.sidebar-item:hover {
+.side-nav-link:hover {
   color: #bccee4;
-  /*background-color: green;*/
 }
-.sidebar-title {
-  display: flex;
-  font-size: 1.2em;
-  justify-content: space-between;
-}
-.sidebar-title div i {
+.side-nav-link i {
   display: inline-block;
-  width: 1.5em;
+  margin: 0 10px 0 0;
+  width: 20px;
+  vertical-align: middle;
+  font-size: 18px;
 }
-.sidebar-title .toggle-btn {
-  cursor: pointer;
-  transition: transform .3s;
+.side-nav-link span {
+  vertical-align: middle;
+  font-weight: 500;
 }
-.sidebar-item.opened > .sidebar-title .toggle-btn {
-  transform: rotate(180deg);
+.menu-arrow {
+  line-height: 1.6;
+  position: absolute;
+  right: 30px;
+  display: inline-block;
 }
-.sidebar-content {
-  padding-top: .25em;
-  height: 0;
+.menu-arrow i {
+  font-size: 20px;
+  vertical-align: middle;
+  margin: 0;
+  transition: transform .15s;
+}
+.side-nav-link.opened > .menu-arrow i {
+  transform: rotate(90deg);
+}
+.side-nav-second-level {
+  margin-bottom: 0;
+  padding: 0;
+  list-style-type: none;
   overflow: hidden;
+  transition: all .35s ease;
 }
-.sidebar-item.opened > .sidebar-content {
-  height: auto;
+.side-nav-second-level li div {
+  padding: 8px 30px 8px 60px;
+  list-style-type: none;
 }
-.sidebar-item.plain {
-  /*color: #fff;*/
-  text-decoration: none;
+.side-nav-second-level .side-nav-link span {
+  font-weight: 400;
 }
-.sidebar-item.plain:hover {
-  /*text-decoration: underline;*/
-}
-.sidebar-item.plain i {
-  display: inline-block;
-  width: 1.7em;
-}
-
-
-
-
-
 
 
 
