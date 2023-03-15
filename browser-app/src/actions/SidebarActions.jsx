@@ -6,3 +6,9 @@ export const setActiveItemId = (activeItemId) => {
 		activeItemId: activeItemId
 	}
 };
+
+export const resetActiveItemId = () => {
+	return {
+		type: constants.REDUX_STORE_EVENTS.RESET_SIDEBAR_MENU_ACTIVE_ITEM_ID
+	}
+};

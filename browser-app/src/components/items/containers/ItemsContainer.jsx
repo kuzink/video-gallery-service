@@ -18,6 +18,7 @@ import ItemsPaginationWrapperComponent from "../components/ItemsPaginationWrappe
 import ModalAlertContainer from "../../utilities/modalalert/ModalAlertContainer";
 import Spinner from "../../utilities/spinner/Spinner";
 import RequestSpinner from "../../utilities/spinner/RequestSpinner";
+import Sidebar from "../../test/layout/sidebar/Sidebar";
 
 export class ItemsContainer extends Component {
 
@@ -69,9 +70,7 @@ export class ItemsContainer extends Component {
 					<BackButtonComponent classNames="ml-3"/>
 				</div>
 
-				<div className="test-sidebar">
-					<p>Sidebar</p>
-				</div>
+				<Sidebar/>
 
 				<div className="test-content-outer">
 

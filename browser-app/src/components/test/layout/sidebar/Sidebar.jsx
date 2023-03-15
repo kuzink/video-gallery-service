@@ -2,9 +2,13 @@ import React, {Component} from 'react';
 import SidebarItem from "./SidebarItem";
 import sidebarConstants from "./SidebarConstants";
 import {connect} from "react-redux";
-import {setActiveItemId} from "../../../../actions/SidebarActions";
+import {setActiveItemId, resetActiveItemId} from "../../../../actions/SidebarActions";
 
 export class Sidebar extends Component {
+
+    componentWillUnmount() {
+        this.props.resetActiveItemId();
+    }
 
     render() {
         const {activeItemId} = this.props;
@@ -34,6 +38,9 @@ const mapDispatchToProps = dispatch => {
     return {
         setActiveItemId: (activeItemId) => {
             dispatch(setActiveItemId(activeItemId));
+        },
+        resetActiveItemId: () => {
+            dispatch(resetActiveItemId());
         }
     }
 };

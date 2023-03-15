@@ -8,8 +8,16 @@ const setActiveItemId = (state, action) => {
 	};
 };
 
+const resetActiveItemId = (state) => {
+	return {
+		...state,
+		activeItemId: null
+	};
+};
+
 export const reducers = {
-	[constants.REDUX_STORE_EVENTS.SET_SIDEBAR_MENU_ACTIVE_ITEM_ID]: setActiveItemId
+	[constants.REDUX_STORE_EVENTS.SET_SIDEBAR_MENU_ACTIVE_ITEM_ID]: setActiveItemId,
+	[constants.REDUX_STORE_EVENTS.RESET_SIDEBAR_MENU_ACTIVE_ITEM_ID]: resetActiveItemId
 };
 
 export default (state = initialSidebar, action) => {
