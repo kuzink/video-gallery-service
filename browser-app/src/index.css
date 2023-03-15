@@ -728,6 +728,91 @@ video:focus {
 
 
 
+
+/*Sidebar*/
+.side-nav {
+  margin-bottom: 0;
+  padding-inline-start: 0;
+  list-style-type: none;
+  /*width: 260px;*/
+  /*flex-shrink: 0;*/
+  /*background-color: red;*/
+  /*height: 100%;*/
+  /*overflow: auto;*/
+}
+.side-nav-title {
+  letter-spacing: .05em;
+  pointer-events: none;
+  cursor: default;
+  white-space: nowrap;
+  text-transform: uppercase;
+  color: #8391a2;
+  font-weight: 700;
+  padding: 15px 20px;
+  font-size: 12px;
+}
+
+
+
+.sidebar-item {
+  color: #8391a2;
+  cursor: pointer;
+  padding: .75em 1em;
+  display: block;
+  transition: all .25s ease-in-out;
+  /*border-radius: 5px;*/
+}
+.sidebar-item i {
+  display: inline-block;
+  width: 1.7em;
+}
+.sidebar-item:hover {
+  color: #bccee4;
+  /*background-color: green;*/
+}
+.sidebar-title {
+  display: flex;
+  font-size: 1.2em;
+  justify-content: space-between;
+}
+.sidebar-title div i {
+  display: inline-block;
+  width: 1.5em;
+}
+.sidebar-title .toggle-btn {
+  cursor: pointer;
+  transition: transform .3s;
+}
+.sidebar-item.opened > .sidebar-title .toggle-btn {
+  transform: rotate(180deg);
+}
+.sidebar-content {
+  padding-top: .25em;
+  height: 0;
+  overflow: hidden;
+}
+.sidebar-item.opened > .sidebar-content {
+  height: auto;
+}
+.sidebar-item.plain {
+  /*color: #fff;*/
+  text-decoration: none;
+}
+.sidebar-item.plain:hover {
+  /*text-decoration: underline;*/
+}
+.sidebar-item.plain i {
+  display: inline-block;
+  width: 1.7em;
+}
+
+
+
+
+
+
+
+
 @media screen and (max-width: 1343px) {
   .test-sidebar {
     width: 200px;

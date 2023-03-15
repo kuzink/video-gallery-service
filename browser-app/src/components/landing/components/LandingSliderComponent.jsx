@@ -28,11 +28,14 @@ const LandingSlider = (props) => {
 			previousImage.style.animation = 'none';
 
 			if (currentIndex === 1) {
-				const lastImage = document.querySelector(`[data-index="5"]`)
-					.getElementsByTagName('div')[0]
-					.getElementsByTagName('img')[0];
+				const lastImage = document.querySelector(`[data-index="5"]`);
+				if (lastImage) {
+					const el = lastImage
+						.getElementsByTagName('div')[0]
+						.getElementsByTagName('img')[0];
 
-				lastImage.style.animation = 'none';
+					lastImage.style.animation = 'none';
+				}
 			}
 		}
 	};
