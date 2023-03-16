@@ -17,5 +17,6 @@ export const initialSlides = {
 };
 
 export const initialSidebar = {
-	activeItemId: null
+	activeItemId: '',
+	videoCategories: []
 };

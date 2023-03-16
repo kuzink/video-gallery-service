@@ -11,13 +11,29 @@ const setActiveItemId = (state, action) => {
 const resetActiveItemId = (state) => {
 	return {
 		...state,
-		activeItemId: null
+		activeItemId: ''
+	};
+};
+
+const setVideoCategories = (state, action) => {
+	return {
+		...state,
+		videoCategories: action.videoCategories
+	};
+};
+
+const resetVideoCategories = (state) => {
+	return {
+		...state,
+		videoCategories: []
 	};
 };
 
 export const reducers = {
 	[constants.REDUX_STORE_EVENTS.SET_SIDEBAR_MENU_ACTIVE_ITEM_ID]: setActiveItemId,
-	[constants.REDUX_STORE_EVENTS.RESET_SIDEBAR_MENU_ACTIVE_ITEM_ID]: resetActiveItemId
+	[constants.REDUX_STORE_EVENTS.RESET_SIDEBAR_MENU_ACTIVE_ITEM_ID]: resetActiveItemId,
+	[constants.REDUX_STORE_EVENTS.SET_SIDEBAR_MENU_VIDEO_CATEGORIES]: setVideoCategories,
+	[constants.REDUX_STORE_EVENTS.RESET_SIDEBAR_MENU_VIDEO_CATEGORIES]: resetVideoCategories
 };
 
 export default (state = initialSidebar, action) => {
