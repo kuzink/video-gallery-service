@@ -1,10 +1,9 @@
 package com.kuzin.videogalleryservice.config;
 
-import com.kuzin.videogalleryservice.domain.Item;
+import com.kuzin.videogalleryservice.domain.*;
 import org.apache.commons.io.FileUtils;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.*;
 
 import javax.validation.ConstraintViolationException;
 import javax.validation.Validator;
@@ -15,6 +14,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.text.*;
 import java.util.*;
+import java.util.concurrent.atomic.*;
 
 import static java.util.Collections.emptyList;
 import static java.util.stream.Collectors.toList;
@@ -23,6 +23,7 @@ import static java.util.stream.Collectors.toList;
 public class ItemsConfig {
 
 	private static final String INITIAL_THUMBNAIL_POSTFIX = "_init";
+	private static final AtomicInteger ID_COUNTER = new AtomicInteger(-1);
 
 	@Value("${videos.location}")
 	private String videosLocation;
@@ -31,66 +32,85 @@ public class ItemsConfig {
 	private String thumbnailsLocation;
 
 	@Bean
-	public List<Item> items(final Validator defaultValidator) throws IOException {
+	public List<String> folderNamesInsideVideosLocation() throws IOException {
+		return Files.list(Paths.get(videosLocation))
+			.map(Path::toFile)
+			.filter(File::isDirectory)
+			.map(File::getName)
+			.collect(toList());
+	}
 
-		final List<File> videoFiles = getMP4FilesFromVideosLocation();
+	@Bean
+	@DependsOn({"folderNamesInsideVideosLocation"})
+	public List<VideoCategory> videoCategories(final List<String> folderNamesInsideVideosLocation) throws IOException {
+		return folderNamesInsideVideosLocation.stream()
+			.map(it -> VideoCategory.builder()
+				.id(UUID.randomUUID().toString())
+				.title(it)
+				.build())
+			.collect(toList());
+	}
+
+	@Bean
+	@DependsOn({"folderNamesInsideVideosLocation"})
+	public List<Item> items(final Validator defaultValidator, final List<String> folderNamesInsideVideosLocation) {
+
 		final List<Item> items = new ArrayList<>();
 
-		for (int i = 0; i < videoFiles.size(); i++) {
+		folderNamesInsideVideosLocation.forEach(folderName -> {
+			final List<File> videoFiles = scanFolderAndGetMP4FilesFromIt(folderName);
 
-			final File videoFile = videoFiles.get(i);
+			for (final File videoFile : videoFiles) {
+				final String name = videoFile.getName().substring(0, videoFile.getName().length() - 4);
+				final String size = convertToHumanReadableByteCount(videoFile.length());
 
-			final String name = videoFile.getName().substring(0, videoFile.getName().length() - 4);
-			final String size = convertToHumanReadableByteCount(videoFile.length());
-
-			items.add(createItem(i, name, size));
-		}
+				items.add(createItem(ID_COUNTER.incrementAndGet(), folderName, name, size));
+			}
+		});
 
 		validateList(defaultValidator, items);
+
+		System.out.println("items: " + items);
 
 		return items;
 	}
 
-	private List<File> getMP4FilesFromVideosLocation() throws IOException {
-		return Files.list(Paths.get(videosLocation))
-			.map(Path::toFile)
-			.filter(it -> it.getName().substring(it.getName().length() - 4).equals(".mp4"))
-			.collect(toList());
-	}
-
-	private Item createItem(final int count, final String name, final String size) throws IOException {
-
-		final Path thumbnailsPath = Paths.get(thumbnailsLocation + "/" + name);
-
-		if (Files.exists(thumbnailsPath)) {
-
-			final List<String> thumbnailNames = Files.list(thumbnailsPath)
+	private List<File> scanFolderAndGetMP4FilesFromIt(final String folderName) {
+		try {
+			return Files.list(Paths.get(videosLocation + "/" + folderName))
 				.map(Path::toFile)
-				.filter(it -> it.getName().substring(it.getName().length() - 4).equals(".jpg"))
-				.map(File::getName)
-				.sorted()
+				.filter(it -> it.getName().substring(it.getName().length() - 4).equals(".mp4"))
 				.collect(toList());
-
-			final int initialThumbnailIndex = determineInitialThumbnailIndex(thumbnailNames);
-
-			final byte[] initialThumbnail = getInitialThumbnailBytes(name, thumbnailNames, initialThumbnailIndex);
-
-			return new Item(count + 1, name, size, initialThumbnail, initialThumbnailIndex, thumbnailNames);
-		} else {
-			return new Item(count + 1, name, size, null, 0, emptyList());
+		} catch (IOException e) {
+			throw new RuntimeException("scanFolderAndGetMP4FilesFromIt() -> error");
 		}
 	}
 
-	private byte[] loadThumbnailBytes(final String thumbnailFolderName, final String thumbnailName) {
+	private Item createItem(final int count, final String folderName, final String name, final String size) {
 
-		final File file = Paths.get(thumbnailsLocation + "/" + thumbnailFolderName)
-			.resolve(thumbnailName)
-			.toFile();
+		final Path thumbnailsPath = Paths.get(thumbnailsLocation + "/" + folderName + "/" + name);
 
-		try {
-			return FileUtils.readFileToByteArray(file);
-		} catch (IOException e) {
-			return null;
+		if (Files.exists(thumbnailsPath)) {
+
+			final List<String> thumbnailNames;
+			try {
+				thumbnailNames = Files.list(thumbnailsPath)
+					.map(Path::toFile)
+					.filter(it -> it.getName().substring(it.getName().length() - 4).equals(".jpg"))
+					.map(File::getName)
+					.sorted()
+					.collect(toList());
+			} catch (IOException e) {
+				throw new RuntimeException("createItem() -> error");
+			}
+
+			final int initialThumbnailIndex = determineInitialThumbnailIndex(thumbnailNames);
+
+			final byte[] initialThumbnail = getInitialThumbnailBytes(folderName, name, thumbnailNames, initialThumbnailIndex);
+
+			return new Item(count + 1, name, folderName, size, initialThumbnail, initialThumbnailIndex, thumbnailNames);
+		} else {
+			return new Item(count + 1, name, folderName, size, null, 0, emptyList());
 		}
 	}
 
@@ -132,19 +152,28 @@ public class ItemsConfig {
 				.map(thumbnailNames::indexOf)
 				.orElse(new Random().nextInt(thumbnailNames.size()));
 		}
-
 		return 0;
 	}
 
-	private byte[] getInitialThumbnailBytes(final String thumbnailFolderName, final List<String> thumbnailNames,
-	                                        final int initialThumbnailIndex) {
-
+	private byte[] getInitialThumbnailBytes(final String folderName, final String thumbnailFolderName,
+	                                        final List<String> thumbnailNames, final int initialThumbnailIndex) {
 		if (thumbnailNames.size() > 0) {
 			final String initialThumbnailName = thumbnailNames.get(initialThumbnailIndex);
-
-			return loadThumbnailBytes(thumbnailFolderName, initialThumbnailName);
+			return loadThumbnailBytes(folderName, thumbnailFolderName, initialThumbnailName);
 		}
-
 		return null;
 	}
+
+	private byte[] loadThumbnailBytes(final String folderName, final String thumbnailFolderName, final String thumbnailName) {
+		final File file = Paths.get(thumbnailsLocation + "/" + folderName + "/" + thumbnailFolderName)
+			.resolve(thumbnailName)
+			.toFile();
+
+		try {
+			return FileUtils.readFileToByteArray(file);
+		} catch (IOException e) {
+			return null;
+		}
+	}
+
 }

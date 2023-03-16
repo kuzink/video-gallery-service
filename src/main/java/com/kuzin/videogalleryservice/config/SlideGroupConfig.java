@@ -26,27 +26,27 @@ public class SlideGroupConfig {
 	public List<SlideGroup> slideGroups(final Validator validator) throws IOException {
 
 		final List<SlideGroup> slideGroups = new ArrayList<>();
-
-		final Path path = Paths.get(slidesLocation);
-		final List<String> subFolderNames = Files.list(path)
-			.map(Path::toFile)
-			.filter(File::isDirectory)
-			.map(File::getName)
-			.sorted(comparingInt(el -> parseInt(el.split("_")[0])))
-			.collect(toList());
-
-		for (final String subFolderName : subFolderNames) {
-
-			final Path subFolderPath = Paths.get(slidesLocation).resolve(subFolderName);
-			final List<String> slideNames = Files.list(subFolderPath)
-				.map(Path::toFile)
-				.filter(it -> it.getName().substring(it.getName().length() - 4).equals(".jpg"))
-				.map(File::getName)
-				.collect(toList());
-
-			slideGroups.add(new SlideGroup(subFolderName, slideNames));
-		}
-
+//
+//		final Path path = Paths.get(slidesLocation);
+//		final List<String> subFolderNames = Files.list(path)
+//			.map(Path::toFile)
+//			.filter(File::isDirectory)
+//			.map(File::getName)
+//			.sorted(comparingInt(el -> parseInt(el.split("_")[0])))
+//			.collect(toList());
+//
+//		for (final String subFolderName : subFolderNames) {
+//
+//			final Path subFolderPath = Paths.get(slidesLocation).resolve(subFolderName);
+//			final List<String> slideNames = Files.list(subFolderPath)
+//				.map(Path::toFile)
+//				.filter(it -> it.getName().substring(it.getName().length() - 4).equals(".jpg"))
+//				.map(File::getName)
+//				.collect(toList());
+//
+//			slideGroups.add(new SlideGroup(subFolderName, slideNames));
+//		}
+//
 		validateList(validator, slideGroups);
 
 		return slideGroups;

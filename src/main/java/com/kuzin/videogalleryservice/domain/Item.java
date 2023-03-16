@@ -3,10 +3,7 @@ package com.kuzin.videogalleryservice.domain;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.util.List;
 
@@ -14,6 +11,7 @@ import java.util.List;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
+@ToString
 public class Item {
 
 	@NotNull
@@ -23,8 +21,12 @@ public class Item {
 	private String name;
 
 	@NotBlank
+	private String category;
+
+	@NotBlank
 	private String size;
 
+	@ToString.Exclude
 	private byte[] initialThumbnail;
 
 	private Integer initialThumbnailIndex;
