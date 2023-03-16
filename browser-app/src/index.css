@@ -764,7 +764,7 @@ video:focus {
 }
 .side-nav-link span {
   vertical-align: middle;
-  font-weight: 500;
+  font-weight: 600;
 }
 .menu-arrow {
   line-height: 1.6;
@@ -789,7 +789,7 @@ video:focus {
   transition: height .35s ease;
 }
 .side-nav-second-level li div {
-  padding: 8px 30px 8px 60px;
+  padding: 8px 30px 8px 55px;
   list-style-type: none;
 }
 .side-nav-second-level .side-nav-link span {
