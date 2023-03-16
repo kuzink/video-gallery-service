@@ -3,8 +3,8 @@ import {connect} from "react-redux";
 import {
 	retrieveItems,
 	resetItems,
-	setItemName,
-	resetItemName,
+	setSelectedItem,
+	resetSelectedItem,
 	setSortBy,
 	resetSortBy,
 	setSearchText,
@@ -44,7 +44,7 @@ export class ItemsContainer extends Component {
 		this.props.setIsGridView(true);
 	}
 
-	handleOnItemSelect = (itemName) => this.props.setItemName(itemName);
+	handleOnItemSelect = (selectedItem) => this.props.setSelectedItem(selectedItem);
 
 	handleSortByChange = (sortBy) => this.props.setSortBy(sortBy);
 
@@ -52,10 +52,10 @@ export class ItemsContainer extends Component {
 
 	handleIsGridViewChange = (isGridView) => this.props.setIsGridView(isGridView);
 
-	handleCancel = () => this.props.resetItemName();
+	handleCancel = () => this.props.resetSelectedItem();
 
 	render() {
-		const {items, page, itemName, searchText, sortBy, isGridView, retrieveItems} = this.props;
+		const {items, page, selectedItem, searchText, sortBy, isGridView, retrieveItems} = this.props;
 		const {isLoading} = this.state;
 		// const isLoading = true;
 
@@ -91,7 +91,7 @@ export class ItemsContainer extends Component {
 							                handleOnItemSelect={this.handleOnItemSelect}/>
 						</ItemsPaginationWrapperComponent>
 
-						<ItemDetailsComponent itemName={itemName}
+						<ItemDetailsComponent selectedItem={selectedItem}
 						                      handleCancel={this.handleCancel}/>
 					</React.Fragment>
 					}
@@ -107,7 +107,7 @@ const mapStateToProps = state => {
 	return {
 		items: state.items.items,
 		page: state.items.page,
-		itemName: state.items.itemName,
+		selectedItem: state.items.selectedItem,
 		searchText: state.items.searchText,
 		sortBy: state.items.sortBy,
 		isGridView: state.items.isGridView
@@ -122,11 +122,11 @@ const mapDispatchToProps = dispatch => {
 		resetItems: () => {
 			dispatch(resetItems());
 		},
-		setItemName: (itemName) => {
-			dispatch(setItemName(itemName));
+		setSelectedItem: (selectedItem) => {
+			dispatch(setSelectedItem(selectedItem));
 		},
-		resetItemName: () => {
-			dispatch(resetItemName());
+		resetSelectedItem: () => {
+			dispatch(resetSelectedItem());
 		},
 		setSortBy: (sortBy) => {
 			dispatch(setSortBy(sortBy));

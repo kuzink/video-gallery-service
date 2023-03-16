@@ -13,7 +13,7 @@ const ListViewItemsComponent = (props) => {
 			{items.map((item, index) => (
 				<div key={index} className="col-md-8 offset-md-2">
 					<div className={`card shadow-sm ${index === items.length - 1 ? 'mb-4' : 'mb-2'}`}>
-						<div className="custom-list-view-item" onClick={handleOnItemSelect.bind(this, item.name)}>
+						<div className="custom-list-view-item" onClick={handleOnItemSelect.bind(this, item)}>
 							<div className="custom-list-view-item-left">
 								<img src={item.thumbnailNames.length
 									? `data:image/jpeg;base64,${item.initialThumbnail}`

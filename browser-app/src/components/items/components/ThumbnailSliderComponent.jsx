@@ -7,14 +7,8 @@ import PlayIcon from '../../../assets/play-circle.svg';
 
 const ImageSlider = (props) => {
 
-	const {
-		itemId,
-		itemName,
-		initialThumbnail,
-		thumbnailNames,
-		handleOnItemSelect,
-		initialThumbnailIndex
-	} = props;
+	const {selectedItem, handleOnItemSelect} = props;
+	const {id, initialThumbnail, thumbnailNames, initialThumbnailIndex} = selectedItem;
 
 	const settings = {
 		dots: true,
@@ -42,7 +36,7 @@ const ImageSlider = (props) => {
 							return (
 								<img key={index}
 								     className="card-img-top"
-								     src={`${constants.BASE_URL}/items/${itemId}/thumbnails/${thumbnailName}`}/>
+								     src={`${constants.BASE_URL}/items/${id}/thumbnails/${thumbnailName}`}/>
 							)
 						}
 					}
@@ -63,7 +57,7 @@ const ImageSlider = (props) => {
 				{/*)}*/}
 			</Slider>
 			}
-			<div className="custom-mask flex-center" onClick={handleOnItemSelect.bind(this, itemName)}>
+			<div className="custom-mask flex-center" onClick={handleOnItemSelect.bind(this, selectedItem)}>
 				<h1 className="mb-0"><img src={PlayIcon} className="text-white"/></h1>
 			</div>
 		</div>

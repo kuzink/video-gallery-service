@@ -20,18 +20,24 @@ import static java.util.stream.Collectors.toList;
 @CrossOrigin
 public class SlideResource {
 
-	private String slidesLocation;
-	private List<SlideGroup> slideGroups;
+	private final String slidesLocation;
+	private final List<String> folderNamesInsideSlidesLocation;
+	private final List<SlideGroup> slideGroups;
 
 	@Autowired
-	public SlideResource(@Value("${slides.location}") String slidesLocation, List<SlideGroup> slideGroups) {
+	public SlideResource(@Value("${slides.location}") final String slidesLocation,
+						 final List<String> folderNamesInsideSlidesLocation,
+						 final List<SlideGroup> slideGroups) {
 		this.slidesLocation = slidesLocation;
+		this.folderNamesInsideSlidesLocation = folderNamesInsideSlidesLocation;
 		this.slideGroups = slideGroups;
 	}
 
 	@GetMapping
 	public List<Slide> getSlides() {
+		final String randomSlidesFolder = getRandomSlideName(folderNamesInsideSlidesLocation);
 		return slideGroups.stream()
+			.filter(it -> it.getFolderName().equals(randomSlidesFolder))
 			.map(this::toSlide)
 			.collect(toList());
 	}
@@ -44,14 +50,15 @@ public class SlideResource {
 	}
 
 	private String getSlideText(final SlideGroup slideGroup) {
-		return slideGroup.getName().split("_")[1];
+		return slideGroup.getSubFolderName().split("_")[1];
 	}
 
 	private byte[] getSlideBytes(final SlideGroup slideGroup) {
 
 		final String slideName = getRandomSlideName(slideGroup.getSlideNames());
-		final Path path = Paths.get(slidesLocation + "/" + slideGroup.getName())
-			.resolve(slideName);
+		final Path path = Paths.get(slidesLocation + "/"
+				+ slideGroup.getFolderName() + "/"
+				+ slideGroup.getSubFolderName()).resolve(slideName);
 
 		try {
 			return FileUtils.readFileToByteArray(path.toFile());

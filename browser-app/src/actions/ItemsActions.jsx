@@ -16,16 +16,16 @@ export const resetItems = () => {
 	}
 };
 
-export const setItemName = (itemName) => {
+export const setSelectedItem = (selectedItem) => {
 	return {
-		type: constants.REDUX_STORE_EVENTS.SET_ITEM_NAME,
-		itemName: itemName
+		type: constants.REDUX_STORE_EVENTS.SET_SELECTED_ITEM,
+		selectedItem: selectedItem
 	}
 };
 
-export const resetItemName = () => {
+export const resetSelectedItem = () => {
 	return {
-		type: constants.REDUX_STORE_EVENTS.RESET_ITEM_NAME
+		type: constants.REDUX_STORE_EVENTS.RESET_SELECTED_ITEM
 	}
 };
 

@@ -19,18 +19,20 @@ public class VideoResource {
 	@Value("${videos.location}")
 	private String videosLocation;
 
-	@GetMapping("/{name}")
-	public ResponseEntity<ResourceRegion> getVideo(@PathVariable final String name,
+	@GetMapping("/{folderName}/{name}")
+	public ResponseEntity<ResourceRegion> getVideo(@PathVariable final String folderName,
+												   @PathVariable final String name,
 	                                               @RequestHeader final HttpHeaders headers) throws IOException {
 
 		return status(PARTIAL_CONTENT)
 			.contentType(APPLICATION_OCTET_STREAM)
-			.body(getResourceRegion(name, headers));
+			.body(getResourceRegion(folderName, name, headers));
 	}
 
-	private ResourceRegion getResourceRegion(final String name, final HttpHeaders headers) throws IOException {
+	private ResourceRegion getResourceRegion(final String folderName, final String name,
+											 final HttpHeaders headers) throws IOException {
 
-		final UrlResource video = new UrlResource("file:" + videosLocation + "/" + name);
+		final UrlResource video = new UrlResource("file:" + videosLocation + "/" + folderName + "/" + name);
 		final long contentLength = video.contentLength();
 
 		if (headers.getRange().size() > 0) {

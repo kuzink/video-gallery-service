@@ -16,11 +16,13 @@ import java.text.*;
 import java.util.*;
 import java.util.concurrent.atomic.*;
 
+import static java.lang.Integer.parseInt;
 import static java.util.Collections.emptyList;
+import static java.util.Comparator.comparingInt;
 import static java.util.stream.Collectors.toList;
 
 @Configuration
-public class ItemsConfig {
+public class BeansConfig {
 
 	private static final String INITIAL_THUMBNAIL_POSTFIX = "_init";
 	private static final AtomicInteger ID_COUNTER = new AtomicInteger(-1);
@@ -31,18 +33,53 @@ public class ItemsConfig {
 	@Value("${thumbnails.location}")
 	private String thumbnailsLocation;
 
+	@Value("${slides.location}")
+	private String slidesLocation;
+
 	@Bean
 	public List<String> folderNamesInsideVideosLocation() throws IOException {
 		return Files.list(Paths.get(videosLocation))
 			.map(Path::toFile)
 			.filter(File::isDirectory)
 			.map(File::getName)
+			.sorted()
 			.collect(toList());
 	}
 
 	@Bean
 	@DependsOn({"folderNamesInsideVideosLocation"})
-	public List<VideoCategory> videoCategories(final List<String> folderNamesInsideVideosLocation) throws IOException {
+	public List<String> folderNamesInsideThumbnailsLocation() throws IOException {
+		return Files.list(Paths.get(thumbnailsLocation))
+				.map(Path::toFile)
+				.filter(File::isDirectory)
+				.map(File::getName)
+				.sorted()
+				.collect(toList());
+	}
+
+	@Bean
+	@DependsOn({"folderNamesInsideThumbnailsLocation"})
+	public List<String> folderNamesInsideSlidesLocation() throws IOException {
+		return Files.list(Paths.get(slidesLocation))
+				.map(Path::toFile)
+				.filter(File::isDirectory)
+				.map(File::getName)
+				.sorted()
+				.collect(toList());
+	}
+
+	@Bean
+	@DependsOn({"folderNamesInsideSlidesLocation"})
+	public List<VideoCategory> videoCategories(final List<String> folderNamesInsideVideosLocation,
+											   final List<String> folderNamesInsideThumbnailsLocation,
+											   final List<String> folderNamesInsideSlidesLocation) {
+
+		if (folderNamesInsideVideosLocation.size() == 0
+				|| !folderNamesInsideVideosLocation.equals(folderNamesInsideThumbnailsLocation)
+				|| !folderNamesInsideVideosLocation.equals(folderNamesInsideSlidesLocation)) {
+			throw new RuntimeException("videoCategories() -> error: Data structure is incorrect");
+		}
+
 		return folderNamesInsideVideosLocation.stream()
 			.map(it -> VideoCategory.builder()
 				.id(UUID.randomUUID().toString())
@@ -52,7 +89,7 @@ public class ItemsConfig {
 	}
 
 	@Bean
-	@DependsOn({"folderNamesInsideVideosLocation"})
+	@DependsOn({"videoCategories"})
 	public List<Item> items(final Validator defaultValidator, final List<String> folderNamesInsideVideosLocation) {
 
 		final List<Item> items = new ArrayList<>();
@@ -70,9 +107,45 @@ public class ItemsConfig {
 
 		validateList(defaultValidator, items);
 
-		System.out.println("items: " + items);
-
 		return items;
+	}
+
+	@Bean
+	@DependsOn({"videoCategories"})
+	public List<SlideGroup> slideGroups(final Validator validator, final List<String> folderNamesInsideSlidesLocation) {
+
+		final List<SlideGroup> slideGroups = new ArrayList<>();
+
+		folderNamesInsideSlidesLocation.forEach(folderName -> {
+			try {
+				final Path path = Paths.get(slidesLocation + "/" + folderName);
+				final List<String> subFolderNames = Files.list(path)
+					.map(Path::toFile)
+					.filter(File::isDirectory)
+					.map(File::getName)
+					.sorted(comparingInt(el -> parseInt(el.split("_")[0])))
+					.collect(toList());
+
+				for (final String subFolderName : subFolderNames) {
+
+					final Path subFolderPath = Paths.get(slidesLocation + "/" + folderName).resolve(subFolderName);
+					final List<String> slideNames = Files.list(subFolderPath)
+							.map(Path::toFile)
+							.filter(it -> it.getName().substring(it.getName().length() - 4).equals(".jpg"))
+							.map(File::getName)
+							.collect(toList());
+
+					slideGroups.add(new SlideGroup(folderName, subFolderName, slideNames));
+				}
+
+			} catch (IOException e) {
+				throw new RuntimeException("slideGroups() -> error: " + e);
+			}
+		});
+
+		validateList(validator, slideGroups);
+
+		return slideGroups;
 	}
 
 	private List<File> scanFolderAndGetMP4FilesFromIt(final String folderName) {
@@ -105,8 +178,8 @@ public class ItemsConfig {
 			}
 
 			final int initialThumbnailIndex = determineInitialThumbnailIndex(thumbnailNames);
-
-			final byte[] initialThumbnail = getInitialThumbnailBytes(folderName, name, thumbnailNames, initialThumbnailIndex);
+			final byte[] initialThumbnail =
+					getInitialThumbnailBytes(folderName, name, thumbnailNames, initialThumbnailIndex);
 
 			return new Item(count + 1, name, folderName, size, initialThumbnail, initialThumbnailIndex, thumbnailNames);
 		} else {
@@ -136,7 +209,7 @@ public class ItemsConfig {
 			.replace("B", "b");
 	}
 
-	private void validateList(final Validator validator, final List<Item> list) {
+	private void validateList(final Validator validator, final List<?> list) {
 		list.stream()
 			.map(item -> validator.validate(item))
 			.filter(violations -> !violations.isEmpty())
@@ -157,6 +230,7 @@ public class ItemsConfig {
 
 	private byte[] getInitialThumbnailBytes(final String folderName, final String thumbnailFolderName,
 	                                        final List<String> thumbnailNames, final int initialThumbnailIndex) {
+
 		if (thumbnailNames.size() > 0) {
 			final String initialThumbnailName = thumbnailNames.get(initialThumbnailIndex);
 			return loadThumbnailBytes(folderName, thumbnailFolderName, initialThumbnailName);
@@ -164,7 +238,9 @@ public class ItemsConfig {
 		return null;
 	}
 
-	private byte[] loadThumbnailBytes(final String folderName, final String thumbnailFolderName, final String thumbnailName) {
+	private byte[] loadThumbnailBytes(final String folderName, final String thumbnailFolderName,
+									  final String thumbnailName) {
+
 		final File file = Paths.get(thumbnailsLocation + "/" + folderName + "/" + thumbnailFolderName)
 			.resolve(thumbnailName)
 			.toFile();

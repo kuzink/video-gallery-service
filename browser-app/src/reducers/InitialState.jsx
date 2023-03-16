@@ -6,7 +6,7 @@ export const initialAlert = {
 export const initialItems = {
 	items: [],
 	page: {},
-	itemName: '',
+	selectedItem: null,
 	searchText: '',
 	sortBy: '',
 	isGridView: true

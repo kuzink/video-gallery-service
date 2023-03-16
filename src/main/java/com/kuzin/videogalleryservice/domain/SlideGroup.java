@@ -13,7 +13,10 @@ import java.util.*;
 public class SlideGroup {
 
 	@NotBlank
-	private String name;
+	private String folderName;
+
+	@NotBlank
+	private String subFolderName;
 
 	@NotEmpty
 	private List<String> slideNames;

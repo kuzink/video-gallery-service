@@ -9,8 +9,8 @@ export default {
 
 		SET_ITEMS: 'SET_ITEMS',
 		RESET_ITEMS: 'RESET_ITEMS',
-		SET_ITEM_NAME: 'SET_ITEM_NAME',
-		RESET_ITEM_NAME: 'RESET_ITEM_NAME',
+		SET_SELECTED_ITEM: 'SET_SELECTED_ITEM',
+		RESET_SELECTED_ITEM: 'RESET_SELECTED_ITEM',
 		SET_SEARCH_TEXT: 'SET_SEARCH_TEXT',
 		RESET_SEARCH_TEXT: 'RESET_SEARCH_TEXT',
 		SET_SORT_BY: 'SET_SORT_BY',
@@ -50,8 +50,12 @@ export default {
 			label: 'Show all'
 		}
 	],
-	SORT_CRITERIA_DEFAULT_VALUE: 'nameUp',
+	SORT_CRITERIA_DEFAULT_VALUE: 'idUp',
 	SORT_CRITERIA_OPTIONS: [
+		{
+			value: 'idUp',
+			label: 'Sort by id ↑'
+		},
 		{
 			value: 'nameUp',
 			label: 'Sort by name ↑'

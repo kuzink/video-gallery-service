@@ -101,14 +101,14 @@ public class ItemResource {
 
 	private byte[] loadThumbnailBytes(final Integer itemId, final String thumbnailName) {
 
-		final Optional<String> foundItemName = items.stream()
+		final Optional<Item> foundItem = items.stream()
 			.filter(item -> item.getId().equals(itemId))
-			.map(Item::getName)
 			.findFirst();
 
-		if (foundItemName.isPresent()) {
+		if (foundItem.isPresent()) {
 
-			final File file = Paths.get(thumbnailsLocation + "/" + foundItemName.get())
+			final Item item = foundItem.get();
+			final File file = Paths.get(thumbnailsLocation + "/" + item.getCategory() + "/" + item.getName())
 				.resolve(thumbnailName)
 				.toFile();
 

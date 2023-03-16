@@ -17,17 +17,17 @@ export const resetItems = (state) => {
 	}
 };
 
-export const setItemName = (state, action) => {
+export const setSelectedItem = (state, action) => {
 	return {
 		...state,
-		itemName: action.itemName
+		selectedItem: action.selectedItem
 	}
 };
 
-export const resetItemName = (state) => {
+export const resetSelectedItem = (state) => {
 	return {
 		...state,
-		itemName: ''
+		selectedItem: null
 	}
 };
 
@@ -69,8 +69,8 @@ export const setIsGridView = (state, action) => {
 export const reducers = {
 	[constants.REDUX_STORE_EVENTS.SET_ITEMS]: setItems,
 	[constants.REDUX_STORE_EVENTS.RESET_ITEMS]: resetItems,
-	[constants.REDUX_STORE_EVENTS.SET_ITEM_NAME]: setItemName,
-	[constants.REDUX_STORE_EVENTS.RESET_ITEM_NAME]: resetItemName,
+	[constants.REDUX_STORE_EVENTS.SET_SELECTED_ITEM]: setSelectedItem,
+	[constants.REDUX_STORE_EVENTS.RESET_SELECTED_ITEM]: resetSelectedItem,
 	[constants.REDUX_STORE_EVENTS.SET_SEARCH_TEXT]: setSearchText,
 	[constants.REDUX_STORE_EVENTS.RESET_SEARCH_TEXT]: resetSearchText,
 	[constants.REDUX_STORE_EVENTS.SET_SORT_BY]: setSortBy,
