@@ -8,12 +8,12 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/api/v2/thumbnails")
 @CrossOrigin
 @AllArgsConstructor
-public class ThumbnailResourceV2 {
+public class ThumbnailResource {
 
-	private final ThumbnailService thumbnailService;
+    private final ThumbnailService thumbnailService;
 
-	@GetMapping("/{id}/bytes")
-	public byte[] getById(@PathVariable final int id) {
-		return thumbnailService.getById(id);
-	}
+    @GetMapping("/{id}/bytes")
+    public byte[] getThumbnailBytes(@PathVariable final int id) {
+        return thumbnailService.getThumbnailBytes(id);
+    }
 }

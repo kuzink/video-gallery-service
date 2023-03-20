@@ -2,5 +2,5 @@ package com.kuzin.videogalleryservice.service;
 
 public interface ThumbnailService {
 
-	byte[] getById(int id);
+	byte[] getThumbnailBytes(int id);
 }

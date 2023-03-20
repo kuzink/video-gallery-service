@@ -18,25 +18,6 @@ export default {
 			children: []
 		},
 		{
-			id: "6",
-			title: "Other",
-			icon: "bx bxs-balloon",
-			children: [
-				{
-					id: "7",
-					title: "Four"
-				},
-				{
-					id: "8",
-					title: "Five"
-				},
-				{
-					id: "9",
-					title: "Six"
-				}
-			]
-		},
-		{
 			id: "10",
 			title: "Other",
 			isHead: true

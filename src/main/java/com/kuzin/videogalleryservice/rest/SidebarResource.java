@@ -1,22 +1,22 @@
 package com.kuzin.videogalleryservice.rest;
 
-import com.kuzin.videogalleryservice.domain.*;
+import com.kuzin.videogalleryservice.dto.*;
+import com.kuzin.videogalleryservice.service.*;
 import lombok.*;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.*;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/v2/sidebar-menu")
 @CrossOrigin
 @AllArgsConstructor
 public class SidebarResource {
 
-	private final List<VideoCategory> videoCategories;
+    private final SidebarService sidebarService;
 
-	@GetMapping("/video-categories")
-	public List<VideoCategory> getVideoCategories() {
-		return videoCategories;
-	}
-
+    @GetMapping
+    public List<SidebarMenuItemDto> getSidebarMenu() {
+        return sidebarService.getSidebarMenu();
+    }
 }
