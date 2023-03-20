@@ -5,5 +5,5 @@ import org.springframework.http.*;
 
 public interface VideoService {
 
-	ResponseEntity<ResourceRegion> getById(int id, HttpHeaders headers);
+	ResourceRegion getById(Integer id, HttpHeaders headers);
 }

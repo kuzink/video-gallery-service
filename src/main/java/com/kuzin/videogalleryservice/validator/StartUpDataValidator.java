@@ -1,15 +1,28 @@
 package com.kuzin.videogalleryservice.validator;
 
+import javax.validation.*;
 import java.util.List;
 
 public class StartUpDataValidator {
 
-    public static void validateFoldersStructure(final List<String> videos,
-                                                final List<String> thumbnails,
-                                                final List<String> slides) {
+	public static void validateFoldersStructure(final List<String> videosFolderNames,
+	                                            final List<String> thumbnailsFolderNames,
+	                                            final List<String> slidesFolderNames) {
 
-        if (videos.size() == 0 || !videos.equals(thumbnails) || !videos.equals(slides)) {
-            throw new RuntimeException("Folders structure is incorrect");
-        }
-    }
+		if (videosFolderNames.size() == 0 || !videosFolderNames.equals(thumbnailsFolderNames)
+			|| !videosFolderNames.equals(slidesFolderNames)) {
+			throw new RuntimeException("Folders structure is incorrect");
+		}
+	}
+
+	public static void validateList(final Validator validator, final List<?> list) {
+		list.stream()
+			.map(item -> validator.validate(item))
+			.filter(violations -> !violations.isEmpty())
+			.findFirst()
+			.ifPresent(violations -> {
+				throw new ConstraintViolationException(violations);
+			});
+	}
+
 }

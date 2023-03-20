@@ -12,7 +12,7 @@ public class ThumbnailResourceV2 {
 
 	private final ThumbnailService thumbnailService;
 
-	@GetMapping("/{id}")
+	@GetMapping("/{id}/bytes")
 	public byte[] getById(@PathVariable final int id) {
 		return thumbnailService.getById(id);
 	}
