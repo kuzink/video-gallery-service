@@ -5,7 +5,7 @@ import lombok.*;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/api/v2/thumbnails")
+@RequestMapping("/api/thumbnails")
 @CrossOrigin
 @AllArgsConstructor
 public class ThumbnailResource {

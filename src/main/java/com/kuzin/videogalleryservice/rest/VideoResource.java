@@ -11,7 +11,7 @@ import static org.springframework.http.MediaType.APPLICATION_OCTET_STREAM;
 import static org.springframework.http.ResponseEntity.status;
 
 @RestController
-@RequestMapping("/api/v2/videos")
+@RequestMapping("/api/videos")
 @CrossOrigin
 @AllArgsConstructor
 public class VideoResource {

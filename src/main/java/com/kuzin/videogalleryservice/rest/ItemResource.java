@@ -6,7 +6,7 @@ import lombok.*;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/api/v2/items")
+@RequestMapping("/api/items")
 @CrossOrigin
 @AllArgsConstructor
 public class ItemResource {

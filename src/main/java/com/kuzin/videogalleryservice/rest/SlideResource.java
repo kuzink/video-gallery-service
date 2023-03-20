@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.*;
 
 @RestController
-@RequestMapping("/api/v2/slides")
+@RequestMapping("/api/slides")
 @CrossOrigin
 @AllArgsConstructor
 public class SlideResource {
