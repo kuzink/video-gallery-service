@@ -7,6 +7,7 @@ import {
 	retrieveSidebarMenu,
 	resetSidebarMenu
 } from "../../../../actions/SidebarActions";
+import {resetCategory, setCategory} from "../../../../actions/ItemsActions";
 
 export class Sidebar extends Component {
 
@@ -17,7 +18,28 @@ export class Sidebar extends Component {
 	componentWillUnmount() {
 		this.props.resetSidebarMenu();
 		this.props.resetActiveItemId();
+		this.props.resetCategory();
 	}
+
+	handleSetActiveItemId = (activeItemId) => {
+		this.setCategoryIfNeeded(activeItemId);
+		this.props.setActiveItemId(activeItemId)
+	};
+
+	setCategoryIfNeeded = (activeItemId) => {
+		const {sidebarMenu} = this.props;
+
+		const categoryMenuItem = sidebarMenu.find(el => el.title === "Category");
+		if (categoryMenuItem) {
+
+			const foundCategory = categoryMenuItem.children.find(el => el.id === activeItemId);
+			if (foundCategory) {
+				this.props.setCategory(foundCategory.title);
+			} else {
+				this.props.resetCategory();
+			}
+		}
+	};
 
 	render() {
 		const {sidebarMenu, activeItemId} = this.props;
@@ -29,7 +51,7 @@ export class Sidebar extends Component {
 					<SidebarItem key={index}
 					             item={item}
 					             activeItemId={activeItemId}
-					             setActiveItemId={this.props.setActiveItemId}/>)
+					             setActiveItemId={this.handleSetActiveItemId}/>)
 					}
 				</ul>
 			</div>
@@ -57,7 +79,13 @@ const mapDispatchToProps = dispatch => {
 		},
 		resetActiveItemId: () => {
 			dispatch(resetActiveItemId());
-		}
+		},
+		setCategory: (category) => {
+			dispatch(setCategory(category));
+		},
+		resetCategory: () => {
+			dispatch(resetCategory());
+		},
 	}
 };
 

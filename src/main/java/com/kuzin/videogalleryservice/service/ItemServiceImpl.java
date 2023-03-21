@@ -19,21 +19,26 @@ public class ItemServiceImpl implements ItemService {
     private final List<ItemEntity> items;
 
     @Override
-    public ItemsResponseDto getItems(final int size, final int page, final String sortBy, final String search) {
+    public ItemsResponseDto getItems(final String category, final int size, final int page, final String sortBy,
+                                     final String search) {
 
         if (size <= 0 || page <= 0) {
             throw new RuntimeException("Error: size and page must be greater than 0");
         }
 
         final List<ItemEntity> foundItems = isNotBlank(search) ?
-                findItemsBySearchCondition(search) :
-                items;
+            findItemsBySearchCondition(search) :
+            items;
 
-        foundItems.sort(getComparator(sortBy));
+        final List<ItemEntity> foundItemsByCategory = isNotBlank(category) ?
+            findItemsByCategory(foundItems, category) :
+            foundItems;
+
+        foundItemsByCategory.sort(getComparator(sortBy));
 
         return ItemsResponseDto.builder()
-                .page(buildPage(foundItems, size, page))
-                .items(buildItems(foundItems, size, page))
+                .page(buildPage(foundItemsByCategory, size, page))
+                .items(buildItems(foundItemsByCategory, size, page))
                 .build();
     }
 
@@ -41,6 +46,12 @@ public class ItemServiceImpl implements ItemService {
         return items.stream()
                 .filter(item -> item.getName().toLowerCase().contains(search.toLowerCase()))
                 .collect(toList());
+    }
+
+    private List<ItemEntity> findItemsByCategory(List<ItemEntity> foundItems, final String category) {
+        return foundItems.stream()
+            .filter(item -> item.getCategory().equals(category))
+            .collect(toList());
     }
 
     private ItemsResponseDto.Page buildPage(final List<ItemEntity> foundItems, final int size, final int page) {

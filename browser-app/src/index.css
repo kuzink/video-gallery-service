@@ -363,10 +363,9 @@ video:focus {
 }
 .request-spinner-overlay {
   top: 56px;
-  width: calc(100vw - 14%);
+  width: calc(100vw - 260px);
   height: calc(100vh - 56px);
   transition: none;
-  /*background-color: #F8F9FA;*/
   background-color: #FAFBFE;
 }
 .visible {
@@ -396,7 +395,8 @@ video:focus {
   animation: Spin 1s linear infinite;
 }
 .request-spinner-div {
-  border-top: 4px solid fuchsia;
+  display: none;
+  border-top: 4px solid lime;
   background-color: #FAFBFE;
   animation: Spin .5s linear infinite;
 }

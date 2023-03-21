@@ -4,5 +4,5 @@ import com.kuzin.videogalleryservice.dto.*;
 
 public interface ItemService {
 
-	ItemsResponseDto getItems(int size, int page, String sortBy, String search);
+	ItemsResponseDto getItems(String category, int size, int page, String sortBy, String search);
 }

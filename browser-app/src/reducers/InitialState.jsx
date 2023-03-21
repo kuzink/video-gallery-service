@@ -9,7 +9,8 @@ export const initialItems = {
 	selectedItem: null,
 	searchText: '',
 	sortBy: '',
-	isGridView: true
+	isGridView: true,
+	category: ''
 };
 
 export const initialSlides = {

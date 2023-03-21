@@ -62,14 +62,28 @@ export const setIsGridView = (isGridView) => {
 	}
 };
 
-export const retrieveItems = (size = constants.PAGE_SIZE_DEFAULT_VALUE,
+export const setCategory = (category) => {
+	return {
+		type: constants.REDUX_STORE_EVENTS.SET_CATEGORY,
+		category: category
+	}
+};
+
+export const resetCategory = () => {
+	return {
+		type: constants.REDUX_STORE_EVENTS.RESET_CATEGORY
+	}
+};
+
+export const retrieveItems = (category = constants.CATEGORY_DEFAULT_VALUE,
+                              size = constants.PAGE_SIZE_DEFAULT_VALUE,
                               page = constants.PAGE_NUMBER_DEFAULT_VALUE,
 							  sortCriteria = constants.SORT_CRITERIA_DEFAULT_VALUE,
                               search = constants.SEARCH__DEFAULT_VALUE) => {
 	return (dispatch) => {
 		dispatch(resetItems());
 		trackPromise(
-		    axios.get(`${constants.BASE_URL}/items?size=${size}&page=${page}&sortBy=${sortCriteria}&search=${search}`,
+		    axios.get(`${constants.BASE_URL}/items?category=${category}&size=${size}&page=${page}&sortBy=${sortCriteria}&search=${search}`,
 		        {headers: {'Content-Type': 'application/json'}})
 		        .then(response => {
 		            dispatch(setItems(response.data));

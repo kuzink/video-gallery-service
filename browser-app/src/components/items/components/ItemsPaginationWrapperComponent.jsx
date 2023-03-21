@@ -8,6 +8,7 @@ import ScrollTopButtonComponent from "./ScrollTopButtonComponent";
 const ItemsPaginationWrapperComponent = (props) => {
 
 	const {
+		category,
 		page,
 		sortBy,
 		sortByChange,
@@ -67,7 +68,7 @@ const ItemsPaginationWrapperComponent = (props) => {
 
 	const handleClick = pageNumber => e => gotoPage(pageNumber);
 
-	const gotoPage = pageNumber => getItems(page.size, pageNumber, sortBy, searchText);
+	const gotoPage = pageNumber => getItems(category, page.size, pageNumber, sortBy, searchText);
 
 	const isPaginationButtonsVisible = () => !(!page.totalPages || page.totalPages === 1);
 
@@ -88,13 +89,13 @@ const ItemsPaginationWrapperComponent = (props) => {
 
 	const handlePageSizeChange = (selected) => {
 		selected.value === 'all'
-			? getItems((page.totalElements || 1), constants.PAGE_NUMBER_DEFAULT_VALUE, sortBy, searchText)
-			: getItems(selected.value, constants.PAGE_NUMBER_DEFAULT_VALUE, sortBy, searchText);
+			? getItems(category, (page.totalElements || 1), constants.PAGE_NUMBER_DEFAULT_VALUE, sortBy, searchText)
+			: getItems(category, selected.value, constants.PAGE_NUMBER_DEFAULT_VALUE, sortBy, searchText);
 	};
 
 	const handleSortByChange = (selected) => {
 		sortByChange(selected.value);
-		return getItems(page.size, page.page, selected.value, searchText);
+		return getItems(category, page.size, page.page, selected.value, searchText);
 	};
 
 	const defineShowingItemsText = () => {
@@ -115,7 +116,7 @@ const ItemsPaginationWrapperComponent = (props) => {
 	const handleKeyPress = (event) => {
 		if(event.key === 'Enter'){
 			const search = searchText.trim().toLowerCase();
-			return getItems(constants.PAGE_SIZE_DEFAULT_VALUE, constants.PAGE_NUMBER_DEFAULT_VALUE, sortBy, search);
+			return getItems(category, constants.PAGE_SIZE_DEFAULT_VALUE, constants.PAGE_NUMBER_DEFAULT_VALUE, sortBy, search);
 		}
 	};
 

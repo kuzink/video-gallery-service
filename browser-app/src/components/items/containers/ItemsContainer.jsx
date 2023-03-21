@@ -37,6 +37,13 @@ export class ItemsContainer extends Component {
 		}, 1200);
 	}
 
+	componentDidUpdate(prevProps) {
+		const {category} = this.props;
+		if (category !== prevProps.category) {
+			this.props.retrieveItems(category);
+		}
+	}
+
 	componentWillUnmount() {
 		this.props.resetItems();
 		this.props.resetSortBy();
@@ -55,7 +62,7 @@ export class ItemsContainer extends Component {
 	handleCancel = () => this.props.resetSelectedItem();
 
 	render() {
-		const {items, page, selectedItem, searchText, sortBy, isGridView, retrieveItems} = this.props;
+		const {items, category, page, selectedItem, searchText, sortBy, isGridView, retrieveItems} = this.props;
 		const {isLoading} = this.state;
 		// const isLoading = true;
 
@@ -78,7 +85,8 @@ export class ItemsContainer extends Component {
 					<React.Fragment>
 						<RequestSpinner/>
 
-						<ItemsPaginationWrapperComponent page={page}
+						<ItemsPaginationWrapperComponent category={category}
+														 page={page}
 						                                 sortBy={sortBy}
 						                                 sortByChange={this.handleSortByChange}
 						                                 searchText={searchText}
@@ -110,14 +118,15 @@ const mapStateToProps = state => {
 		selectedItem: state.items.selectedItem,
 		searchText: state.items.searchText,
 		sortBy: state.items.sortBy,
-		isGridView: state.items.isGridView
+		isGridView: state.items.isGridView,
+		category: state.items.category
 	};
 };
 
 const mapDispatchToProps = dispatch => {
 	return {
-		retrieveItems: (size, page, sortBy, search) => {
-			dispatch(retrieveItems(size, page, sortBy, search));
+		retrieveItems: (category, size, page, sortBy, search) => {
+			dispatch(retrieveItems(category, size, page, sortBy, search));
 		},
 		resetItems: () => {
 			dispatch(resetItems());

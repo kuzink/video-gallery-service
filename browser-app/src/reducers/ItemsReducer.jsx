@@ -66,6 +66,20 @@ export const setIsGridView = (state, action) => {
 	}
 };
 
+export const setCategory = (state, action) => {
+	return {
+		...state,
+		category: action.category
+	}
+};
+
+export const resetCategory = (state) => {
+	return {
+		...state,
+		category: ''
+	}
+};
+
 export const reducers = {
 	[constants.REDUX_STORE_EVENTS.SET_ITEMS]: setItems,
 	[constants.REDUX_STORE_EVENTS.RESET_ITEMS]: resetItems,
@@ -75,7 +89,9 @@ export const reducers = {
 	[constants.REDUX_STORE_EVENTS.RESET_SEARCH_TEXT]: resetSearchText,
 	[constants.REDUX_STORE_EVENTS.SET_SORT_BY]: setSortBy,
 	[constants.REDUX_STORE_EVENTS.RESET_SORT_BY]: resetSortBy,
-	[constants.REDUX_STORE_EVENTS.SET_IS_GRID_VIEW]: setIsGridView
+	[constants.REDUX_STORE_EVENTS.SET_IS_GRID_VIEW]: setIsGridView,
+	[constants.REDUX_STORE_EVENTS.SET_CATEGORY]: setCategory,
+	[constants.REDUX_STORE_EVENTS.RESET_CATEGORY]: resetCategory
 };
 
 export default (state = initialItems, action) => {
