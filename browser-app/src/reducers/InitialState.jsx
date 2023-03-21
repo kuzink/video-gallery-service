@@ -17,6 +17,6 @@ export const initialSlides = {
 };
 
 export const initialSidebar = {
-	activeItemId: '',
-	videoCategories: []
+	sidebarMenu: [],
+	activeItemId: ''
 };

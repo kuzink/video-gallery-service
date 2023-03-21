@@ -5,15 +5,14 @@ import constants from '../../../constants/Constants';
 const ItemDetailsComponent = (props) => {
 
 	const {selectedItem, handleCancel} = props;
-	const category = selectedItem !== null ? selectedItem.category : '';
-	const name = selectedItem !== null ? selectedItem.name : '';
+	const id = selectedItem !== null ? selectedItem.id : '';
 	const isVisible = selectedItem !== null;
 	const [show, setShow] = useState(false);
 	const [source, setSource] = useState('');
 
 	useEffect(() => {
 		if (isVisible) {
-			setSource(`${constants.BASE_URL}/videos/${category}/${name}.mp4`);
+			setSource(`${constants.BASE_URL}/videos/${id}`);
 			setTimeout(() => {
 				setShow(true);
 			}, 400);

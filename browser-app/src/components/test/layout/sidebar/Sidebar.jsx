@@ -1,42 +1,31 @@
 import React, {Component} from 'react';
 import SidebarItem from "./SidebarItem";
-import sidebarConstants from "./SidebarConstants";
 import {connect} from "react-redux";
 import {
 	setActiveItemId,
 	resetActiveItemId,
-	retrieveVideoCategories,
-	resetVideoCategories
+	retrieveSidebarMenu,
+	resetSidebarMenu
 } from "../../../../actions/SidebarActions";
 
 export class Sidebar extends Component {
 
 	componentDidMount() {
-		this.props.retrieveVideoCategories();
+		this.props.retrieveSidebarMenu();
 	}
 
 	componentWillUnmount() {
+		this.props.resetSidebarMenu();
 		this.props.resetActiveItemId();
-		this.props.resetVideoCategories();
 	}
 
 	render() {
-		const {activeItemId, videoCategories} = this.props;
-		const sidebarMenuItems = sidebarConstants.SIDEBAR_MENU_ITEMS.map(item => {
-			if (item.type === sidebarConstants.VIDEO_CATEGORIES) {
-				return {
-					...item,
-					children: videoCategories
-				};
-			} else {
-				return item;
-			}
-		});
+		const {sidebarMenu, activeItemId} = this.props;
 
 		return (
 			<div className="test-sidebar">
 				<ul className="side-nav">
-					{sidebarMenuItems.map((item, index) =>
+					{sidebarMenu.map((item, index) =>
 					<SidebarItem key={index}
 					             item={item}
 					             activeItemId={activeItemId}
@@ -50,25 +39,25 @@ export class Sidebar extends Component {
 
 const mapStateToProps = state => {
 	return {
-		activeItemId: state.sidebar.activeItemId,
-		videoCategories: state.sidebar.videoCategories
+		sidebarMenu: state.sidebar.sidebarMenu,
+		activeItemId: state.sidebar.activeItemId
 	};
 };
 
 const mapDispatchToProps = dispatch => {
 	return {
+		retrieveSidebarMenu: () => {
+			dispatch(retrieveSidebarMenu());
+		},
+		resetSidebarMenu: () => {
+			dispatch(resetSidebarMenu());
+		},
 		setActiveItemId: (activeItemId) => {
 			dispatch(setActiveItemId(activeItemId));
 		},
 		resetActiveItemId: () => {
 			dispatch(resetActiveItemId());
-		},
-		retrieveVideoCategories: () => {
-			dispatch(retrieveVideoCategories());
-		},
-		resetVideoCategories: () => {
-			dispatch(resetVideoCategories());
-		},
+		}
 	}
 };
 

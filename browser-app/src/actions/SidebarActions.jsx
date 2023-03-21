@@ -15,29 +15,29 @@ export const resetActiveItemId = () => {
 	}
 };
 
-export const setVideoCategories = (videoCategories) => {
+export const setSidebarMenu = (sidebarMenu) => {
 	return {
-		type: constants.REDUX_STORE_EVENTS.SET_SIDEBAR_MENU_VIDEO_CATEGORIES,
-		videoCategories: videoCategories
+		type: constants.REDUX_STORE_EVENTS.SET_SIDEBAR_MENU,
+		sidebarMenu: sidebarMenu
 	}
 };
 
-export const resetVideoCategories = () => {
+export const resetSidebarMenu = () => {
 	return {
-		type: constants.REDUX_STORE_EVENTS.RESET_SIDEBAR_MENU_VIDEO_CATEGORIES
+		type: constants.REDUX_STORE_EVENTS.RESET_SIDEBAR_MENU
 	}
 };
 
-export const retrieveVideoCategories = () => {
+export const retrieveSidebarMenu = () => {
 	return (dispatch) => {
-		axios.get(`${constants.BASE_URL}/video-categories`,
+		axios.get(`${constants.BASE_URL}/sidebar-menu`,
 			{headers: {'Content-Type': 'application/json'}})
 			.then(response => {
-				dispatch(setVideoCategories(response.data));
+				dispatch(setSidebarMenu(response.data));
 			})
 			.catch(error => {
-				dispatch(resetVideoCategories());
-				dispatch(setErrorMessage('Video categories retrieval ' + error));
+				dispatch(resetSidebarMenu());
+				dispatch(setErrorMessage('Sidebar menu retrieval ' + error));
 			})
 	}
 };

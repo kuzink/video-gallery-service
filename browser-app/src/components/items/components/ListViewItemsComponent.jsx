@@ -2,7 +2,6 @@ import React from "react";
 import DefaultThumbnail from '../../../assets/defaultThumbnail.jpg';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {faPlay} from "@fortawesome/free-solid-svg-icons/index";
-import constants from "../../../constants/Constants";
 
 const ListViewItemsComponent = (props) => {
 
@@ -15,9 +14,9 @@ const ListViewItemsComponent = (props) => {
 					<div className={`card shadow-sm ${index === items.length - 1 ? 'mb-4' : 'mb-2'}`}>
 						<div className="custom-list-view-item" onClick={handleOnItemSelect.bind(this, item)}>
 							<div className="custom-list-view-item-left">
-								<img src={item.thumbnailNames.length
-									? `data:image/jpeg;base64,${item.initialThumbnail}`
-									: DefaultThumbnail}/>
+								<img src={item.thumbnailIds.length
+									? `data:image/jpeg;base64,${item.initialThumbnailBytes}`
+									: DefaultThumbnail} alt=""/>
 								<div className="custom-mask flex-center" title="Play video">
 									<h3><FontAwesomeIcon icon={faPlay} className="text-white"/></h3>
 								</div>
