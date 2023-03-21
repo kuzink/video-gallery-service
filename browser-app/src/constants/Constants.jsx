@@ -53,12 +53,8 @@ export default {
 			label: 'Show all'
 		}
 	],
-	SORT_CRITERIA_DEFAULT_VALUE: 'idUp',
+	SORT_CRITERIA_DEFAULT_VALUE: 'nameUp',
 	SORT_CRITERIA_OPTIONS: [
-		{
-			value: 'idUp',
-			label: 'Sort by id ↑'
-		},
 		{
 			value: 'nameUp',
 			label: 'Sort by name ↑'

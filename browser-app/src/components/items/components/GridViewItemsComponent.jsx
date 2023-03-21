@@ -9,7 +9,7 @@ const GridViewItemsComponent = (props) => {
 		<React.Fragment>
 			{items.map((item, index) => (
 				<div id={index} key={index} className="col-3 custom-col mb-4">
-					<div className="card custom-card shadow-sm">
+					<div className="card custom-card">
 						<ThumbnailSliderComponent item={item}
 						                          handleOnItemSelect={handleOnItemSelect}/>
 						<div className="custom-card-popover">{item.size}</div>
