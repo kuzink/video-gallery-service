@@ -14,7 +14,7 @@ import static com.kuzin.videogalleryservice.util.HelperUtil.INITIAL_THUMBNAIL_PO
 import static com.kuzin.videogalleryservice.util.HelperUtil.SLASH;
 import static com.kuzin.videogalleryservice.util.HelperUtil.convertToHumanReadableSize;
 import static com.kuzin.videogalleryservice.util.HelperUtil.removeFileExtension;
-import static com.kuzin.videogalleryservice.util.SidebarMenuHelper.createSidebarMenuItems;
+import static com.kuzin.videogalleryservice.util.SidebarMenuBuilder.buildSidebarMenuItems;
 import static com.kuzin.videogalleryservice.validator.StartUpDataValidator.validateFoldersStructure;
 import static com.kuzin.videogalleryservice.validator.StartUpDataValidator.validateList;
 
@@ -172,7 +172,7 @@ public class StartUpDataInitializr {
 
         final List<SidebarMenuItemDto> sidebarMenu = new ArrayList<>();
 
-        createSidebarMenuItems(sidebarMenu, folderNames);
+        buildSidebarMenuItems(sidebarMenu, folderNames);
 
         validateList(defaultValidator, sidebarMenu);
 

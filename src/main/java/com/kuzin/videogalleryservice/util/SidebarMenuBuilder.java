@@ -7,12 +7,12 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 import static java.util.stream.Collectors.toList;
 
-public class SidebarMenuHelper {
+public class SidebarMenuBuilder {
 
     private static final AtomicInteger SIDEBAR_MENU_ITEM_ID_COUNTER = new AtomicInteger();
 
-    public static void createSidebarMenuItems(final List<SidebarMenuItemDto> sidebarMenu,
-                                              final List<String> folderNames) {
+    public static void buildSidebarMenuItems(final List<SidebarMenuItemDto> sidebarMenu,
+                                             final List<String> folderNames) {
 
         final SidebarMenuItemDto navigation = SidebarMenuItemDto.builder()
                 .id(SIDEBAR_MENU_ITEM_ID_COUNTER.incrementAndGet())

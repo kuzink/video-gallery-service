@@ -12,9 +12,11 @@ import java.io.IOException;
 public class SpaWebFilter extends OncePerRequestFilter {
 
 	@Override
-	protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response,
-	                                FilterChain filterChain) throws ServletException, IOException {
-		String path = request.getRequestURI();
+	protected void doFilterInternal(final HttpServletRequest request, final HttpServletResponse response,
+	                                final FilterChain filterChain) throws ServletException, IOException {
+
+		final String path = request.getRequestURI();
+
 		if (!path.startsWith("/api") && !path.contains(".") && path.matches("/(.*)")) {
 			request.getRequestDispatcher("/").forward(request, response);
 			return;
