@@ -213,13 +213,14 @@ video:focus {
 }
 .test-sidebar {
   position: fixed;
-  top: 0;
+  top: 70px;
   left: 0;
   width: 260px;
   min-width: 260px;
-  min-height: 100vh;
+  max-height: calc(100vh - 70px);
+  min-height: calc(100vh - 70px);
+  overflow: auto;
   z-index: 1020;
-  padding-top: 70px;
   background-color: #313A46;
   /*border-right: 1px solid #DEE2E6;*/
 }
@@ -597,14 +598,15 @@ video:focus {
 
 .custom-landing-slider-text-wrapper {
   position: fixed;
-  top: 40%;
+  top: 50%;
   left: 0;
   width: 100vw;
   z-index: 920;
+  transform: translateY(-50%);
 }
 .custom-landing-slider-text {
   width: 50%;
-  margin: 0 auto;
+  margin: 0 auto 16px auto;
   color: #fff;
   text-align: center;
   font-size: 3.0rem!important;
@@ -654,7 +656,7 @@ video:focus {
 /*ShowButtonComponent*/
 .custom-show-button-wrapper {
   position: fixed;
-  bottom: 20%;
+  bottom: 15%;
   left: 50%;
   transform: translateX(-50%);
   z-index: 920;
@@ -672,7 +674,7 @@ video:focus {
 }
 
 .custom-show-button {
-  letter-spacing: 3px;
+  letter-spacing: 2px;
   word-spacing: 5px;
   padding: .5rem 1.7rem;
   text-transform: uppercase;
@@ -690,7 +692,8 @@ video:focus {
 .custom-show-button:hover,
 .custom-show-button:active {
   color: #fff!important;
-  background-color: rgba(0,0,0,.3)!important;
+  background-color: rgba(114,124,245,.7)!important;
+  /*background-color: rgba(255,0,174,.7)!important;*/
   box-shadow: 1px 1px 10px 2px rgba(0, 0, 0, 0.5);
 }
 .custom-show-button:focus {
@@ -729,7 +732,7 @@ video:focus {
 
 /*Sidebar*/
 .side-nav {
-  margin-bottom: 0;
+  margin-bottom: 13px;
   padding: 0;
   list-style-type: none;
 }

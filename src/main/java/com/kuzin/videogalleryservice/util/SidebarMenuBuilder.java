@@ -14,50 +14,107 @@ public class SidebarMenuBuilder {
     public static void buildSidebarMenuItems(final List<SidebarMenuItemDto> sidebarMenu,
                                              final List<String> folderNames) {
 
-        final SidebarMenuItemDto navigation = SidebarMenuItemDto.builder()
+        sidebarMenu.add(SidebarMenuItemDto.builder()
                 .id(SIDEBAR_MENU_ITEM_ID_COUNTER.incrementAndGet())
                 .title("Navigation")
                 .isHead(true)
-                .build();
-        final SidebarMenuItemDto category = SidebarMenuItemDto.builder()
+                .build());
+        sidebarMenu.add(SidebarMenuItemDto.builder()
                 .id(SIDEBAR_MENU_ITEM_ID_COUNTER.incrementAndGet())
                 .title("Category")
                 .icon("bx bxs-category")
                 .children(getSidebarMenuItems(folderNames))
-                .build();
-        final SidebarMenuItemDto other = SidebarMenuItemDto.builder()
+                .build());
+        sidebarMenu.add(SidebarMenuItemDto.builder()
                 .id(SIDEBAR_MENU_ITEM_ID_COUNTER.incrementAndGet())
                 .title("Other")
                 .isHead(true)
-                .build();
-        final SidebarMenuItemDto cat = SidebarMenuItemDto.builder()
+                .build());
+        sidebarMenu.add(SidebarMenuItemDto.builder()
                 .id(SIDEBAR_MENU_ITEM_ID_COUNTER.incrementAndGet())
                 .title("Cat")
                 .icon("bx bxs-cat")
-                .build();
-        final SidebarMenuItemDto dog = SidebarMenuItemDto.builder()
+                .build());
+        sidebarMenu.add(SidebarMenuItemDto.builder()
                 .id(SIDEBAR_MENU_ITEM_ID_COUNTER.incrementAndGet())
                 .title("Dog")
                 .icon("bx bxs-dog")
-                .build();
-        final SidebarMenuItemDto leaf = SidebarMenuItemDto.builder()
+                .build());
+        sidebarMenu.add(SidebarMenuItemDto.builder()
                 .id(SIDEBAR_MENU_ITEM_ID_COUNTER.incrementAndGet())
                 .title("Leaf")
                 .icon("bx bxs-leaf")
-                .build();
-        final SidebarMenuItemDto spa = SidebarMenuItemDto.builder()
+                .build());
+        sidebarMenu.add(SidebarMenuItemDto.builder()
                 .id(SIDEBAR_MENU_ITEM_ID_COUNTER.incrementAndGet())
                 .title("Spa")
                 .icon("bx bxs-spa")
-                .build();
+                .build());
 
-        sidebarMenu.add(navigation);
-        sidebarMenu.add(category);
-        sidebarMenu.add(other);
-        sidebarMenu.add(cat);
-        sidebarMenu.add(dog);
-        sidebarMenu.add(leaf);
-        sidebarMenu.add(spa);
+        sidebarMenu.add(SidebarMenuItemDto.builder()
+            .id(SIDEBAR_MENU_ITEM_ID_COUNTER.incrementAndGet())
+            .title("Cat")
+            .icon("bx bxs-cat")
+            .build());
+        sidebarMenu.add(SidebarMenuItemDto.builder()
+            .id(SIDEBAR_MENU_ITEM_ID_COUNTER.incrementAndGet())
+            .title("Dog")
+            .icon("bx bxs-dog")
+            .build());
+        sidebarMenu.add(SidebarMenuItemDto.builder()
+            .id(SIDEBAR_MENU_ITEM_ID_COUNTER.incrementAndGet())
+            .title("Leaf")
+            .icon("bx bxs-leaf")
+            .build());
+        sidebarMenu.add(SidebarMenuItemDto.builder()
+            .id(SIDEBAR_MENU_ITEM_ID_COUNTER.incrementAndGet())
+            .title("Spa")
+            .icon("bx bxs-spa")
+            .build());
+
+        sidebarMenu.add(SidebarMenuItemDto.builder()
+            .id(SIDEBAR_MENU_ITEM_ID_COUNTER.incrementAndGet())
+            .title("Cat")
+            .icon("bx bxs-cat")
+            .build());
+        sidebarMenu.add(SidebarMenuItemDto.builder()
+            .id(SIDEBAR_MENU_ITEM_ID_COUNTER.incrementAndGet())
+            .title("Dog")
+            .icon("bx bxs-dog")
+            .build());
+        sidebarMenu.add(SidebarMenuItemDto.builder()
+            .id(SIDEBAR_MENU_ITEM_ID_COUNTER.incrementAndGet())
+            .title("Leaf")
+            .icon("bx bxs-leaf")
+            .build());
+        sidebarMenu.add(SidebarMenuItemDto.builder()
+            .id(SIDEBAR_MENU_ITEM_ID_COUNTER.incrementAndGet())
+            .title("Spa")
+            .icon("bx bxs-spa")
+            .build());
+
+        sidebarMenu.add(SidebarMenuItemDto.builder()
+            .id(SIDEBAR_MENU_ITEM_ID_COUNTER.incrementAndGet())
+            .title("Cat")
+            .icon("bx bxs-cat")
+            .build());
+        sidebarMenu.add(SidebarMenuItemDto.builder()
+            .id(SIDEBAR_MENU_ITEM_ID_COUNTER.incrementAndGet())
+            .title("Dog")
+            .icon("bx bxs-dog")
+            .build());
+        sidebarMenu.add(SidebarMenuItemDto.builder()
+            .id(SIDEBAR_MENU_ITEM_ID_COUNTER.incrementAndGet())
+            .title("Leaf")
+            .icon("bx bxs-leaf")
+            .build());
+        sidebarMenu.add(SidebarMenuItemDto.builder()
+            .id(SIDEBAR_MENU_ITEM_ID_COUNTER.incrementAndGet())
+            .title("Spa end")
+            .icon("bx bxs-spa")
+            .build());
+
+
     }
 
     private static List<SidebarMenuItemDto> getSidebarMenuItems(final List<String> folderNames) {
