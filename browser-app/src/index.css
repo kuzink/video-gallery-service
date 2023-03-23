@@ -294,6 +294,11 @@ video:focus {
 .test-sidebar::-webkit-scrollbar {
   width: 10px;
 }
+/*Firefox*/
+.test-sidebar {
+  scrollbar-width: 10px;
+  scrollbar-color: #69747F transparent;
+}
 .test-sidebar::-webkit-scrollbar-track {
   border-radius: 5px;
 }
@@ -310,6 +315,11 @@ video:focus {
 /*For content*/
 .custom-items-with-pagination-and-toolbar-wrapper::-webkit-scrollbar {
   width: 12px;
+}
+/*Firefox*/
+.custom-items-with-pagination-and-toolbar-wrapper {
+  scrollbar-width: 12px;
+  scrollbar-color: #69747F transparent;
 }
 .custom-items-with-pagination-and-toolbar-wrapper::-webkit-scrollbar-track {
   border-radius: 6px;
@@ -787,6 +797,12 @@ video:focus {
   transition: all .3s ease-in-out;
   list-style: none;
 }
+/*Only for Firefox*/
+@supports (-moz-appearance:none) {
+  .side-nav-link {
+    padding: 12px 25px 12px 30px;
+  }
+}
 .side-nav-link:hover {
   color: #bccee4;
 }
@@ -810,6 +826,12 @@ video:focus {
   right: 19px;
   display: inline-block;
 }
+/*Only for Firefox*/
+@supports (-moz-appearance:none) {
+  .menu-arrow {
+    right: 29px;
+  }
+}
 .menu-arrow i {
   font-size: 20px;
   vertical-align: middle;
@@ -827,7 +849,7 @@ video:focus {
   transition: height .35s ease;
 }
 .side-nav-second-level li div {
-  padding: 8px 30px 8px 55px;
+  padding: 8px 30px 8px 60px;
   list-style-type: none;
 }
 .side-nav-second-level .side-nav-link span {
