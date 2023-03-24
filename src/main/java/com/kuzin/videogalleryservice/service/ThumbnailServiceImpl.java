@@ -8,7 +8,7 @@ import org.springframework.stereotype.*;
 import java.util.List;
 
 import static com.kuzin.videogalleryservice.util.FileSystemUtil.loadFileBytes;
-import static com.kuzin.videogalleryservice.util.HelperUtil.SLASH;
+import static com.kuzin.videogalleryservice.util.HelperUtil.SLASH_SYMBOL;
 
 @Service
 public class ThumbnailServiceImpl implements ThumbnailService {
@@ -30,9 +30,9 @@ public class ThumbnailServiceImpl implements ThumbnailService {
                 .findFirst()
                 .orElseThrow(() -> new RuntimeException("Thumbnail with id=" + id + " not found"));
 
-        final String path = thumbnailsLocation.concat(SLASH)
-                .concat(thumbnail.getFolderName()).concat(SLASH)
-                .concat(thumbnail.getSubFolderName()).concat(SLASH)
+        final String path = thumbnailsLocation.concat(SLASH_SYMBOL)
+                .concat(thumbnail.getFolderName()).concat(SLASH_SYMBOL)
+                .concat(thumbnail.getSubFolderName()).concat(SLASH_SYMBOL)
                 .concat(thumbnail.getName());
 
         return loadFileBytes(path);

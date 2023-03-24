@@ -10,7 +10,7 @@ import org.springframework.stereotype.*;
 import java.util.*;
 
 import static com.kuzin.videogalleryservice.util.FileSystemUtil.getResourceRegion;
-import static com.kuzin.videogalleryservice.util.HelperUtil.SLASH;
+import static com.kuzin.videogalleryservice.util.HelperUtil.SLASH_SYMBOL;
 
 @Service
 public class VideoServiceImpl implements VideoService {
@@ -31,8 +31,8 @@ public class VideoServiceImpl implements VideoService {
                 .findFirst()
                 .orElseThrow(() -> new RuntimeException("Video with id=" + id + " not found"));
 
-        final String path = videosLocation.concat(SLASH)
-                .concat(video.getFolderName()).concat(SLASH)
+        final String path = videosLocation.concat(SLASH_SYMBOL)
+                .concat(video.getFolderName()).concat(SLASH_SYMBOL)
                 .concat(video.getName());
 
         return getResourceRegion(path, headers);

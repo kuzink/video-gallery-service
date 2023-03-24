@@ -11,7 +11,7 @@ import java.util.stream.*;
 
 import static com.kuzin.videogalleryservice.util.FileSystemUtil.*;
 import static com.kuzin.videogalleryservice.util.HelperUtil.INITIAL_THUMBNAIL_POSTFIX;
-import static com.kuzin.videogalleryservice.util.HelperUtil.SLASH;
+import static com.kuzin.videogalleryservice.util.HelperUtil.SLASH_SYMBOL;
 import static com.kuzin.videogalleryservice.util.HelperUtil.convertToHumanReadableSize;
 import static com.kuzin.videogalleryservice.util.HelperUtil.removeFileExtension;
 import static com.kuzin.videogalleryservice.util.SidebarMenuBuilder.buildSidebarMenuItems;
@@ -43,7 +43,7 @@ public class StartUpDataInitializr {
         final List<VideoEntity> videos = new ArrayList<>();
 
         folderNames.forEach(folderName -> {
-            final String path = videosLocation.concat(SLASH).concat(folderName);
+            final String path = videosLocation.concat(SLASH_SYMBOL).concat(folderName);
             final List<File> videoFiles = getVideoFiles(path);
 
             videoFiles.forEach(videoFile -> {
@@ -72,11 +72,11 @@ public class StartUpDataInitializr {
         final List<ThumbnailEntity> thumbnails = new ArrayList<>();
 
         folderNames.forEach(folderName -> {
-            final String path = thumbnailsLocation.concat(SLASH).concat(folderName);
+            final String path = thumbnailsLocation.concat(SLASH_SYMBOL).concat(folderName);
             final List<String> subFolderNames = getFolderNames(path);
 
             subFolderNames.forEach(subFolderName -> {
-                final String subPath = path.concat(SLASH).concat(subFolderName);
+                final String subPath = path.concat(SLASH_SYMBOL).concat(subFolderName);
                 final List<File> thumbnailFiles = getThumbnailFiles(subPath);
 
                 thumbnailFiles.forEach(thumbnailFile -> {
@@ -104,11 +104,11 @@ public class StartUpDataInitializr {
         final List<SlideEntity> slides = new ArrayList<>();
 
         folderNames.forEach(folderName -> {
-            final String path = slidesLocation.concat(SLASH).concat(folderName);
+            final String path = slidesLocation.concat(SLASH_SYMBOL).concat(folderName);
             final List<String> subFolderNames = getFolderNames(path);
 
             subFolderNames.forEach(subFolderName -> {
-                final String subPath = path.concat(SLASH).concat(subFolderName);
+                final String subPath = path.concat(SLASH_SYMBOL).concat(subFolderName);
                 final List<File> thumbnailFiles = getThumbnailFiles(subPath);
 
                 thumbnailFiles.forEach(thumbnailFile -> {
@@ -199,9 +199,9 @@ public class StartUpDataInitializr {
                     .findFirst()
                     .orElseThrow(() -> new RuntimeException("StartUpDataInitializr.getInitialThumbnailBytes exception"));
 
-            final String path = thumbnailsLocation.concat(SLASH)
-                    .concat(thumbnail.getFolderName()).concat(SLASH)
-                    .concat(thumbnail.getSubFolderName()).concat(SLASH)
+            final String path = thumbnailsLocation.concat(SLASH_SYMBOL)
+                    .concat(thumbnail.getFolderName()).concat(SLASH_SYMBOL)
+                    .concat(thumbnail.getSubFolderName()).concat(SLASH_SYMBOL)
                     .concat(thumbnail.getName());
 
             return loadFileBytes(path);

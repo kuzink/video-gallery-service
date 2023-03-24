@@ -4,7 +4,7 @@ import {faAngleUp} from "@fortawesome/free-solid-svg-icons/index";
 
 const Icon = () =>
 	<React.Fragment>
-		<FontAwesomeIcon icon={faAngleUp} className="mr-2"/>Top
+		<FontAwesomeIcon icon={faAngleUp} className=""/>
 	</React.Fragment>
 ;
 

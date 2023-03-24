@@ -4,7 +4,8 @@ import java.text.*;
 
 public class HelperUtil {
 
-	public static final String SLASH = "/";
+	public static final String SLASH_SYMBOL = "/";
+	public static final String LOW_DASH_SYMBOL = "_";
 	public static final String INITIAL_THUMBNAIL_POSTFIX = "_init";
 
 	public static String removeFileExtension(String filename, boolean removeAllExtensions) {

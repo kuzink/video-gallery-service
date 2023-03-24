@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from "react";
 import icon_0 from '../../../assets/100x100/0.gif';
 import icon_1 from '../../../assets/100x100/1.gif';
-import icon_2 from '../../../assets/100x100/2.gif';
 
-const icons = [icon_0, icon_1, icon_2];
+const icons = [icon_0, icon_1];
 
 const Spinner = (props) => {
 
