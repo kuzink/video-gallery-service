@@ -292,19 +292,19 @@ video:focus {
 /*Custom scrollbar*/
 /*For Sidebar*/
 .test-sidebar::-webkit-scrollbar {
-  width: 10px;
+  width: 8px;
 }
 /*Firefox*/
 .test-sidebar {
-  scrollbar-width: 10px;
+  scrollbar-width: thin;
   scrollbar-color: #69747F transparent;
 }
 .test-sidebar::-webkit-scrollbar-track {
-  border-radius: 5px;
+  border-radius: 4px;
 }
 .test-sidebar::-webkit-scrollbar-thumb {
-  border-radius: 5px;
-  border: 2px solid transparent;
+  border-radius: 4px;
+  border: 0px solid transparent;
   background-clip: content-box;
   /*background-color: transparent;*/
   background-color: #69747F;
@@ -314,19 +314,19 @@ video:focus {
 }
 /*For content*/
 .custom-items-with-pagination-and-toolbar-wrapper::-webkit-scrollbar {
-  width: 12px;
+  width: 8px;
 }
 /*Firefox*/
 .custom-items-with-pagination-and-toolbar-wrapper {
-  scrollbar-width: 12px;
+  scrollbar-width: thin;
   scrollbar-color: #69747F transparent;
 }
 .custom-items-with-pagination-and-toolbar-wrapper::-webkit-scrollbar-track {
-  border-radius: 6px;
+  border-radius: 4px;
 }
 .custom-items-with-pagination-and-toolbar-wrapper::-webkit-scrollbar-thumb {
-  border-radius: 6px;
-  border: 2px solid transparent;
+  border-radius: 4px;
+  border: 0px solid transparent;
   background-clip: content-box;
   background-color: #69747F;
 }
