@@ -25,12 +25,6 @@ body::-webkit-scrollbar{
 }
 
 /*Modal Item Details*/
-.modal-backdrop.show {
-  /*opacity: .8;*/
-}
-.modal {
-  /*background-color: black!important;*/
-}
 .custom-modal {
   width: 50%!important;
   max-width: 50%!important;
@@ -60,9 +54,6 @@ video:focus {
 /*Item Card*/
 .custom-card {
   position: relative;
-  /*box-shadow: rgba(154, 161, 171, 0.15) 0px 0px 35px 0px;*/
-  /*box-shadow: 0 2px 15px -3px rgba(0,0,0,0.07),0 10px 20px -2px rgba(0,0,0,0.04);*/
-  /*box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 1px -1px, rgba(0, 0, 0, 0.14) 0px 1px 1px 0px, rgba(0, 0, 0, 0.12) 0px 1px 3px 0px;*/
   box-shadow: 0 .125rem .25rem rgba(0,0,0,.075); /*.shadow-sm*/
   border: none;
   border-radius: 4px;
@@ -193,10 +184,7 @@ video:focus {
 .custom-col {
   padding-left: 12px;
   padding-right: 12px;
-  /*margin-bottom: 15px;*/
 }
-
-
 
 /*FOR TEST*/
 .test-header {
@@ -207,9 +195,7 @@ video:focus {
   height: 70px;
   z-index: 1030;
   background-color: white;
-  /*border-bottom: 1px solid #DEE2E6;*/
-  box-shadow: rgba(154, 161, 171, 0.15) 0px 0px 35px 0px;
-  /*box-shadow: rgba(0, 0, 0, 0.05) 0 0 8px 0;*/
+  box-shadow: rgba(154, 161, 171, 0.15) 0 0 35px 0;
 }
 .test-sidebar {
   position: fixed;
@@ -223,13 +209,11 @@ video:focus {
   z-index: 1020;
   background-color: #313A46;
   scrollbar-gutter: stable;
-  /*border-right: 1px solid #DEE2E6;*/
 }
 .test-content-outer {
   position: fixed;
   top: 70px;
   left: 260px;
-  min-height: 100vh;
   width: calc(100vw - 260px);
 }
 .test-content-inner {
@@ -239,14 +223,23 @@ video:focus {
   min-height: calc(100vh - 70px);
   overflow-y: auto;
 }
-
-
-
+.test-content-inner-2 {
+  position: relative;
+}
+.test-footer {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 100px;
+  width: 100%;
+  background-color: red;
+}
 
 /*Wrappers*/
 .custom-items-with-pagination-and-toolbar-wrapper {
   background-color: #FAFBFE;
-  padding: 0px 12px 40px 12px;
+  padding: 0 12px 40px 12px;
   max-height: calc(100vh - 70px);
   min-height: calc(100vh - 70px);
   overflow-y: auto;
@@ -262,15 +255,11 @@ video:focus {
 }
 .custom-items-wrapper {
   margin-bottom: 4px;
-  /*padding: 32px 7px 16px 8px;*/
-  /*background-color: lightblue;*/
 }
 .custom-pagination-wrapper {
   min-height: 38px;
-  /*background-color: green;*/
   flex-grow: 3;
   position: relative;
-  /*margin-bottom: 20px;*/
 }
 .custom-pagination-wrapper > div {
   position: absolute;
@@ -301,11 +290,7 @@ video:focus {
   border-radius: 5px;
   border: 2px solid transparent;
   background-clip: content-box;
-  /*background-color: transparent;*/
   background-color: #69747F;
-}
-.test-sidebar:hover::-webkit-scrollbar-thumb {
-  /*background-color: #69747F;*/
 }
 /*For content*/
 .custom-items-with-pagination-and-toolbar-wrapper::-webkit-scrollbar {
@@ -355,10 +340,7 @@ video:focus {
 .slick-dots li button::before,
 .slick-dots li.slick-active button:before {
   width: 10px;
-  margin-top: 3px;
-  margin-bottom: 4px;
-  margin-left: 2px;
-  margin-right: 2px;
+  margin: 3px 2px 4px;
   height: 12px;
   background-color: transparent;
   content: "";
@@ -675,27 +657,13 @@ video:focus {
   right: 36px;
 }
 .custom-scroll-top-button {
-  /*bottom: 3rem!important;*/
-  /*right: 1rem!important;*/
-  /*border: 1px solid #6c757d!important;*/
-  /*padding: .375rem .75rem!important;*/
-  /*font-size: 1rem!important;*/
-  /*line-height: 1.5!important;*/
-  /*border-radius: .25rem!important;*/
-  /*color: #fff!important;*/
-  /*background-color: #6c757d!important;*/
-  /*display: inline-block!important;*/
-  /*font-weight: 400!important;*/
-  /*text-align: center!important;*/
-  /*vertical-align: middle!important;*/
-  /*transition: all .15s ease-in-out!important;*/
   width: 40px;
   height: 40px;
   color: #fff;
   background-color: rgb(114,124,245);
+  border-color: rgb(114,124,245);
   border-radius: 50%;
-  box-shadow: rgba(114,124,245,.5) 0px 2px 6px 0px;
-
+  box-shadow: rgba(114,124,245,.5) 0 2px 6px 0;
 }
 .custom-scroll-top-button:hover,
 .custom-scroll-top-button:focus,
@@ -705,9 +673,6 @@ video:focus {
 .show>.custom-scroll-top-button.dropdown-toggle {
   background-color: #6169d0;
   border-color: #5b63c4;
-  /*color: #fff!important;*/
-  /*background-color: #5a6268!important;*/
-  /*border-color: #545b62!important;*/
 }
 .custom-scroll-top-button:focus {
   box-shadow: 0 0 0 0.15rem rgba(135,144,247,.5);
