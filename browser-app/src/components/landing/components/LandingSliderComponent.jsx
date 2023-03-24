@@ -34,7 +34,7 @@ const LandingSlider = (props) => {
 						.getElementsByTagName('div')[0]
 						.getElementsByTagName('img')[0];
 
-					lastImage.style.animation = 'none';
+					el.style.animation = 'none';
 				}
 			}
 		}
