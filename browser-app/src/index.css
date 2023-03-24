@@ -292,7 +292,7 @@ video:focus {
 /*Custom scrollbar*/
 /*For Sidebar*/
 .test-sidebar::-webkit-scrollbar {
-  width: 8px;
+  width: 10px;
 }
 /*Firefox*/
 .test-sidebar {
@@ -300,11 +300,11 @@ video:focus {
   scrollbar-color: #69747F transparent;
 }
 .test-sidebar::-webkit-scrollbar-track {
-  border-radius: 4px;
+  border-radius: 5px;
 }
 .test-sidebar::-webkit-scrollbar-thumb {
-  border-radius: 4px;
-  border: 0px solid transparent;
+  border-radius: 5px;
+  border: 2px solid transparent;
   background-clip: content-box;
   /*background-color: transparent;*/
   background-color: #69747F;
@@ -314,7 +314,7 @@ video:focus {
 }
 /*For content*/
 .custom-items-with-pagination-and-toolbar-wrapper::-webkit-scrollbar {
-  width: 8px;
+  width: 12px;
 }
 /*Firefox*/
 .custom-items-with-pagination-and-toolbar-wrapper {
@@ -322,11 +322,11 @@ video:focus {
   scrollbar-color: #69747F transparent;
 }
 .custom-items-with-pagination-and-toolbar-wrapper::-webkit-scrollbar-track {
-  border-radius: 4px;
+  border-radius: 6px;
 }
 .custom-items-with-pagination-and-toolbar-wrapper::-webkit-scrollbar-thumb {
-  border-radius: 4px;
-  border: 0px solid transparent;
+  border-radius: 6px;
+  border: 2px solid transparent;
   background-clip: content-box;
   background-color: #69747F;
 }
