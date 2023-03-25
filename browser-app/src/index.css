@@ -664,6 +664,11 @@ video:focus {
   border-color: rgb(114,124,245);
   border-radius: 50%;
   box-shadow: rgba(114,124,245,.5) 0 2px 6px 0;
+  padding: 0;
+}
+.custom-scroll-top-button i {
+  vertical-align: middle;
+  font-size: 26px;
 }
 .custom-scroll-top-button:hover,
 .custom-scroll-top-button:focus,
@@ -671,6 +676,7 @@ video:focus {
 .custom-scroll-top-button:not(:disabled):not(.disabled).active,
 .custom-scroll-top-button:not(:disabled):not(.disabled):active,
 .show>.custom-scroll-top-button.dropdown-toggle {
+  color: #fff;
   background-color: #6169d0;
   border-color: #5b63c4;
 }

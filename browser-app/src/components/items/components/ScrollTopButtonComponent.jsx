@@ -1,12 +1,4 @@
 import React from "react";
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import {faAngleUp} from "@fortawesome/free-solid-svg-icons/index";
-
-const Icon = () =>
-	<React.Fragment>
-		<FontAwesomeIcon icon={faAngleUp} className=""/>
-	</React.Fragment>
-;
 
 const ScrollTopButtonComponent = () => {
 
@@ -19,8 +11,8 @@ const ScrollTopButtonComponent = () => {
 
 	return (
 		<div id="custom-scroll-top-div" className="custom-scroll-top-div d-none">
-			<button className="btn btn-secondary custom-scroll-top-button" onClick={handleClick}>
-				<Icon/>
+			<button className="btn custom-scroll-top-button" onClick={handleClick}>
+				<i className="bx bx-chevron-up"/>
 			</button>
 		</div>
 	);
