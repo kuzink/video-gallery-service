@@ -178,11 +178,11 @@ const ItemsPaginationWrapperComponent = (props) => {
 
 				{children}
 
+				{isPaginationButtonsVisible() &&
 				<div className="custom-pagination-wrapper">
 					<div className="container-fluid">
 						<div className="row">
 							<div className="col custom-col">
-								{isPaginationButtonsVisible() &&
 								<ul className="pagination mb-0 justify-content-center">
 									{pages.map((p, index) => {
 										if (p === LEFT_PAGE) {
@@ -206,11 +206,11 @@ const ItemsPaginationWrapperComponent = (props) => {
 										}
 									})}
 								</ul>
-								}
 							</div>
 						</div>
 					</div>
 				</div>
+				}
 
 			</div>
 		</div>

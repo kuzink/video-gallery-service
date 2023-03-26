@@ -222,7 +222,7 @@ video:focus {
 }
 .content-page {
   position: relative;
-  padding: 0 0 81px 0;
+  padding: 0 0 61px 0;
   /*background-color: blue;*/
   min-height: calc(100vh - 70px);
 }
@@ -236,7 +236,7 @@ video:focus {
   right: 0;
   bottom: 0;
   left: 0;
-  height: 81px;
+  height: 61px;
   /*background-color: red;*/
   color: #8a969c;
   border-top: 1px solid #dee2e6;
@@ -245,11 +245,11 @@ video:focus {
 /*Wrappers*/
 .custom-items-with-pagination-and-toolbar-wrapper {
   background-color: #FAFBFE;
-  padding: 0 12px 40px 12px;
+  padding: 0 12px 30px 12px;
 }
 .inner {
   padding-top: 30px;
-  min-height: calc(100vh - 70px - 40px - 81px);
+  min-height: calc(100vh - 70px - 30px - 61px);
   display: flex;
   flex-direction: column;
 }
@@ -660,7 +660,7 @@ video:focus {
 /*Scroll Top Button*/
 .custom-scroll-top-div {
   position: fixed;
-  bottom: 20px;
+  bottom: 10px;
   right: 36px;
 }
 .custom-scroll-top-button {
