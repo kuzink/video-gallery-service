@@ -3,7 +3,7 @@ import Select from 'react-select';
 import constants from "../../../constants/Constants";
 import {faSearch, faList, faTh} from "@fortawesome/free-solid-svg-icons/index";
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import ScrollTopButtonComponent from "./ScrollTopButtonComponent";
+import ScrollTopButtonComponent from "../../utilities/scrolltopbutton/ScrollTopButtonComponent";
 
 const ItemsPaginationWrapperComponent = (props) => {
 

@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {connect} from "react-redux";
 import Header from "./layout/header/Header";
 import Sidebar from "./layout/sidebar/Sidebar";
-import Content from "./layout/content/Content";
+import ContentWithFooter from "./layout/content/ContentWithFooter";
 
 export class TestContainer extends Component {
 
@@ -19,7 +19,7 @@ export class TestContainer extends Component {
 			<React.Fragment>
 				<Header/>
 				<Sidebar/>
-				<Content/>
+				<ContentWithFooter/>
 			</React.Fragment>
 		)
 	}
