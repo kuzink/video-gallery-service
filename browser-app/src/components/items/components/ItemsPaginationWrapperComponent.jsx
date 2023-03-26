@@ -3,7 +3,6 @@ import Select from 'react-select';
 import constants from "../../../constants/Constants";
 import {faSearch, faList, faTh} from "@fortawesome/free-solid-svg-icons/index";
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import ScrollTopButtonComponent from "../../utilities/scrolltopbutton/ScrollTopButtonComponent";
 
 const ItemsPaginationWrapperComponent = (props) => {
 
@@ -124,22 +123,9 @@ const ItemsPaginationWrapperComponent = (props) => {
 		return isGridViewChange(isGridView);
 	};
 
-	const handleScroll = (event) => {
-		const {scrollTop} = event.target;
-		const el = document.getElementById('custom-scroll-top-div');
-
-		if (scrollTop > 0) {
-			el.classList.remove('d-none');
-			el.classList.add('d-block');
-		} else {
-			el.classList.remove('d-block');
-			el.classList.add('d-none');
-		}
-	};
-
 	return (
-		<div onScroll={handleScroll} id="custom-items-with-pagination-and-toolbar-wrapper" className="custom-items-with-pagination-and-toolbar-wrapper">
-			<div id="inner-id-for-scroll-top-button" className="inner">
+		<div className="custom-items-with-pagination-and-toolbar-wrapper">
+			<div className="inner">
 
 				<div className="custom-toolbar-wrapper">
 					<div className="container-fluid">
@@ -225,8 +211,6 @@ const ItemsPaginationWrapperComponent = (props) => {
 						</div>
 					</div>
 				</div>
-
-				<ScrollTopButtonComponent/>
 
 			</div>
 		</div>

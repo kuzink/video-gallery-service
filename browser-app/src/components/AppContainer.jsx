@@ -3,7 +3,7 @@ import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import LandingContainer from "./landing/containers/LandingContainer";
 import ItemsContainer from "./items/containers/ItemsContainer";
 import NotFoundComponent from "./notfound/NotFoundComponent";
-import TestContainer from "./test/TestContainer";
+import TestContainer from "./test/LayoutAwareContentWrapperContainer";
 
 class AppContainer extends Component {
 

@@ -4,7 +4,7 @@ import Header from "./layout/header/Header";
 import Sidebar from "./layout/sidebar/Sidebar";
 import ContentWithFooter from "./layout/content/ContentWithFooter";
 
-export class TestContainer extends Component {
+export class LayoutAwareContentWrapperContainer extends Component {
 
 	state = {
 
@@ -15,11 +15,15 @@ export class TestContainer extends Component {
 	}
 
 	render() {
+		const {children} = this.props;
+
 		return (
 			<React.Fragment>
 				<Header/>
 				<Sidebar/>
-				<ContentWithFooter/>
+				<ContentWithFooter>
+					{children}
+				</ContentWithFooter>
 			</React.Fragment>
 		)
 	}
@@ -40,4 +44,4 @@ const mapDispatchToProps = dispatch => {
 export default connect(
 	mapStateToProps,
 	mapDispatchToProps
-)(TestContainer);
+)(LayoutAwareContentWrapperContainer);

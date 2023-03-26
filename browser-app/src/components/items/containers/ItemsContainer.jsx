@@ -11,14 +11,13 @@ import {
 	resetSearchText,
 	setIsGridView
 } from "../../../actions/ItemsActions";
-import BackButtonComponent from "../components/BackButtonComponent";
 import ItemsComponent from "../components/ItemsComponent";
 import ItemDetailsComponent from "../components/ItemDetailsComponent";
 import ItemsPaginationWrapperComponent from "../components/ItemsPaginationWrapperComponent";
 import ModalAlertContainer from "../../utilities/modalalert/ModalAlertContainer";
 import Spinner from "../../utilities/spinner/Spinner";
-import RequestSpinner from "../../utilities/spinner/RequestSpinner";
-import Sidebar from "../../test/layout/sidebar/Sidebar";
+import RequestSpinner from "../../utilities/spinner/RequestSpinner"
+import {LayoutAwareContentWrapperContainer} from "../../test/LayoutAwareContentWrapperContainer";
 
 export class ItemsContainer extends Component {
 
@@ -73,14 +72,7 @@ export class ItemsContainer extends Component {
 
 				<Spinner isLoading={isLoading}/>
 
-				<div className="test-header">
-					<BackButtonComponent classNames="ml-3"/>
-				</div>
-
-				<Sidebar/>
-
-				<div className="test-content-outer">
-
+				<LayoutAwareContentWrapperContainer>
 					{!isLoading &&
 					<React.Fragment>
 						<RequestSpinner/>
@@ -103,8 +95,7 @@ export class ItemsContainer extends Component {
 						                      handleCancel={this.handleCancel}/>
 					</React.Fragment>
 					}
-
-				</div>
+				</LayoutAwareContentWrapperContainer>
 
 			</React.Fragment>
 		)

@@ -246,13 +246,10 @@ video:focus {
 .custom-items-with-pagination-and-toolbar-wrapper {
   background-color: #FAFBFE;
   padding: 0 12px 40px 12px;
-  max-height: calc(100vh - 70px);
-  min-height: calc(100vh - 70px);
-  overflow-y: auto;
 }
 .inner {
   padding-top: 30px;
-  min-height: calc(100vh - 70px - 0px - 40px);
+  min-height: calc(100vh - 70px - 40px - 81px);
   display: flex;
   flex-direction: column;
 }

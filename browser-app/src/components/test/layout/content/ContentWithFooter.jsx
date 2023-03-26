@@ -1,11 +1,12 @@
-import React, {Component} from 'react';
-import Content from "./Content";
+import React from 'react';
 import Footer from "../footer/Footer";
 import ScrollTopButtonComponent from "../../../utilities/scrolltopbutton/ScrollTopButtonComponent";
 
-export class ContentWithFooter extends Component {
+const ContentWithFooter = (props) => {
 
-	handleScroll = (event) => {
+	const {children} = props;
+
+	const handleScroll = (event) => {
 		const {scrollTop} = event.target;
 		const el = document.getElementById('custom-scroll-top-div');
 
@@ -18,18 +19,16 @@ export class ContentWithFooter extends Component {
 		}
 	};
 
-	render() {
-		return (
-			<div className="test-content-outer" onScroll={this.handleScroll}>
-				<div id="inner-id-for-scroll-top-button"/>
-				<div className="content-page">
-					<Content/>
-					<Footer/>
-				</div>
-				<ScrollTopButtonComponent/>
+	return (
+		<div className="test-content-outer" onScroll={handleScroll}>
+			<div id="inner-id-for-scroll-top-button"/>
+			<div className="content-page">
+				{children}
+				<Footer/>
 			</div>
-		)
-	}
-}
+			<ScrollTopButtonComponent/>
+		</div>
+	)
+};
 
 export default ContentWithFooter;
