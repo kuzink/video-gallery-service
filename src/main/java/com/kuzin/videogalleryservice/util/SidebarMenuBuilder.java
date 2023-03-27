@@ -50,27 +50,6 @@ public class SidebarMenuBuilder {
                 .title("Spa")
                 .icon("bx bxs-spa")
                 .build());
-
-        sidebarMenu.add(SidebarMenuItemDto.builder()
-            .id(SIDEBAR_MENU_ITEM_ID_COUNTER.incrementAndGet())
-            .title("Cat")
-            .icon("bx bxs-cat")
-            .build());
-        sidebarMenu.add(SidebarMenuItemDto.builder()
-            .id(SIDEBAR_MENU_ITEM_ID_COUNTER.incrementAndGet())
-            .title("Dog")
-            .icon("bx bxs-dog")
-            .build());
-        sidebarMenu.add(SidebarMenuItemDto.builder()
-            .id(SIDEBAR_MENU_ITEM_ID_COUNTER.incrementAndGet())
-            .title("Leaf")
-            .icon("bx bxs-leaf")
-            .build());
-        sidebarMenu.add(SidebarMenuItemDto.builder()
-            .id(SIDEBAR_MENU_ITEM_ID_COUNTER.incrementAndGet())
-            .title("Spa")
-            .icon("bx bxs-spa")
-            .build());
     }
 
     private static List<SidebarMenuItemDto> getSidebarMenuItems(final List<String> folderNames) {
