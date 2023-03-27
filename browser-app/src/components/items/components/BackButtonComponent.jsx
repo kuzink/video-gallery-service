@@ -11,7 +11,7 @@ const BackButtonComponent = (props) => {
 		<div className={`${classNames ? classNames : ''}`}>
 			<Link className="btn btn-secondary" to="/">
 				<FontAwesomeIcon icon={faAngleLeft} className="mr-2"/>
-				Back
+				Return Home
 			</Link>
 		</div>
 	);
