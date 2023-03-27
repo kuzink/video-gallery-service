@@ -1,5 +1,5 @@
 import React from "react";
-import DefaultThumbnail from '../../../assets/defaultThumbnail.jpg';
+import DefaultThumbnail from '../../../assets/thumbnail-default.gif';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {faPlay} from "@fortawesome/free-solid-svg-icons/index";
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import Slider from 'react-slick';
-import DefaultThumbnail from '../../../assets/defaultThumbnail.jpg';
+import DefaultThumbnail from '../../../assets/thumbnail-default.gif';
 import constants from "../../../constants/Constants";
 import PlayIcon from '../../../assets/play-circle.svg';
 
