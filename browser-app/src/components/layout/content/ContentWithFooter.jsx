@@ -1,6 +1,6 @@
 import React from 'react';
 import Footer from "../footer/Footer";
-import ScrollTopButtonComponent from "../../../utilities/scrolltopbutton/ScrollTopButtonComponent";
+import ScrollTopButtonComponent from "../../utilities/scrolltopbutton/ScrollTopButtonComponent";
 
 const ContentWithFooter = (props) => {
 

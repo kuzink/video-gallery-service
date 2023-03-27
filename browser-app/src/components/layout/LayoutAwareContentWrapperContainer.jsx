@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import {connect} from "react-redux";
-import Header from "./layout/header/Header";
-import Sidebar from "./layout/sidebar/Sidebar";
-import ContentWithFooter from "./layout/content/ContentWithFooter";
+import Header from "./header/Header";
+import Sidebar from "./sidebar/Sidebar";
+import ContentWithFooter from "./content/ContentWithFooter";
 
 export class LayoutAwareContentWrapperContainer extends Component {
 

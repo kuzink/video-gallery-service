@@ -24,7 +24,8 @@ const SidebarItem = (props) => {
     if (item.children) {
         return (
             <li className="side-nav-item">
-                <div className={`side-nav-link ${open ? 'opened' : ''} ${shouldParentBeActive(item.children)  ? 'active' : ''}`} onClick={handleClick}>
+                <div className={`side-nav-link ${open ? 'opened' : ''} ${shouldParentBeActive(item.children) ? 'active' : ''}`}
+                     onClick={handleClick}>
 	                {item.icon && <i className={item.icon}/>}
                     <span>{item.title}</span>
                     <span className="menu-arrow">
@@ -49,7 +50,8 @@ const SidebarItem = (props) => {
         }
         return (
             <li className="side-nav-item">
-                <div className={`side-nav-link ${item.id === activeItemId ? 'active' : ''}`} onClick={setItemId.bind(this, item.id)}>
+                <div className={`side-nav-link ${item.id === activeItemId ? 'active' : ''}`}
+                     onClick={setItemId.bind(this, item.id)}>
 	                {item.icon && <i className={item.icon}/>}
                     <span>{item.title}</span>
                 </div>

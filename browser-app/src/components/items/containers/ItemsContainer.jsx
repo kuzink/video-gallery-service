@@ -17,7 +17,7 @@ import ItemsPaginationWrapperComponent from "../components/ItemsPaginationWrappe
 import ModalAlertContainer from "../../utilities/modalalert/ModalAlertContainer";
 import Spinner from "../../utilities/spinner/Spinner";
 import RequestSpinner from "../../utilities/spinner/RequestSpinner"
-import {LayoutAwareContentWrapperContainer} from "../../test/LayoutAwareContentWrapperContainer";
+import {LayoutAwareContentWrapperContainer} from "../../layout/LayoutAwareContentWrapperContainer";
 
 export class ItemsContainer extends Component {
 

@@ -74,6 +74,7 @@ video:focus {
   height: 100%;
   overflow: hidden;
   background: rgba(158, 158, 158, 0.1) fixed;
+  z-index: 2;
 }
 .custom-card-image .custom-mask:hover {
   opacity: 1;
@@ -850,6 +851,26 @@ video:focus {
   font-weight: 400;
 }
 
+/*Footer*/
+.test-footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 36px;
+  padding-right: 112px;
+  font-size: 15px;
+  cursor: default;
+}
+.footer-links > .footer-link:first-of-type {
+  margin-left: 0!important;
+}
+.footer-link,
+.footer-link:hover {
+  color: #8a969c;
+  text-decoration: none;
+  margin-left: 1.5rem;
+}
 
 
 @media screen and (max-width: 1400px) {
@@ -858,8 +879,8 @@ video:focus {
     min-width: 200px;
   }
   .test-content-outer {
-    left: 200px;
-    width: calc(100vw - 200px);
+    margin-top: 70px;
+    margin-left: 200px;
   }
   .request-spinner-overlay {
     width: calc(100vw - 200px);

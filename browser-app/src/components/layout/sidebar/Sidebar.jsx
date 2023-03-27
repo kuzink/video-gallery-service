@@ -6,8 +6,8 @@ import {
 	resetActiveItemId,
 	retrieveSidebarMenu,
 	resetSidebarMenu
-} from "../../../../actions/SidebarActions";
-import {resetCategory, setCategory} from "../../../../actions/ItemsActions";
+} from "../../../actions/SidebarActions";
+import {resetCategory, setCategory} from "../../../actions/ItemsActions";
 
 export class Sidebar extends Component {
 
