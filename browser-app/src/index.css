@@ -652,7 +652,7 @@ video:focus {
   opacity: 1;
 }
 
-/*BackButtonComponent*/
+/*HomeButtonComponent*/
 .back-button-fixed-top {
   z-index: 910;
   right: initial;

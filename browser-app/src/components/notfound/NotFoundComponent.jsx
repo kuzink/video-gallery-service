@@ -1,5 +1,5 @@
 import React from 'react';
-import BackButtonComponent from "../items/components/BackButtonComponent";
+import HomeButtonComponent from "../utilities/homebutton/HomeButtonComponent";
 
 const NotFoundComponent = () => (
 	<div className="custom-not-found-wrapper d-flex align-items-center pb-5">
@@ -9,7 +9,7 @@ const NotFoundComponent = () => (
 					<h1 className="font-weight-light">Not found</h1>
 					<p className="display-2 text-muted">404</p>
 					<h5 className="font-weight-normal mb-5">This page does not exist<br/>or is temporarily unavailable</h5>
-					<BackButtonComponent/>
+					<HomeButtonComponent/>
 				</div>
 			</div>
 		</div>

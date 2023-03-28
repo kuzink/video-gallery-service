@@ -1,12 +1,12 @@
 import React, {Component} from 'react';
-import BackButtonComponent from "../../items/components/BackButtonComponent";
+import HomeButtonComponent from "../../utilities/homebutton/HomeButtonComponent";
 
 export class Header extends Component {
 
     render() {
         return (
             <div className="test-header">
-	            <BackButtonComponent classNames="ml-3"/>
+	            <HomeButtonComponent classNames="ml-3"/>
             </div>
         )
     }

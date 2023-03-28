@@ -3,7 +3,7 @@ import {Link} from "react-router-dom";
 import {faAngleLeft} from "@fortawesome/free-solid-svg-icons/index";
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 
-const BackButtonComponent = (props) => {
+const HomeButtonComponent = (props) => {
 
 	const {classNames} = props;
 
@@ -17,4 +17,4 @@ const BackButtonComponent = (props) => {
 	);
 };
 
-export default BackButtonComponent;
+export default HomeButtonComponent;
