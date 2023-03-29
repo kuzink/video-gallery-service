@@ -14,6 +14,45 @@ body::-webkit-scrollbar{
   }
 }
 
+/*Rewrite default bootstrap styles*/
+.btn-primary {
+  color: #fff;
+  background-color: #727cf5;
+  border: 1px solid #727cf5;
+  box-shadow: rgba(114,124,245,.5) 0 2px 6px 0;
+  border-bottom-left-radius: 2.4px;
+  border-bottom-right-radius: 2.4px;
+}
+.btn-primary:hover,
+.btn-primary:focus {
+  color: #fff;
+  background-color: #6169d0;
+  border-color: #5b63c4;
+}
+.btn-primary:active {
+  color: #fff;
+  background-color: #5b63c4;
+  border-color: #565db8;
+}
+.btn-primary:not(:disabled):not(.disabled).active,
+.btn-primary:not(:disabled):not(.disabled):active,
+.show>.btn-primary.dropdown-toggle {
+  color: #fff;
+  background-color: #5b63c4;
+  border-color: #565db8;
+}
+.btn-primary:not(:disabled):not(.disabled).active:focus,
+.btn-primary:not(:disabled):not(.disabled):active:focus,
+.show>.btn-primary.dropdown-toggle:focus,
+.btn-primary:focus {
+  box-shadow: 0 0 0 0.15rem rgba(135,144,247,.5);
+}
+
+.btn.btn-primary i {
+  font-size: 13px;
+  margin-right: 0.5rem
+}
+
 /*Modal Alert*/
 .modal-body {
   padding: 0;
@@ -244,7 +283,17 @@ video:focus {
   left: 0;
   height: 61px;
   color: #8a969c;
+  background-color: #FAFBFE;
   border-top: 1px solid #dee2e6;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 36px;
+  padding-right: 112px;
+  font-size: 15px;
+  cursor: default;
+  z-index: 2020;
 }
 
 /*Wrappers*/
@@ -401,6 +450,7 @@ video:focus {
   height: calc(100vh - 70px);
   transition: none;
   background-color: #FAFBFE;
+  z-index: 2010;
 }
 .visible {
   visibility: visible;
@@ -656,17 +706,12 @@ video:focus {
   opacity: 1;
 }
 
-/*HomeButtonComponent*/
-.custom-home-button i {
-  font-size: 13px;
-  margin-right: 0.5rem
-}
-
 /*Scroll Top Button*/
 .custom-scroll-top-div {
   position: fixed;
   bottom: 10px;
   right: 36px;
+  z-index: 2050;
 }
 .custom-scroll-top-button {
   width: 40px;
@@ -860,16 +905,6 @@ video:focus {
 }
 
 /*Footer*/
-.test-footer {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  padding-left: 36px;
-  padding-right: 112px;
-  font-size: 15px;
-  cursor: default;
-}
 .footer-links > .footer-link:first-of-type {
   margin-left: 0!important;
 }

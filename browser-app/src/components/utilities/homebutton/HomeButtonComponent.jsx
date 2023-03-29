@@ -2,8 +2,8 @@ import React from "react";
 import {Link} from "react-router-dom";
 
 const HomeButtonComponent = () => (
-	<Link className="btn btn-secondary custom-home-button" to="/">
-		<i className="fa-solid fa-chevron-left"/>Return Home
+	<Link className="btn btn-primary" to="/">
+		<i className="fa-regular fa-reply"/>Return Home
 	</Link>
 );
 

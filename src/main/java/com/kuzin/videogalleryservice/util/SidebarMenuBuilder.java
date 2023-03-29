@@ -31,6 +31,11 @@ public class SidebarMenuBuilder {
                 .isHead(true)
                 .build());
         sidebarMenu.add(SidebarMenuItemDto.builder()
+            .id(SIDEBAR_MENU_ITEM_ID_COUNTER.incrementAndGet())
+            .title("Notifications")
+            .icon("fa-regular fa-bell")
+            .build());
+        sidebarMenu.add(SidebarMenuItemDto.builder()
                 .id(SIDEBAR_MENU_ITEM_ID_COUNTER.incrementAndGet())
                 .title("Favourites")
                 .icon("fa-regular fa-heart")
@@ -40,11 +45,6 @@ public class SidebarMenuBuilder {
                 .title("Filters")
                 .icon("fa-regular fa-filter")
                 .build());
-        sidebarMenu.add(SidebarMenuItemDto.builder()
-            .id(SIDEBAR_MENU_ITEM_ID_COUNTER.incrementAndGet())
-            .title("Notifications")
-            .icon("fa-regular fa-bell")
-            .build());
         sidebarMenu.add(SidebarMenuItemDto.builder()
                 .id(SIDEBAR_MENU_ITEM_ID_COUNTER.incrementAndGet())
                 .title("Download")
