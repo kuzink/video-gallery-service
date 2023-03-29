@@ -12,7 +12,7 @@ const ScrollTopButtonComponent = () => {
 	return (
 		<div id="custom-scroll-top-div" className="custom-scroll-top-div d-none">
 			<button className="btn custom-scroll-top-button" onClick={handleClick}>
-				<i className="bx bx-chevron-up"/>
+				<i className="fa-solid fa-chevron-up"/>
 			</button>
 		</div>
 	);

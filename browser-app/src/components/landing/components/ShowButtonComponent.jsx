@@ -1,7 +1,5 @@
 import React from "react";
 import {Link} from "react-router-dom";
-import {faAngleRight} from "@fortawesome/free-solid-svg-icons/index";
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 
 const ShowButtonComponent = () => (
 	<div className="custom-show-button-wrapper">
@@ -9,7 +7,7 @@ const ShowButtonComponent = () => (
 			<span className="custom-show-arrow-wrapper-left"/>
 			Watch videos
 			<span className="custom-show-arrow-wrapper">
-				<FontAwesomeIcon icon={faAngleRight} className="custom-show-arrow"/>
+				<i className="fa-solid fa-angles-right custom-show-arrow"/>
 			</span>
 		</Link>
 	</div>

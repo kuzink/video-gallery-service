@@ -1,7 +1,5 @@
 import React from "react";
 import DefaultThumbnail from '../../../assets/thumbnail-default.gif';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import {faPlay} from "@fortawesome/free-solid-svg-icons/index";
 
 const ListViewItemsComponent = (props) => {
 
@@ -18,7 +16,7 @@ const ListViewItemsComponent = (props) => {
 									? `data:image/jpeg;base64,${item.initialThumbnailBytes}`
 									: DefaultThumbnail} alt=""/>
 								<div className="custom-mask flex-center" title="Play video">
-									<h3><FontAwesomeIcon icon={faPlay} className="text-white"/></h3>
+									<i className="fa-thin fa-circle-play"/>
 								</div>
 							</div>
 							<div className="p-4 custom-list-view-item-right">

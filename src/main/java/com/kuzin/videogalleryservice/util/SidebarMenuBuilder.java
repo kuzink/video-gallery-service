@@ -22,7 +22,7 @@ public class SidebarMenuBuilder {
         sidebarMenu.add(SidebarMenuItemDto.builder()
                 .id(SIDEBAR_MENU_ITEM_ID_COUNTER.incrementAndGet())
                 .title("Category")
-                .icon("bx bxs-category")
+                .icon("fa-solid fa-layer-group")
                 .children(getSidebarMenuItems(folderNames))
                 .build());
         sidebarMenu.add(SidebarMenuItemDto.builder()
@@ -33,22 +33,22 @@ public class SidebarMenuBuilder {
         sidebarMenu.add(SidebarMenuItemDto.builder()
                 .id(SIDEBAR_MENU_ITEM_ID_COUNTER.incrementAndGet())
                 .title("Cat")
-                .icon("bx bxs-cat")
+                .icon("fa-solid fa-cat")
                 .build());
         sidebarMenu.add(SidebarMenuItemDto.builder()
                 .id(SIDEBAR_MENU_ITEM_ID_COUNTER.incrementAndGet())
                 .title("Dog")
-                .icon("bx bxs-dog")
+                .icon("fa-solid fa-dog")
                 .build());
         sidebarMenu.add(SidebarMenuItemDto.builder()
                 .id(SIDEBAR_MENU_ITEM_ID_COUNTER.incrementAndGet())
                 .title("Leaf")
-                .icon("bx bxs-leaf")
+                .icon("fa-solid fa-leaf")
                 .build());
         sidebarMenu.add(SidebarMenuItemDto.builder()
                 .id(SIDEBAR_MENU_ITEM_ID_COUNTER.incrementAndGet())
                 .title("Spa")
-                .icon("bx bxs-spa")
+                .icon("fa-solid fa-spa")
                 .build());
     }
 

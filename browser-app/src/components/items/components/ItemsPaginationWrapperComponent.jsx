@@ -1,8 +1,6 @@
 import React from 'react';
 import Select from 'react-select';
 import constants from "../../../constants/Constants";
-import {faSearch, faList, faTh} from "@fortawesome/free-solid-svg-icons/index";
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 
 const ItemsPaginationWrapperComponent = (props) => {
 
@@ -161,12 +159,12 @@ const ItemsPaginationWrapperComponent = (props) => {
 											<div className={`btn custom-toggle-view-button ${isGridView ? '' : 'active'}`}
 											     onClick={handleIsGridViewChange.bind(this, false)}
 											     title="List view">
-												<FontAwesomeIcon icon={faList} className="custom-toggle-view-icon"/>
+												<i className="fa-solid fa-list"/>
 											</div>
 											<div className={`btn custom-toggle-view-button ${isGridView ? 'active' : ''}`}
 											     onClick={handleIsGridViewChange.bind(this, true)}
 											     title="Grid view">
-												<FontAwesomeIcon icon={faTh} className="custom-toggle-view-icon"/>
+												<i className="fa-solid fa-grid-4"/>
 											</div>
 										</div>
 									</div>

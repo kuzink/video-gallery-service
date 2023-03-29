@@ -79,6 +79,10 @@ video:focus {
 .custom-card-image .custom-mask:hover {
   opacity: 1;
 }
+.custom-card-image .custom-mask i {
+  font-size: 63px;
+  color: #fff;
+}
 .card-img-top {
   border-top-left-radius: 4px;
   border-top-right-radius: 4px;
@@ -123,7 +127,7 @@ video:focus {
   z-index: 1;
 }
 .custom-toggle-view-button.active,
-.custom-toggle-view-button.active > .custom-toggle-view-icon {
+.custom-toggle-view-button.active > i {
   color: #fff;
   background-color: #007bff;
   border-color: #007bff;
@@ -133,7 +137,7 @@ video:focus {
   color: #6c757d;
   z-index: 1;
 }
-.custom-toggle-view-icon {
+.custom-toggle-view-button i {
   color: #8B96A0;
 }
 
@@ -169,6 +173,10 @@ video:focus {
 }
 .custom-list-view-item:hover .custom-mask {
   opacity: 1;
+}
+.custom-list-view-item .custom-mask i {
+  font-size: 40px;
+  color: #fff;
 }
 .custom-list-view-size {
   min-width: 100px;
@@ -653,9 +661,9 @@ video:focus {
 }
 
 /*HomeButtonComponent*/
-.back-button-fixed-top {
-  z-index: 910;
-  right: initial;
+.custom-home-button i {
+  font-size: 13px;
+  margin-right: 0.5rem
 }
 
 /*Scroll Top Button*/
@@ -675,8 +683,7 @@ video:focus {
   padding: 0;
 }
 .custom-scroll-top-button i {
-  vertical-align: middle;
-  font-size: 26px;
+  font-size: 16px;
 }
 .custom-scroll-top-button:hover,
 .custom-scroll-top-button:focus,
@@ -750,7 +757,8 @@ video:focus {
 .custom-show-arrow-wrapper {
   width: 16px;
   display: inline-block;
-  margin-left: .5rem;
+  margin-left: 9px;
+  margin-right: 8px;
   text-align: left;
 }
 .custom-show-arrow-wrapper-left {
@@ -758,6 +766,7 @@ video:focus {
   display: inline-block;
 }
 .custom-show-arrow {
+  font-size: 18px;
   animation: animateArrow 1.5s ease-in-out infinite;
 }
 @keyframes animateArrow {
@@ -781,13 +790,13 @@ video:focus {
   text-transform: uppercase;
   color: #8391a2;
   font-weight: 700;
-  padding: 25px 25px 15px 30px;
-  font-size: 12px;
+  padding: 20px 15px 15px 20px;
+  font-size: 11px;
 }
 .side-nav-link {
   cursor: pointer;
   color: #8391a2;
-  padding: 12px 15px 12px 30px;
+  padding: 12px 15px 12px 25px;
   position: relative;
   transition: all .3s ease-in-out;
   list-style: none;
@@ -795,7 +804,7 @@ video:focus {
 /*Only for Firefox*/
 @supports (-moz-appearance:none) {
   .side-nav-link {
-    padding: 12px 25px 12px 30px;
+    padding: 12px 25px 12px 25px;
   }
 }
 .side-nav-link:hover {
@@ -806,13 +815,14 @@ video:focus {
 }
 .side-nav-link i {
   display: inline-block;
-  margin: 0 10px 0 0;
+  margin: 0 15px 0 0;
   width: 20px;
   vertical-align: middle;
   font-size: 18px;
 }
 .side-nav-link span {
   vertical-align: middle;
+  font-size: 15px;
   font-weight: 600;
 }
 .menu-arrow {
@@ -828,8 +838,10 @@ video:focus {
   }
 }
 .menu-arrow i {
-  font-size: 20px;
+  font-size: 10px;
+  width: 10px;
   vertical-align: middle;
+  text-align: center;
   margin: 0;
   transition: transform .15s;
 }

@@ -29,7 +29,7 @@ const SidebarItem = (props) => {
 	                {item.icon && <i className={item.icon}/>}
                     <span>{item.title}</span>
                     <span className="menu-arrow">
-                        <i className="bx bx-chevron-right"/>
+                        <i className="fa-solid fa-chevron-right"/>
                     </span>
                 </div>
                 <ul className="side-nav-second-level" style={{height: height}}>
