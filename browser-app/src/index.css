@@ -322,13 +322,6 @@ video:focus {
   position: absolute;
   bottom: 0;
 }
-.custom-landing-wrapper,
-.custom-not-found-wrapper {
-  height: 100vh;
-}
-.custom-not-found-wrapper {
-  background: linear-gradient(to right, #fc00ff, #00dbde);
-}
 
 /*Custom scrollbar*/
 /*For Sidebar*/
@@ -915,7 +908,53 @@ video:focus {
   margin-left: 1.5rem;
 }
 
+/*Not found page*/
+.not-found-overlay {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: url("assets/brick-wall.png"), linear-gradient(to right, rgba(252,0,255,.7), rgba(0,219,222,.7));
+}
+.not-found-wrapper {
+  color: rgb(108, 117, 125);
+  min-width: 367px;
+  min-height: 466px;
+  background-color: #fff;
+  border-radius: 0.25rem;
+  text-align: center;
+  box-shadow: 0 .5rem 1rem rgba(0,0,0,.15);
+  margin-bottom: 45px;
+}
+.not-found-header {
+  font-style: italic;
+  padding: 1.2rem;
+  border-top-left-radius: 0.25rem;
+  border-top-right-radius: 0.25rem;
+  color: #fff;
+  background-color: #313A46;
+}
+.not-found-body {
+  padding: 2rem 3.7rem 3rem 3.7rem;
+}
+.not-found-body h1 {
+  font-weight: 300;
+}
+.not-found-body p {
+  color: #6c757d;
+  font-size: 5.5rem;
+  font-weight: 300;
+  line-height: 1.2;
+}
+.not-found-body h5 {
+  font-weight: 400;
+  margin-bottom: 3rem;
+}
 
+/*Media queries*/
 @media screen and (max-width: 1400px) {
   .test-sidebar {
     width: 200px;
