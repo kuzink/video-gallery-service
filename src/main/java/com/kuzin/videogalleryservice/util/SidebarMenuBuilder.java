@@ -22,7 +22,7 @@ public class SidebarMenuBuilder {
         sidebarMenu.add(SidebarMenuItemDto.builder()
                 .id(SIDEBAR_MENU_ITEM_ID_COUNTER.incrementAndGet())
                 .title("Category")
-                .icon("fa-solid fa-layer-group")
+                .icon("fa-regular fa-layer-group")
                 .children(getSidebarMenuItems(folderNames))
                 .build());
         sidebarMenu.add(SidebarMenuItemDto.builder()
@@ -32,24 +32,34 @@ public class SidebarMenuBuilder {
                 .build());
         sidebarMenu.add(SidebarMenuItemDto.builder()
                 .id(SIDEBAR_MENU_ITEM_ID_COUNTER.incrementAndGet())
-                .title("Cat")
-                .icon("fa-solid fa-cat")
+                .title("Favourites")
+                .icon("fa-regular fa-heart")
                 .build());
         sidebarMenu.add(SidebarMenuItemDto.builder()
                 .id(SIDEBAR_MENU_ITEM_ID_COUNTER.incrementAndGet())
-                .title("Dog")
-                .icon("fa-solid fa-dog")
+                .title("Filters")
+                .icon("fa-regular fa-filter")
+                .build());
+        sidebarMenu.add(SidebarMenuItemDto.builder()
+            .id(SIDEBAR_MENU_ITEM_ID_COUNTER.incrementAndGet())
+            .title("Notifications")
+            .icon("fa-regular fa-bell")
+            .build());
+        sidebarMenu.add(SidebarMenuItemDto.builder()
+                .id(SIDEBAR_MENU_ITEM_ID_COUNTER.incrementAndGet())
+                .title("Download")
+                .icon("fa-regular fa-download")
                 .build());
         sidebarMenu.add(SidebarMenuItemDto.builder()
                 .id(SIDEBAR_MENU_ITEM_ID_COUNTER.incrementAndGet())
-                .title("Leaf")
-                .icon("fa-solid fa-leaf")
+                .title("Settings")
+                .icon("fa-regular fa-gear")
                 .build());
         sidebarMenu.add(SidebarMenuItemDto.builder()
-                .id(SIDEBAR_MENU_ITEM_ID_COUNTER.incrementAndGet())
-                .title("Spa")
-                .icon("fa-solid fa-spa")
-                .build());
+            .id(SIDEBAR_MENU_ITEM_ID_COUNTER.incrementAndGet())
+            .title("Report Bug")
+            .icon("fa-regular fa-bug")
+            .build());
     }
 
     private static List<SidebarMenuItemDto> getSidebarMenuItems(final List<String> folderNames) {
