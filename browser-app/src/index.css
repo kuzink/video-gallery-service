@@ -923,7 +923,7 @@ video:focus {
   color: rgb(108, 117, 125);
   min-width: 367px;
   min-height: 466px;
-  background-color: #fff;
+  background-color: #FAFBFE;
   border-radius: 0.25rem;
   text-align: center;
   box-shadow: 0 .5rem 1rem rgba(0,0,0,.15);
