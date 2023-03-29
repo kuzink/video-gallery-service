@@ -227,16 +227,13 @@ video:focus {
   min-height: calc(100vh - 70px);
   overflow-y: auto;
   background-color: #FAFBFE;
-  /*width: calc(100vw - 260px);*/
 }
 .content-page {
   position: relative;
   padding: 0 0 61px 0;
-  /*background-color: blue;*/
   min-height: calc(100vh - 70px);
 }
 .content {
-  /*background-color: lime;*/
   padding: 0;
   height: 999px;
 }
@@ -246,7 +243,6 @@ video:focus {
   bottom: 0;
   left: 0;
   height: 61px;
-  /*background-color: red;*/
   color: #8a969c;
   border-top: 1px solid #dee2e6;
 }
@@ -368,7 +364,7 @@ video:focus {
   opacity: 1;
 }
 .slick-dots li.slick-active button:before {
-  background-color: limegreen;
+  background-color: rgba(10,207,151,1);
   border: 1px solid white;
   opacity: 1;
 }
@@ -379,7 +375,7 @@ video:focus {
 }
 .slick-dots li.slick-active button:hover:before,
 .slick-dots li.slick-active button:focus:before {
-  background-color: limegreen;
+  background-color: rgba(10,207,151,1);
   border: 1px solid white;
   opacity: 1;
 }
@@ -427,14 +423,14 @@ video:focus {
   position: absolute;
   top: 7px;
   left: 7px;
-  border-top: 4px solid lime;
+  border-top: 4px solid rgba(10,207,151,1);
   border-left: 4px solid transparent;
   border-radius: 50%;
   animation: Spin 1s linear infinite;
 }
 .request-spinner-div {
   display: none;
-  border-top: 4px solid lime;
+  border-top: 4px solid rgba(10,207,151,1);
   background-color: #FAFBFE;
   animation: Spin .5s linear infinite;
 }
@@ -453,7 +449,7 @@ video:focus {
     90deg,
     rgba(0,0,0,1), rgba(0,0,0,1), rgba(0,0,0,1),
     rgba(0,0,0,1), rgba(0,0,0,1), rgba(0,0,0,1),
-    lime
+    rgba(10,207,151,1)
   );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -683,7 +679,7 @@ video:focus {
   padding: 0;
 }
 .custom-scroll-top-button i {
-  font-size: 16px;
+  font-size: 15px;
 }
 .custom-scroll-top-button:hover,
 .custom-scroll-top-button:focus,
