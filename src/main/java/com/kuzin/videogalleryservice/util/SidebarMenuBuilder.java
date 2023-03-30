@@ -21,7 +21,7 @@ public class SidebarMenuBuilder {
                 .build());
         sidebarMenu.add(SidebarMenuItemDto.builder()
                 .id(SIDEBAR_MENU_ITEM_ID_COUNTER.incrementAndGet())
-                .title("Category")
+                .title("Categories")
                 .icon("fa-regular fa-layer-group")
                 .children(getSidebarMenuItems(folderNames))
                 .build());
@@ -32,21 +32,15 @@ public class SidebarMenuBuilder {
                 .build());
         sidebarMenu.add(SidebarMenuItemDto.builder()
                 .id(SIDEBAR_MENU_ITEM_ID_COUNTER.incrementAndGet())
-                .title("Notifications")
-                .icon("fa-regular fa-bell")
-                .path("/notifications")
-                .build());
-        sidebarMenu.add(SidebarMenuItemDto.builder()
-                .id(SIDEBAR_MENU_ITEM_ID_COUNTER.incrementAndGet())
                 .title("Favourites")
                 .icon("fa-regular fa-heart")
                 .path("/favourites")
                 .build());
         sidebarMenu.add(SidebarMenuItemDto.builder()
                 .id(SIDEBAR_MENU_ITEM_ID_COUNTER.incrementAndGet())
-                .title("Filters")
-                .icon("fa-regular fa-filter")
-                .path("/filters")
+                .title("Tags")
+                .icon("fa-regular fa-tags")
+                .path("/tags")
                 .build());
         sidebarMenu.add(SidebarMenuItemDto.builder()
                 .id(SIDEBAR_MENU_ITEM_ID_COUNTER.incrementAndGet())

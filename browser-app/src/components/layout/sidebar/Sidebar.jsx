@@ -30,7 +30,7 @@ export class Sidebar extends Component {
 	setCategoryIfNeeded = (activeItemId) => {
 		const {sidebarMenu} = this.props;
 
-		const categoryMenuItem = sidebarMenu.find(el => el.title === "Category");
+		const categoryMenuItem = sidebarMenu.find(el => el.title === "Categories");
 
 		if (categoryMenuItem) {
 			const foundCategory = categoryMenuItem.children.find(el => el.id === activeItemId);
