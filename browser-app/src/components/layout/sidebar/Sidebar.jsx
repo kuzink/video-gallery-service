@@ -8,6 +8,7 @@ import {
 	resetSidebarMenu
 } from "../../../actions/SidebarActions";
 import {resetCategory, setCategory} from "../../../actions/ItemsActions";
+import {withRouter} from 'react-router-dom';
 
 export class Sidebar extends Component {
 
@@ -30,14 +31,20 @@ export class Sidebar extends Component {
 		const {sidebarMenu} = this.props;
 
 		const categoryMenuItem = sidebarMenu.find(el => el.title === "Category");
-		if (categoryMenuItem) {
 
+		if (categoryMenuItem) {
 			const foundCategory = categoryMenuItem.children.find(el => el.id === activeItemId);
 			if (foundCategory) {
 				this.props.setCategory(foundCategory.title);
 			} else {
 				this.props.resetCategory();
+
+				const pathToGo = sidebarMenu.find(el => el.id === activeItemId).path;
+				this.props.history.push(pathToGo);
 			}
+		} else {
+			const pathToGo = sidebarMenu.find(el => el.id === activeItemId).path;
+			this.props.history.push(pathToGo);
 		}
 	};
 
@@ -92,4 +99,4 @@ const mapDispatchToProps = dispatch => {
 export default connect(
 	mapStateToProps,
 	mapDispatchToProps
-)(Sidebar);
+)(withRouter(Sidebar));

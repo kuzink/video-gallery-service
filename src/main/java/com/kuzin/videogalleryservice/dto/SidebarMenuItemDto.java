@@ -28,4 +28,6 @@ public class SidebarMenuItemDto {
     private Boolean isHead;
 
     private List<SidebarMenuItemDto> children;
+
+    private String path;
 }

@@ -54,6 +54,12 @@ body::-webkit-scrollbar{
 }
 
 /*Modal Alert*/
+.modal-backdrop {
+  z-index: 2060;
+}
+.modal {
+  z-index: 2070;
+}
 .modal-body {
   padding: 0;
 }
@@ -922,7 +928,7 @@ video:focus {
 .not-found-wrapper {
   color: rgb(108, 117, 125);
   min-width: 367px;
-  min-height: 466px;
+  min-height: 464px;
   background-color: #FAFBFE;
   border-radius: 0.25rem;
   text-align: center;
@@ -930,12 +936,14 @@ video:focus {
   margin-bottom: 45px;
 }
 .not-found-header {
-  font-style: italic;
   padding: 1.2rem;
   border-top-left-radius: 0.25rem;
   border-top-right-radius: 0.25rem;
   color: #fff;
   background-color: #313A46;
+}
+.not-found-header h4 {
+  font-size: 1.4rem;
 }
 .not-found-body {
   padding: 2rem 3.7rem 3rem 3.7rem;

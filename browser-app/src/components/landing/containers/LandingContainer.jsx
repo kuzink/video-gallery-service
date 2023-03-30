@@ -20,7 +20,7 @@ export class LandingContainer extends Component {
 				...this.state,
 				isLoading: false
 			})
-		}, 1200);
+		}, 1000);
 	}
 
 	render() {

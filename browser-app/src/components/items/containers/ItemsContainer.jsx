@@ -33,7 +33,7 @@ export class ItemsContainer extends Component {
 				...this.state,
 				isLoading: false
 			})
-		}, 1200);
+		}, 1000);
 	}
 
 	componentDidUpdate(prevProps) {

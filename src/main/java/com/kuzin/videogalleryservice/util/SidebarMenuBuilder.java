@@ -31,43 +31,57 @@ public class SidebarMenuBuilder {
                 .isHead(true)
                 .build());
         sidebarMenu.add(SidebarMenuItemDto.builder()
-            .id(SIDEBAR_MENU_ITEM_ID_COUNTER.incrementAndGet())
-            .title("Notifications")
-            .icon("fa-regular fa-bell")
-            .build());
+                .id(SIDEBAR_MENU_ITEM_ID_COUNTER.incrementAndGet())
+                .title("Notifications")
+                .icon("fa-regular fa-bell")
+                .path("/notifications")
+                .build());
         sidebarMenu.add(SidebarMenuItemDto.builder()
                 .id(SIDEBAR_MENU_ITEM_ID_COUNTER.incrementAndGet())
                 .title("Favourites")
                 .icon("fa-regular fa-heart")
+                .path("/favourites")
                 .build());
         sidebarMenu.add(SidebarMenuItemDto.builder()
                 .id(SIDEBAR_MENU_ITEM_ID_COUNTER.incrementAndGet())
                 .title("Filters")
                 .icon("fa-regular fa-filter")
+                .path("/filters")
                 .build());
         sidebarMenu.add(SidebarMenuItemDto.builder()
                 .id(SIDEBAR_MENU_ITEM_ID_COUNTER.incrementAndGet())
                 .title("Download")
                 .icon("fa-regular fa-download")
+                .path("/download")
                 .build());
         sidebarMenu.add(SidebarMenuItemDto.builder()
                 .id(SIDEBAR_MENU_ITEM_ID_COUNTER.incrementAndGet())
                 .title("Settings")
                 .icon("fa-regular fa-gear")
+                .path("/settings")
                 .build());
         sidebarMenu.add(SidebarMenuItemDto.builder()
-            .id(SIDEBAR_MENU_ITEM_ID_COUNTER.incrementAndGet())
-            .title("Report Bug")
-            .icon("fa-regular fa-bug")
-            .build());
+                .id(SIDEBAR_MENU_ITEM_ID_COUNTER.incrementAndGet())
+                .title("Report Bug")
+                .icon("fa-regular fa-bug")
+                .path("/report-bug")
+                .build());
     }
 
     private static List<SidebarMenuItemDto> getSidebarMenuItems(final List<String> folderNames) {
-        return folderNames.stream()
+
+        final List<SidebarMenuItemDto> result = folderNames.stream()
                 .map(it -> SidebarMenuItemDto.builder()
                         .id(SIDEBAR_MENU_ITEM_ID_COUNTER.incrementAndGet())
                         .title(it)
                         .build())
                 .collect(toList());
+
+        result.add(SidebarMenuItemDto.builder()
+                .id(SIDEBAR_MENU_ITEM_ID_COUNTER.incrementAndGet())
+                .title("All")
+                .build());
+
+        return result;
     }
 }

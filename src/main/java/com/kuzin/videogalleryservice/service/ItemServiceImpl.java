@@ -30,7 +30,7 @@ public class ItemServiceImpl implements ItemService {
             findItemsBySearchCondition(search) :
             items;
 
-        final List<ItemEntity> foundItemsByCategory = isNotBlank(category) ?
+        final List<ItemEntity> foundItemsByCategory = (isNotBlank(category) && !category.equals("All")) ?
             findItemsByCategory(foundItems, category) :
             foundItems;
 
