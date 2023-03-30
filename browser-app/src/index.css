@@ -237,16 +237,6 @@ video:focus {
 }
 
 /*Layout wrappers*/
-.test-header {
-  position: fixed;
-  top: 0;
-  right: 0;
-  left: 0;
-  height: 70px;
-  z-index: 1030;
-  background-color: white;
-  box-shadow: rgba(154, 161, 171, 0.15) 0 0 35px 0;
-}
 .test-sidebar {
   position: fixed;
   top: 70px;
@@ -964,17 +954,64 @@ video:focus {
   margin-bottom: 3rem;
 }
 
+/*Header*/
+.test-header {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 70px;
+  z-index: 1030;
+  background-color: white;
+  box-shadow: rgba(154, 161, 171, 0.15) 0 0 35px 0;
+}
+.header-logo-section {
+  display: inline-block;
+  height: 70px;
+  width: 260px;
+  background-color: fuchsia;
+}
+.header-toolbar-section {
+  display: inline-block;
+}
+.header-toolbar-section-inner {
+  display: flex;
+  height: 70px;
+  width: calc(100vw - 260px);
+  justify-content: space-between;
+  background-color: limegreen;
+}
+.header-left {
+  display: inline-block;
+  min-width: 30%;
+  background-color: coral;
+}
+.header-right {
+  display: inline-block;
+  min-width: 30%;
+  background-color: blueviolet;
+}
+
 /*Media queries*/
 @media screen and (max-width: 1400px) {
   .test-sidebar {
     width: 200px;
     min-width: 200px;
   }
+
   .test-content-outer {
     margin-top: 70px;
     margin-left: 200px;
   }
+
   .request-spinner-overlay {
+    width: calc(100vw - 200px);
+  }
+
+  .header-logo-section {
+    width: 200px;
+  }
+  .header-toolbar-section-inner {
     width: calc(100vw - 200px);
   }
 }
