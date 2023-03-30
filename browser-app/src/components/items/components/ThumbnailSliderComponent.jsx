@@ -2,6 +2,7 @@ import React from 'react';
 import Slider from 'react-slick';
 import DefaultThumbnail from '../../../assets/thumbnail-default.gif';
 import constants from "../../../constants/Constants";
+import PlayIcon from '../../../assets/play-circle.svg';
 
 const ThumbnailSliderComponent = (props) => {
 
@@ -41,7 +42,7 @@ const ThumbnailSliderComponent = (props) => {
 			</Slider>
             }
             <div className="custom-mask flex-center" onClick={handleOnItemSelect.bind(this, item)}>
-                <i className="fa-thin fa-circle-play"/>
+                <img src={PlayIcon} className="" alt=""/>
             </div>
         </div>
     );
