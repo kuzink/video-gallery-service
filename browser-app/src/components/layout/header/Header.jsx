@@ -1,28 +1,32 @@
 import React, {Component} from 'react';
-import HomeButtonComponent from "../../utilities/homebutton/HomeButtonComponent";
+import {Link} from "react-router-dom";
+import Logo from "../../../assets/logo6.png";
 
 export class Header extends Component {
 
     render() {
         return (
             <div className="test-header">
-	            {/*<HomeButtonComponent classNames="ml-3"/>*/}
+	            <div className="header-inner">
 
-	            <div className="header-logo-section">
-                    Logo here...
-                </div>
+		            <div className="header-logo-section">
+			            <Link className="header-logo-link" to="/">
+				            <img src={Logo} className="" alt=""/>
+			            </Link>
+		            </div>
 
-	            <div className="header-toolbar-section">
-                    <div className="header-toolbar-section-inner">
-	                    <div className="header-left">
-		                    Sidebar collapse icon and search here...
-	                    </div>
-	                    <div className="header-right">
-		                    Profile and some action-buttons here...
-	                    </div>
-                    </div>
-                </div>
+		            <div className="header-toolbar-section">
+			            <div className="header-toolbar-section-inner">
+				            <div className="header-left">
+				                Sidebar collapse icon and search here...
+				            </div>
+				            <div className="header-right">
+				                Profile and some action-buttons here...
+				            </div>
+			            </div>
+		            </div>
 
+	            </div>
             </div>
         )
     }

@@ -965,31 +965,39 @@ video:focus {
   background-color: white;
   box-shadow: rgba(154, 161, 171, 0.15) 0 0 35px 0;
 }
-.header-logo-section {
-  display: inline-block;
+.header-inner {
+  display: flex;
   height: 70px;
+  align-items: center;
+}
+.header-logo-section {
   width: 260px;
-  background-color: fuchsia;
+  height: 70px;
+  background-color: #313A46;
+}
+.header-logo-link {
+  display: block;
+  text-align: center;
 }
 .header-toolbar-section {
-  display: inline-block;
+  width: calc(100vw - 260px);
+  height: 70px;
+  /*background-color: limegreen;*/
 }
 .header-toolbar-section-inner {
   display: flex;
   height: 70px;
-  width: calc(100vw - 260px);
+  /*width: calc(100vw - 260px);*/
   justify-content: space-between;
-  background-color: limegreen;
+  /*background-color: red;*/
 }
 .header-left {
-  display: inline-block;
   min-width: 30%;
-  background-color: coral;
+  /*background-color: coral;*/
 }
 .header-right {
-  display: inline-block;
   min-width: 30%;
-  background-color: blueviolet;
+  /*background-color: blueviolet;*/
 }
 
 /*Media queries*/
