@@ -17,12 +17,21 @@ export class Header extends Component {
 
 		            <div className="header-toolbar-section">
 			            <div className="header-toolbar-section-inner">
+
 				            <div className="header-left">
-				                Sidebar collapse icon and search here...
+				                <button className="header-button-toggle-menu">
+					                <i className="fa-regular fa-bars"/>
+				                </button>
+					            <div className="header-search">
+						            Search here...
+					            </div>
+					            <div className="clearfix"/>
 				            </div>
+
 				            <div className="header-right">
 				                Profile and some action-buttons here...
 				            </div>
+
 			            </div>
 		            </div>
 

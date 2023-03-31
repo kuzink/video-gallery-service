@@ -822,13 +822,13 @@ video:focus {
   text-transform: uppercase;
   color: #8391a2;
   font-weight: 700;
-  padding: 20px 15px 15px 20px;
+  padding: 20px 15px 15px 30px;
   font-size: 11px;
 }
 .side-nav-link {
   cursor: pointer;
   color: #8391a2;
-  padding: 12px 15px 12px 25px;
+  padding: 12px 15px 12px 30px;
   position: relative;
   transition: all .3s ease-in-out;
   list-style: none;
@@ -888,7 +888,7 @@ video:focus {
   transition: height .35s ease;
 }
 .side-nav-second-level li div {
-  padding: 8px 30px 8px 60px;
+  padding: 8px 30px 8px 65px;
   list-style-type: none;
 }
 .side-nav-second-level .side-nav-link span {
@@ -963,7 +963,6 @@ video:focus {
   height: 70px;
   z-index: 1030;
   background-color: white;
-  box-shadow: rgba(154, 161, 171, 0.15) 0 0 35px 0;
 }
 .header-inner {
   display: flex;
@@ -982,19 +981,38 @@ video:focus {
 .header-toolbar-section {
   width: calc(100vw - 260px);
   height: 70px;
+  box-shadow: rgba(154, 161, 171, 0.15) 0 0 35px 0;
   /*background-color: limegreen;*/
 }
 .header-toolbar-section-inner {
   display: flex;
   height: 70px;
-  /*width: calc(100vw - 260px);*/
   justify-content: space-between;
   /*background-color: red;*/
 }
+
 .header-left {
   min-width: 30%;
   /*background-color: coral;*/
 }
+.header-button-toggle-menu {
+  float: left;
+  width: 60px;
+  height: 70px;
+  border: none;
+  padding: 0;
+  color: #323B47;
+  background-color: transparent;
+  font-size: 21px;
+  cursor: pointer;
+  z-index: 1;
+}
+.header-search {
+  float: left;
+  height: 70px;
+  background-color: #ccc;
+}
+
 .header-right {
   min-width: 30%;
   /*background-color: blueviolet;*/
@@ -1019,7 +1037,7 @@ video:focus {
   .header-logo-section {
     width: 200px;
   }
-  .header-toolbar-section-inner {
+  .header-toolbar-section {
     width: calc(100vw - 200px);
   }
 }
