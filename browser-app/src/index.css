@@ -235,6 +235,9 @@ video:focus {
   padding-left: 12px;
   padding-right: 12px;
 }
+.custom-col.mb-4 {
+  margin-bottom: 2.5rem!important;
+}
 
 /*Layout wrappers*/
 .test-sidebar {
@@ -282,7 +285,8 @@ video:focus {
   justify-content: space-between;
   align-items: center;
   padding-left: 36px;
-  padding-right: 112px;
+  /*padding-right: 112px;*/
+  padding-right: 102px;
   font-size: 15px;
   cursor: default;
   z-index: 2020;
@@ -294,13 +298,15 @@ video:focus {
   padding: 0 12px 30px 12px;
 }
 .inner {
-  padding-top: 30px;
+  /*padding-top: 30px;*/
+  padding-top: 40px;
   min-height: calc(100vh - 70px - 30px - 61px);
   display: flex;
   flex-direction: column;
 }
 .custom-toolbar-wrapper {
-  margin-bottom: 26px;
+  /*margin-bottom: 26px;*/
+  margin-bottom: 36px;
 }
 .custom-items-wrapper {
   margin-bottom: 4px;
@@ -836,7 +842,7 @@ video:focus {
 /*Only for Firefox*/
 @supports (-moz-appearance:none) {
   .side-nav-link {
-    padding: 12px 25px 12px 25px;
+    padding: 12px 25px 12px 30px;
   }
 }
 .side-nav-link:hover {
