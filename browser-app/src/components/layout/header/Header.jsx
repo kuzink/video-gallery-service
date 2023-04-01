@@ -19,9 +19,9 @@ export class Header extends Component {
 			            <div className="header-toolbar-section-inner">
 
 				            <div className="header-left">
-				                <button className="header-button-toggle-menu">
-					                <i className="fa-regular fa-bars"/>
-				                </button>
+				                <div className="header-button-toggle-menu">
+									<i className="fa-sharp fa-regular fa-bars"></i>
+				                </div>
 					            <div className="header-search">
 						            Search here...
 					            </div>

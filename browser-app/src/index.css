@@ -1002,19 +1002,33 @@ video:focus {
   /*background-color: coral;*/
 }
 .header-button-toggle-menu {
-  float: left;
-  width: 60px;
   height: 70px;
+  width: 66px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  float: left;
   border: none;
-  padding: 0;
-  color: #323B47;
   background-color: transparent;
-  font-size: 21px;
-  cursor: pointer;
+  text-align: center;
+  cursor: default!important;
   z-index: 1;
+}
+.header-button-toggle-menu i {
+  height: 19px;
+  width: 21px;
+  font-size: 21px;
+  color: #6C757D;
+  cursor: pointer;
+}
+.header-button-toggle-menu i::before {
+  display: inline-block;
+  height: 19px;
+  width: 21px;
 }
 .header-search {
   float: left;
+  width: 300px;
   height: 70px;
   background-color: #ccc;
 }
