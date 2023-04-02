@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {Link} from "react-router-dom";
 import Logo from "../../../assets/logo6.png";
+import MenuIcon from "../../../assets/menu.svg";
 
 export class Header extends Component {
 
@@ -20,7 +21,7 @@ export class Header extends Component {
 
 				            <div className="header-left">
 				                <div className="header-button-toggle-menu">
-									<i className="fa-sharp fa-regular fa-bars"></i>
+					                <img src={MenuIcon} alt=""/>
 				                </div>
 					            <div className="header-search">
 						            Search here...

@@ -1014,17 +1014,11 @@ video:focus {
   cursor: default!important;
   z-index: 1;
 }
-.header-button-toggle-menu i {
-  height: 19px;
-  width: 21px;
-  font-size: 21px;
+.header-button-toggle-menu img {
+  height: 24px;
+  width: 24px;
   color: #6C757D;
   cursor: pointer;
-}
-.header-button-toggle-menu i::before {
-  display: inline-block;
-  height: 19px;
-  width: 21px;
 }
 .header-search {
   float: left;
