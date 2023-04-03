@@ -982,6 +982,7 @@ video:focus {
   width: 260px;
   height: 70px;
   background-color: #313A46;
+  transition: background-color .2s ease;
 }
 .header-logo-link {
   display: block;
