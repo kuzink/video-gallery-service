@@ -252,6 +252,7 @@ video:focus {
   z-index: 1020;
   background-color: #313A46;
   scrollbar-gutter: stable;
+  transition: width .2s ease, min-width .2s ease;
 }
 .test-content-outer {
   position: relative;
@@ -261,6 +262,7 @@ video:focus {
   min-height: calc(100vh - 70px);
   overflow-y: auto;
   background-color: #FAFBFE;
+  transition: margin-left .2s ease;
 }
 .content-page {
   position: relative;

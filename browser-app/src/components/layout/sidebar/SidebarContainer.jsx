@@ -52,7 +52,7 @@ export class SidebarContainer extends Component {
 		const {sidebarMenu, activeItemId} = this.props;
 
 		return (
-			<div className="test-sidebar">
+			<div className="test-sidebar" id="sidebar-id">
 				<ul className="side-nav">
 					{sidebarMenu.map((item, index) =>
 					<SidebarItemComponent key={index}

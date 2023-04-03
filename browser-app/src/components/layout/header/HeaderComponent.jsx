@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import {Link} from "react-router-dom";
 import Logo from "../../../assets/logo6.png";
 import MenuIcon from "../../../assets/menu.svg";
@@ -6,6 +6,37 @@ import MenuIcon from "../../../assets/menu.svg";
 const HeaderComponent = (props) => {
 
     const {searchText, handleKeyPress, handleSearchTextChange, handleSearchButtonClick} = props;
+	const [showSidebar, setShowSidebar] = useState(true);
+
+    const handleMenuClick = () => {
+	    const sidebarBlock = document.getElementById('sidebar-id');
+	    const contentBlock = document.getElementById('test-content-outer-id');
+	    const requestSpinner = document.getElementById('request-spinner-overlay-id');
+
+	    if (sidebarBlock && contentBlock && requestSpinner) {
+		    const vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
+		    if (showSidebar) {
+			    sidebarBlock.style.width = "0px";
+			    sidebarBlock.style.minWidth = "0px";
+			    contentBlock.style.marginLeft = "0px";
+			    requestSpinner.style.width = "100vw";
+		    } else {
+			    if (vw > 1400) {
+				    sidebarBlock.style.width = "260px";
+				    sidebarBlock.style.minWidth = "260px";
+				    contentBlock.style.marginLeft = "260px";
+				    requestSpinner.style.width = "calc(100vw - 260px)";
+			    } else {
+				    sidebarBlock.style.width = "200px";
+				    sidebarBlock.style.minWidth = "200px";
+				    contentBlock.style.marginLeft = "200px";
+				    requestSpinner.style.width = "calc(100vw - 200px)";
+			    }
+		    }
+	    }
+
+    	setShowSidebar(!showSidebar);
+    };
 
 	return (
 		<div className="test-header">
@@ -22,7 +53,7 @@ const HeaderComponent = (props) => {
 
 						<div className="header-left">
 							<div className="header-button-toggle-menu">
-								<img src={MenuIcon} alt=""/>
+								<img src={MenuIcon} onClick={handleMenuClick} alt="" />
 							</div>
 							<div className="header-search">
 								<form>

@@ -20,7 +20,7 @@ const ContentWithFooterComponent = (props) => {
 	};
 
 	return (
-		<div className="test-content-outer" onScroll={handleScroll}>
+		<div className="test-content-outer" id="test-content-outer-id" onScroll={handleScroll}>
 			<div id="inner-id-for-scroll-top-button"/>
 			<div className="content-page">
 				{children}
