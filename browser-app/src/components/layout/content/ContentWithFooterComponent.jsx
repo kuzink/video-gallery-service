@@ -1,8 +1,8 @@
 import React from 'react';
-import Footer from "../footer/Footer";
+import FooterComponent from "../footer/FooterComponent";
 import ScrollTopButtonComponent from "../../utilities/scrolltopbutton/ScrollTopButtonComponent";
 
-const ContentWithFooter = (props) => {
+const ContentWithFooterComponent = (props) => {
 
 	const {children} = props;
 
@@ -24,11 +24,11 @@ const ContentWithFooter = (props) => {
 			<div id="inner-id-for-scroll-top-button"/>
 			<div className="content-page">
 				{children}
-				<Footer/>
+				<FooterComponent/>
 			</div>
 			<ScrollTopButtonComponent/>
 		</div>
 	)
 };
 
-export default ContentWithFooter;
+export default ContentWithFooterComponent;

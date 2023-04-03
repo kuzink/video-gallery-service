@@ -1,6 +1,6 @@
 import React, {useState} from "react"
 
-const SidebarItem = (props) => {
+const SidebarItemComponent = (props) => {
 
     const {item, activeItemId, setActiveItemId} = props;
     const [open, setOpen] = useState(false);
@@ -34,10 +34,10 @@ const SidebarItem = (props) => {
                 </div>
                 <ul className="side-nav-second-level" style={{height: height}}>
                     {item.children.map((child, index) =>
-                    <SidebarItem key={index}
-                                 item={child}
-                                 activeItemId={activeItemId}
-                                 setActiveItemId={setActiveItemId}/>)
+                    <SidebarItemComponent key={index}
+                                          item={child}
+                                          activeItemId={activeItemId}
+                                          setActiveItemId={setActiveItemId}/>)
                     }
                 </ul>
             </li>
@@ -60,4 +60,4 @@ const SidebarItem = (props) => {
     }
 };
 
-export default SidebarItem;
+export default SidebarItemComponent;

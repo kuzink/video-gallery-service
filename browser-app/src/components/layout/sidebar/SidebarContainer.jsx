@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import SidebarItem from "./SidebarItem";
+import SidebarItemComponent from "./SidebarItemComponent";
 import {connect} from "react-redux";
 import {
 	setActiveItemId,
@@ -10,7 +10,7 @@ import {
 import {resetCategory, setCategory} from "../../../actions/ItemsActions";
 import {withRouter} from 'react-router-dom';
 
-export class Sidebar extends Component {
+export class SidebarContainer extends Component {
 
 	componentDidMount() {
 		this.props.retrieveSidebarMenu();
@@ -55,10 +55,10 @@ export class Sidebar extends Component {
 			<div className="test-sidebar">
 				<ul className="side-nav">
 					{sidebarMenu.map((item, index) =>
-					<SidebarItem key={index}
-					             item={item}
-					             activeItemId={activeItemId}
-					             setActiveItemId={this.handleSetActiveItemId}/>)
+					<SidebarItemComponent key={index}
+					                      item={item}
+					                      activeItemId={activeItemId}
+					                      setActiveItemId={this.handleSetActiveItemId}/>)
 					}
 				</ul>
 			</div>
@@ -99,4 +99,4 @@ const mapDispatchToProps = dispatch => {
 export default connect(
 	mapStateToProps,
 	mapDispatchToProps
-)(withRouter(Sidebar));
+)(withRouter(SidebarContainer));

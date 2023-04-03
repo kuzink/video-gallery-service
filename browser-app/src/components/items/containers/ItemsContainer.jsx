@@ -7,8 +7,6 @@ import {
 	resetSelectedItem,
 	setSortBy,
 	resetSortBy,
-	setSearchText,
-	resetSearchText,
 	setIsGridView
 } from "../../../actions/ItemsActions";
 import ItemsComponent from "../components/ItemsComponent";
@@ -39,22 +37,20 @@ export class ItemsContainer extends Component {
 	componentDidUpdate(prevProps) {
 		const {category} = this.props;
 		if (category !== prevProps.category) {
-			this.props.retrieveItems(category);
+			const {page, sortBy, searchText} = this.props;
+			this.props.retrieveItems(category, page.size, page.page, sortBy, searchText);
 		}
 	}
 
 	componentWillUnmount() {
 		this.props.resetItems();
 		this.props.resetSortBy();
-		this.props.resetSearchText();
 		this.props.setIsGridView(true);
 	}
 
 	handleOnItemSelect = (selectedItem) => this.props.setSelectedItem(selectedItem);
 
 	handleSortByChange = (sortBy) => this.props.setSortBy(sortBy);
-
-	handleSearchTextChange = (event) => this.props.setSearchText(event.target.value);
 
 	handleIsGridViewChange = (isGridView) => this.props.setIsGridView(isGridView);
 
@@ -82,7 +78,6 @@ export class ItemsContainer extends Component {
 						                                 sortBy={sortBy}
 						                                 sortByChange={this.handleSortByChange}
 						                                 searchText={searchText}
-						                                 searchTextChange={this.handleSearchTextChange}
 						                                 isGridView={isGridView}
 						                                 isGridViewChange={this.handleIsGridViewChange}
 						                                 getItems={retrieveItems}>
@@ -107,10 +102,10 @@ const mapStateToProps = state => {
 		items: state.items.items,
 		page: state.items.page,
 		selectedItem: state.items.selectedItem,
-		searchText: state.items.searchText,
 		sortBy: state.items.sortBy,
 		isGridView: state.items.isGridView,
-		category: state.items.category
+		category: state.items.category,
+		searchText: state.header.searchText
 	};
 };
 
@@ -133,12 +128,6 @@ const mapDispatchToProps = dispatch => {
 		},
 		resetSortBy: () => {
 			dispatch(resetSortBy());
-		},
-		setSearchText: (searchText) => {
-			dispatch(setSearchText(searchText));
-		},
-		resetSearchText: () => {
-			dispatch(resetSearchText());
 		},
 		setIsGridView: (isGridView) => {
 			dispatch(setIsGridView(isGridView));

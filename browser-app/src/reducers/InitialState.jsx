@@ -7,7 +7,6 @@ export const initialItems = {
 	items: [],
 	page: {},
 	selectedItem: null,
-	searchText: '',
 	sortBy: '',
 	isGridView: true,
 	category: ''
@@ -20,4 +19,8 @@ export const initialSlides = {
 export const initialSidebar = {
 	sidebarMenu: [],
 	activeItemId: ''
+};
+
+export const initialHeader = {
+	searchText: ''
 };

@@ -1,7 +1,7 @@
 import React from "react";
 import {Link} from "react-router-dom";
 
-const Footer = () => (
+const FooterComponent = () => (
 	<div className="test-footer">
 		<div>
 			{new Date().getFullYear()} © Video Gallery - Kuzink11@gmail.com
@@ -14,4 +14,4 @@ const Footer = () => (
 	</div>
 );
 
-export default Footer;
+export default FooterComponent;

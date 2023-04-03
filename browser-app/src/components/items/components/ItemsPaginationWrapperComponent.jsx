@@ -10,7 +10,6 @@ const ItemsPaginationWrapperComponent = (props) => {
 		sortBy,
 		sortByChange,
 		searchText,
-		searchTextChange,
 		isGridView,
 		isGridViewChange,
 		getItems,
@@ -110,13 +109,6 @@ const ItemsPaginationWrapperComponent = (props) => {
 		return 'Showing ' + startIndex + '-' + endIndex + ' of ' + page.totalElements;
 	};
 
-	const handleKeyPress = (event) => {
-		if(event.key === 'Enter'){
-			const search = searchText.trim().toLowerCase();
-			return getItems(category, constants.PAGE_SIZE_DEFAULT_VALUE, constants.PAGE_NUMBER_DEFAULT_VALUE, sortBy, search);
-		}
-	};
-
 	const handleIsGridViewChange = (isGridView) => {
 		return isGridViewChange(isGridView);
 	};
@@ -134,15 +126,6 @@ const ItemsPaginationWrapperComponent = (props) => {
 										<h4 className="custom-showing-text">{defineShowingItemsText()}</h4>
 									</div>
 									<div className="d-flex align-items-center">
-										{/*<div className="form-inline my-0 mr-4 position-relative">*/}
-										{/*<FontAwesomeIcon icon={faSearch} className="custom-search-icon"/>*/}
-										{/*<input className="form-control custom-search-items-input"*/}
-										{/*type="text"*/}
-										{/*placeholder="Search"*/}
-										{/*value={searchText}*/}
-										{/*onKeyPress={handleKeyPress}*/}
-										{/*onChange={searchTextChange}/>*/}
-										{/*</div>*/}
 										<div className="mr-4">
 											<Select options={constants.SORT_CRITERIA_OPTIONS}
 											        value={defineSortByValue()}

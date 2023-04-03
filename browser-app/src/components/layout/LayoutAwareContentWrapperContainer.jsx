@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import {connect} from "react-redux";
-import Header from "./header/Header";
-import Sidebar from "./sidebar/Sidebar";
-import ContentWithFooter from "./content/ContentWithFooter";
+import HeaderContainer from "./header/HeaderContainer";
+import SidebarContainer from "./sidebar/SidebarContainer";
+import ContentWithFooterComponent from "./content/ContentWithFooterComponent";
 
 export class LayoutAwareContentWrapperContainer extends Component {
 
@@ -19,11 +19,11 @@ export class LayoutAwareContentWrapperContainer extends Component {
 
 		return (
 			<React.Fragment>
-				<Header/>
-				<Sidebar/>
-				<ContentWithFooter>
+				<HeaderContainer/>
+				<SidebarContainer/>
+				<ContentWithFooterComponent>
 					{children}
-				</ContentWithFooter>
+				</ContentWithFooterComponent>
 			</React.Fragment>
 		)
 	}
