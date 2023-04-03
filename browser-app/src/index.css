@@ -969,6 +969,7 @@ video:focus {
   height: 70px;
   z-index: 1030;
   background-color: white;
+  box-shadow: rgba(154, 161, 171, 0.15) 0 0 35px 0;
 }
 .header-inner {
   display: flex;
@@ -987,7 +988,7 @@ video:focus {
 .header-toolbar-section {
   width: calc(100vw - 260px);
   height: 70px;
-  box-shadow: rgba(154, 161, 171, 0.15) 0 0 35px 0;
+  /*box-shadow: rgba(154, 161, 171, 0.15) 0 0 35px 0;*/
   /*background-color: limegreen;*/
 }
 .header-toolbar-section-inner {
@@ -1031,7 +1032,8 @@ video:focus {
 .header-search form {
   padding: calc(32px * .5) 5px calc(32px * .5) 0px;
   overflow: hidden;
-  max-width: 320px;
+  width: 321px;
+  min-width: 321px;
 }
 .header-search form .input-group {
   position: relative;
@@ -1044,29 +1046,23 @@ video:focus {
   border: none;
   height: calc(1.5em + 0.9rem + 2px);
   background-color: #f0f3f8;
-  -webkit-box-shadow: none;
   box-shadow: none;
   white-space: nowrap;
   display: block;
-  padding: 0.45rem 0.9rem;
-  padding-left: 40px;
-  padding-right: 20px;
+  padding: 0.45rem 20px 0.45rem 40px;
   font-size: 14.4px;
   font-weight: 400;
   line-height: 1.5;
   color: #6c757d;
   background-clip: padding-box;
-  border-radius: 0.25rem;
-  border-top-right-radius: 0;
-  border-bottom-right-radius: 0;
-  transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out, -webkit-box-shadow .15s ease-in-out;
+  border-radius: 0.25rem 0 0 0.25rem;
   outline-offset: -2px;
   position: relative;
-  -webkit-box-flex: 1;
-  -ms-flex: 1 1 auto;
-  flex: 1 1 auto;
-  width: 1%;
-  min-width: 0;
+  z-index: 1;
+  transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out, -webkit-box-shadow .15s ease-in-out;
+}
+.header-search form .input-group input:focus {
+  z-index: 1;
 }
 .header-search form .input-group input::placeholder {
   color: #A7AFB6;
@@ -1090,6 +1086,7 @@ video:focus {
   margin-left: -1px;
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
+  z-index: 2;
 }
 
 .header-right {

@@ -6,18 +6,26 @@ import MenuIcon from "../../../assets/menu.svg";
 
 export class Header extends Component {
 
+	handleSearchTextChange = (event) => {
+		event.preventDefault();
+		// this.props.setSearchText(event.target.value)
+		console.log("Header.handleSearchTextChange()");
+	};
+
+	handleSearchButtonClick = (event) => {
+		event.preventDefault();
+		console.log("Header.handleSearchButtonClick()");
+	};
+
 	handleKeyPress = (event) => {
 		console.log("Header.handleKeyPress()");
 		if(event.key === 'Enter'){
 			// const search = searchText.trim().toLowerCase();
 			// return getItems(category, constants.PAGE_SIZE_DEFAULT_VALUE, constants.PAGE_NUMBER_DEFAULT_VALUE, sortBy, search);
+
+			event.preventDefault();
 			console.log("Enter pressed");
 		}
-	};
-
-	handleSearchTextChange = (event) => {
-		// this.props.setSearchText(event.target.value)
-		console.log("Header.handleSearchTextChange()");
 	};
 
     render() {
@@ -41,20 +49,19 @@ export class Header extends Component {
 					                <img src={MenuIcon} alt=""/>
 				                </div>
 					            <div className="header-search">
-							            {/*<input className="form-control custom-search-items-input"*/}
-							                   {/*type="text"*/}
-							                   {/*placeholder="Search"*/}
-							                   {/*value={searchText}*/}
-							                   {/*onKeyPress={this.handleKeyPress}*/}
-							                   {/*onChange={this.handleSearchTextChange}/>*/}
 						            <form>
 							            <div className="input-group">
-								            <input type="search"
+								            <input type="text"
 								                   className="form-control dropdown-toggle"
 								                   placeholder="Search..."
-								                   id="top-search"/>
+								                   id="top-search"
+								                   value={searchText}
+								                   onKeyPress={this.handleKeyPress}
+								                   onChange={this.handleSearchTextChange}/>
 								            <i className="fa-regular fa-magnifying-glass"/>
-								            <button className="input-group-text btn btn-primary" type="submit">
+								            <button className="input-group-text btn btn-primary"
+								                    type="button"
+								                    onClick={this.handleSearchButtonClick}>
 									            Search
 								            </button>
 							            </div>
