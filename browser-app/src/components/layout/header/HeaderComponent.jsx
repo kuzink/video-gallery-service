@@ -2,10 +2,6 @@ import React, {useState} from "react";
 import {Link} from "react-router-dom";
 import Logo from "../../../assets/logo6.png";
 import MenuIcon from "../../../assets/menu.svg";
-import AppsIcon from "../../../assets/apps-2-line.svg";
-import MoonIcon from "../../../assets/moon-line.svg";
-// import SunIcon from "../../../assets/sun-line.svg";
-import FullScreenIcon from "../../../assets/fullscreen-line.svg";
 import UserAvatar from "../../../assets/avatar-1.jpg";
 
 const HeaderComponent = (props) => {
@@ -74,7 +70,8 @@ const HeaderComponent = (props) => {
 
 						<div className="header-left">
 							<div className="header-button-toggle-sidebar">
-								<img src={MenuIcon} onClick={handleMenuClick} alt="" />
+								{/*<img src={MenuIcon} onClick={handleMenuClick} alt="" />*/}
+								<i className="icon-menu" onClick={handleMenuClick}/>
 							</div>
 							<div className="header-search">
 								<form>
@@ -104,13 +101,13 @@ const HeaderComponent = (props) => {
 									<span>Language here...</span>
 								</li>
 								<li>
-									<img src={AppsIcon} onClick={handleAppsClick} alt=""/>
+									<i className="icon-apps" onClick={handleAppsClick}/>
 								</li>
 								<li>
-									<img src={MoonIcon} onClick={handleModeClick} alt=""/>
+									<i className="icon-moon" onClick={handleModeClick}/>
 								</li>
 								<li>
-									<img src={FullScreenIcon} onClick={handleFullScreenClick} alt=""/>
+									<i className="icon-fullscreen" onClick={handleFullScreenClick}/>
 								</li>
 								<li>
 									<div className="header-user" onClick={handleUserClick}>

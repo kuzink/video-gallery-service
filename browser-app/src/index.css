@@ -867,7 +867,8 @@ video:focus {
 .side-nav-link span {
   vertical-align: middle;
   font-size: 15px;
-  font-weight: 600;
+  /*font-weight: 600;*/
+  font-weight: 400;
 }
 .menu-arrow {
   line-height: 1.6;
@@ -1023,10 +1024,10 @@ video:focus {
   cursor: default!important;
   z-index: 1;
 }
-.header-button-toggle-sidebar img {
-  height: 24px;
-  width: 24px;
+.header-button-toggle-sidebar i {
+  font-size: 24px;
   color: #6C757D;
+  /*color: #8a969c;*/
   cursor: pointer;
 }
 .header-search {
@@ -1122,7 +1123,6 @@ video:focus {
   justify-content: center;
   float: left;
   padding: 0;
-  color: #8a969c;
   min-width: 32px;
   margin: 0 7px;
 }
@@ -1134,6 +1134,16 @@ video:focus {
   width: 22px;
   cursor: pointer;
 }
+.header-right ul li i {
+  font-size: 22px;
+  /*color: #8a969c;*/
+  color: #6C757D;
+  cursor: pointer;
+  transition: color .3s ease-in-out;
+}
+.header-right ul li i:hover {
+  color: #727cf5;
+}
 .header-right .header-user {
   padding: calc(31px * .5) 20px calc(31px * .5) 57px!important;
   text-align: left!important;
@@ -1144,6 +1154,12 @@ video:focus {
   min-height: 70px;
   position: relative;
   cursor: pointer;
+  /*color: #8a969c;*/
+  color: #6C757D;
+  transition: color .3s ease-in-out;
+}
+.header-right .header-user:hover  {
+  color: #727cf5;
 }
 .header-right .account-user-avatar {
   position: absolute;
