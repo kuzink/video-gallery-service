@@ -1010,7 +1010,7 @@ video:focus {
   min-width: 30%;
   /*background-color: coral;*/
 }
-.header-button-toggle-menu {
+.header-button-toggle-sidebar {
   height: 70px;
   width: 66px;
   display: flex;
@@ -1023,7 +1023,7 @@ video:focus {
   cursor: default!important;
   z-index: 1;
 }
-.header-button-toggle-menu img {
+.header-button-toggle-sidebar img {
   height: 24px;
   width: 24px;
   color: #6C757D;
@@ -1099,7 +1099,74 @@ video:focus {
 
 .header-right {
   min-width: 40%;
-  background-color: #ddd;
+  /*background-color: #ddd;*/
+}
+.header-right ul {
+  float: right;
+  list-style: none;
+  margin-right: 36px;
+  margin-bottom: 0;
+  padding: 0;
+  background-color: #fff;
+}
+/*Only for Firefox*/
+@supports (-moz-appearance:none) {
+  .header-right ul {
+    margin-right: 32px;
+  }
+}
+.header-right ul li {
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  float: left;
+  padding: 0;
+  color: #8a969c;
+  min-width: 32px;
+  margin: 0 7px;
+}
+.header-right ul li:last-child {
+  margin-right: 0;
+}
+.header-right ul li img {
+  height: 22px;
+  width: 22px;
+  cursor: pointer;
+}
+.header-right .header-user {
+  padding: calc(31px * .5) 20px calc(31px * .5) 57px!important;
+  text-align: left!important;
+  background-color: #fafafd;
+  border: 1px solid #eef2f7;
+  border-top: none;
+  border-bottom: none;
+  min-height: 70px;
+  position: relative;
+  cursor: pointer;
+}
+.header-right .account-user-avatar {
+  position: absolute;
+  top: calc(38px * .5);
+  left: 15px;
+}
+.header-right .account-user-avatar img {
+  height: 32px;
+  width: 32px;
+  vertical-align: middle;
+  border-radius: 50%;
+}
+.header-right .account-user-name {
+  display: block;
+  font-size: 14.4px;
+  font-weight: 600;
+  text-align: left!important;
+}
+.header-right .account-position {
+  display: block;
+  font-size: 12px;
+  margin-top: -3px;
+  text-align: left!important;
 }
 
 /*Media queries*/
