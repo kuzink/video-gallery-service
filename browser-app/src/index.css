@@ -99,7 +99,8 @@ video:focus {
 /*Item Card*/
 .custom-card {
   position: relative;
-  box-shadow: 0 .125rem .25rem rgba(0,0,0,.075); /*.shadow-sm*/
+  /*box-shadow: 0 .125rem .25rem rgba(0,0,0,.075); !*.shadow-sm*!*/
+  box-shadow: 0 0 35px 0 rgba(154, 161, 171, 0.15);
   border: none;
   border-radius: 4px;
 }
@@ -240,20 +241,6 @@ video:focus {
 }
 
 /*Layout wrappers*/
-.test-sidebar {
-  position: fixed;
-  top: 70px;
-  left: 0;
-  width: 260px;
-  min-width: 260px;
-  max-height: calc(100vh - 70px);
-  min-height: calc(100vh - 70px);
-  overflow: auto;
-  z-index: 1020;
-  background-color: #313A46;
-  scrollbar-gutter: stable;
-  transition: width .2s ease, min-width .2s ease;
-}
 .test-content-outer {
   position: relative;
   margin-top: 70px;
@@ -819,6 +806,23 @@ video:focus {
 }
 
 /*Sidebar*/
+.test-sidebar {
+  position: fixed;
+  top: 70px;
+  left: 0;
+  width: 260px;
+  min-width: 260px;
+  max-height: calc(100vh - 70px);
+  min-height: calc(100vh - 70px);
+  overflow: auto;
+  z-index: 2021;
+  /*background-color: #313A46;*/
+  /*background-color: #F0F3F8;*/
+  background-color: #fff;
+  box-shadow: 0 0 35px 0 rgba(154, 161, 171, 0.15);
+  scrollbar-gutter: stable;
+  transition: width .2s ease, min-width .2s ease;
+}
 .side-nav {
   margin-bottom: 13px;
   padding: 0;
@@ -828,14 +832,14 @@ video:focus {
   letter-spacing: .05em;
   cursor: default;
   text-transform: uppercase;
-  color: #8391a2;
+  color: #6c757d;
   font-weight: 700;
   padding: 20px 15px 15px 30px;
   font-size: 11px;
 }
 .side-nav-link {
   cursor: pointer;
-  color: #8391a2;
+  color: #6c757d;
   padding: 12px 15px 12px 30px;
   position: relative;
   transition: all .3s ease-in-out;
@@ -848,10 +852,10 @@ video:focus {
   }
 }
 .side-nav-link:hover {
-  color: #bccee4;
+  color: #727cf5;
 }
 .side-nav-link.active {
-  color: #fff;
+  color: #727cf5;
 }
 .side-nav-link i {
   display: inline-block;
@@ -981,7 +985,8 @@ video:focus {
 .header-logo-section {
   width: 260px;
   height: 70px;
-  background-color: #313A46;
+  /*background-color: #313A46;*/
+  background-color: #fff;
   transition: background-color .2s ease;
 }
 .header-logo-link {
@@ -1033,7 +1038,7 @@ video:focus {
   /*background-color: #ccc;*/
 }
 .header-search form {
-  padding: calc(32px * .5) 5px calc(32px * .5) 0px;
+  padding: calc(32px * .5) 5px calc(32px * .5) 0;
   overflow: hidden;
   width: 321px;
   min-width: 321px;

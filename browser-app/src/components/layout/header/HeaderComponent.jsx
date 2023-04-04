@@ -12,16 +12,14 @@ const HeaderComponent = (props) => {
 	    const sidebarBlock = document.getElementById('sidebar-id');
 	    const contentBlock = document.getElementById('test-content-outer-id');
 	    const requestSpinner = document.getElementById('request-spinner-overlay-id');
-	    const headerLogo = document.getElementById('header-logo-section-id');
 
-	    if (sidebarBlock && contentBlock && requestSpinner && headerLogo) {
+	    if (sidebarBlock && contentBlock && requestSpinner) {
 		    const vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
 		    if (showSidebar) {
 			    sidebarBlock.style.width = "0px";
 			    sidebarBlock.style.minWidth = "0px";
 			    contentBlock.style.marginLeft = "0px";
 			    requestSpinner.style.width = "100vw";
-			    headerLogo.style.backgroundColor = "#fff";
 		    } else {
 			    if (vw > 1400) {
 				    sidebarBlock.style.width = "260px";
@@ -34,7 +32,6 @@ const HeaderComponent = (props) => {
 				    contentBlock.style.marginLeft = "200px";
 				    requestSpinner.style.width = "calc(100vw - 200px)";
 			    }
-			    headerLogo.style.backgroundColor = "#313A46";
 		    }
 	    }
 
