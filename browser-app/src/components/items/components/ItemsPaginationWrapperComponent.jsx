@@ -125,6 +125,7 @@ const ItemsPaginationWrapperComponent = (props) => {
 									<div>
 										<h4 className="custom-showing-text">{defineShowingItemsText()}</h4>
 									</div>
+									{page && page.totalElements > 0 &&
 									<div className="d-flex align-items-center">
 										<div className="mr-4">
 											<Select options={constants.SORT_CRITERIA_OPTIONS}
@@ -139,18 +140,21 @@ const ItemsPaginationWrapperComponent = (props) => {
 											        classNamePrefix="react-page-size-select"/>
 										</div>
 										<div className="btn-group">
-											<div className={`btn custom-toggle-view-button ${isGridView ? '' : 'active'}`}
-											     onClick={handleIsGridViewChange.bind(this, false)}
-											     title="List view">
+											<div
+												className={`btn custom-toggle-view-button ${isGridView ? '' : 'active'}`}
+												onClick={handleIsGridViewChange.bind(this, false)}
+												title="List view">
 												<i className="fa-solid fa-list"/>
 											</div>
-											<div className={`btn custom-toggle-view-button ${isGridView ? 'active' : ''}`}
-											     onClick={handleIsGridViewChange.bind(this, true)}
-											     title="Grid view">
+											<div
+												className={`btn custom-toggle-view-button ${isGridView ? 'active' : ''}`}
+												onClick={handleIsGridViewChange.bind(this, true)}
+												title="Grid view">
 												<i className="fa-solid fa-grid-4"/>
 											</div>
 										</div>
 									</div>
+									}
 								</div>
 							</div>
 						</div>
