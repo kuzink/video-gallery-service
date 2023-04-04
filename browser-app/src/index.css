@@ -1098,8 +1098,8 @@ video:focus {
 }
 
 .header-right {
-  min-width: 30%;
-  /*background-color: blueviolet;*/
+  min-width: 40%;
+  background-color: #ddd;
 }
 
 /*Media queries*/
