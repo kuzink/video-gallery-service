@@ -4,7 +4,7 @@ import {Link} from "react-router-dom";
 const FooterComponent = () => (
 	<div className="test-footer">
 		<div>
-			{new Date().getFullYear()} © Video Gallery - Kuzink11@gmail.com
+			{new Date().getFullYear()} © Video Gallery - kuzink11@gmail.com
 		</div>
 		<div className="footer-links">
 			<Link className="footer-link" to="/about" onClick={e => e.preventDefault()}>About</Link>
