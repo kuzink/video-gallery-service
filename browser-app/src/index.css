@@ -1189,13 +1189,14 @@ video:focus {
 }
 .header-right .account-user-avatar {
   position: absolute;
-  top: calc(38px * .5);
+  top: 18px;
   left: 15px;
 }
 .header-right .account-user-avatar img {
-  height: 32px;
-  width: 32px;
+  height: 34px;
+  width: 34px;
   vertical-align: middle;
+  border: 1px solid #F0F3F8;
   border-radius: 50%;
 }
 .header-right .account-user-name {
