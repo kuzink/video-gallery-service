@@ -188,9 +188,10 @@ video:focus {
   display: flex;
   cursor: pointer;
   transition: .3s ease;
+  color: rgb(108, 117, 125);
 }
 .custom-list-view-item:hover {
-  color: #007bff;
+  color: #727cf5;
   box-shadow: 0 .25rem 1rem rgba(0,0,0,.075)!important;
 }
 .custom-list-view-item img {
