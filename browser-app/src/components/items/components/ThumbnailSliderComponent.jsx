@@ -1,8 +1,8 @@
 import React from 'react';
 import Slider from 'react-slick';
-import DefaultThumbnail from '../../../assets/thumbnail-default.gif';
+import DefaultThumbnail from '../../../assets/img/thumbnail.gif';
 import constants from "../../../constants/Constants";
-import PlayIcon from '../../../assets/play-circle.svg';
+import PlayIcon from '../../../assets/icons/play-circle.svg';
 
 const ThumbnailSliderComponent = (props) => {
 

@@ -1,8 +1,8 @@
 import React, {useState} from "react";
 import {Link} from "react-router-dom";
-import Logo from "../../../assets/logo6.png";
-import MenuIcon from "../../../assets/menu.svg";
-import UserAvatar from "../../../assets/avatar-1.jpg";
+import Logo from "../../../assets/img/logo.png";
+import UserAvatar from "../../../assets/img/avatar.jpg";
+import FlagUSA from "../../../assets/img/flag-usa.jpg";
 
 const HeaderComponent = (props) => {
 
@@ -39,6 +39,10 @@ const HeaderComponent = (props) => {
     	setShowSidebar(!showSidebar);
     };
 
+	const handleLangClick = () => {
+		console.log(".handleLangClick()");
+	};
+
 	const handleAppsClick = () => {
 		console.log(".handleAppsClick()");
 	};
@@ -70,7 +74,6 @@ const HeaderComponent = (props) => {
 
 						<div className="header-left">
 							<div className="header-button-toggle-sidebar">
-								{/*<img src={MenuIcon} onClick={handleMenuClick} alt="" />*/}
 								<i className="icon-menu" onClick={handleMenuClick}/>
 							</div>
 							<div className="header-search">
@@ -83,7 +86,7 @@ const HeaderComponent = (props) => {
 										       value={searchText}
 										       onKeyPress={handleKeyPress}
 										       onChange={handleSearchTextChange}/>
-										<i className="fa-regular fa-magnifying-glass"/>
+										<i className="icon-search"/>
 										<button className="input-group-text btn btn-primary"
 										        type="button"
 										        onClick={handleSearchButtonClick}>
@@ -98,7 +101,11 @@ const HeaderComponent = (props) => {
 						<div className="header-right">
 							<ul className="header-menu-list">
 								<li>
-									<span>Language here...</span>
+									<div className="header-lang" onClick={handleLangClick}>
+										<img src={FlagUSA} alt=""/>
+										<span>English</span>
+										<i className="icon-chevron-down"/>
+									</div>
 								</li>
 								<li>
 									<i className="icon-apps" onClick={handleAppsClick}/>
@@ -116,7 +123,7 @@ const HeaderComponent = (props) => {
 										</span>
 										<span>
 											<span className="account-user-name">
-												Dominic Keller
+												Kanstantsin Kuzin
 											</span>
 											<span className="account-position">
 												Founder

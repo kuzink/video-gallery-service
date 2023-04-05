@@ -928,7 +928,7 @@ video:focus {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: url("assets/brick-wall.png"), linear-gradient(to right, rgba(252,0,255,.7), rgba(0,219,222,.7));
+  background: url("assets/img/bricks.png"), linear-gradient(to right, rgba(252,0,255,.7), rgba(0,219,222,.7));
 }
 .not-found-wrapper {
   color: rgb(108, 117, 125);
@@ -1082,7 +1082,7 @@ video:focus {
   color: #6c757d;
   position: absolute;
   z-index: 4;
-  font-size: 16px;
+  font-size: 18px;
   line-height: 38px;
   left: 10px;
   top: 0;
@@ -1105,7 +1105,7 @@ video:focus {
 .header-right ul {
   float: right;
   list-style: none;
-  margin-right: 36px;
+  margin-right: 24px;
   margin-bottom: 0;
   padding: 0;
   background-color: #fff;
@@ -1143,6 +1143,32 @@ video:focus {
 }
 .header-right ul li i:hover {
   color: #727cf5;
+}
+.header-right .header-lang {
+  text-align: center;
+  cursor: pointer;
+  color: #6C757D;
+  transition: color .3s ease-in-out;
+}
+.header-right .header-lang:hover {
+  color: #727cf5;
+}
+.header-right .header-lang:hover > i {
+  color: #727cf5;
+}
+.header-right .header-lang img {
+  height: 13px;
+  margin-right: 8px;
+  vertical-align: middle;
+}
+.header-right .header-lang span {
+  vertical-align: middle;
+}
+.header-right .header-lang i {
+  height: 70px;
+  margin-left: 4px;
+  font-size: 14.4px;
+  vertical-align: middle;
 }
 .header-right .header-user {
   padding: calc(31px * .5) 20px calc(31px * .5) 57px!important;

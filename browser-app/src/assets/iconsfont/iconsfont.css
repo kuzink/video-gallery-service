@@ -1,9 +1,9 @@
 @font-face {
-  font-family: 'iconsfont';
+  font-family: 'icomoon';
   src:
-    url('fonts/iconsfont.ttf?jy5obt') format('truetype'),
-    url('fonts/iconsfont.woff?jy5obt') format('woff'),
-    url('fonts/iconsfont.svg?jy5obt#iconsfont') format('svg');
+    url('fonts/icomoon.ttf?pi4zzg') format('truetype'),
+    url('fonts/icomoon.woff?pi4zzg') format('woff'),
+    url('fonts/icomoon.svg?pi4zzg#icomoon') format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -11,7 +11,7 @@
 
 [class^="icon-"], [class*=" icon-"] {
   /* use !important to prevent issues with browser extensions that change fonts */
-  font-family: 'iconsfont' !important;
+  font-family: 'icomoon' !important;
   speak: never;
   font-style: normal;
   font-weight: normal;
@@ -27,15 +27,21 @@
 .icon-apps:before {
   content: "\e900";
 }
-.icon-fullscreen:before {
+.icon-chevron-down:before {
   content: "\e901";
 }
-.icon-menu:before {
+.icon-fullscreen:before {
   content: "\e902";
 }
-.icon-moon:before {
+.icon-menu:before {
   content: "\e903";
 }
-.icon-sun:before {
+.icon-moon:before {
   content: "\e904";
+}
+.icon-search:before {
+  content: "\e905";
+}
+.icon-sun:before {
+  content: "\e906";
 }

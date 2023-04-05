@@ -1,5 +1,5 @@
 import React from "react";
-import DefaultThumbnail from '../../../assets/thumbnail-default.gif';
+import DefaultThumbnail from '../../../assets/img/thumbnail.gif';
 
 const ListViewItemsComponent = (props) => {
 
