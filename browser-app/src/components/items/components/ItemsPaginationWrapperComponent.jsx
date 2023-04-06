@@ -106,7 +106,7 @@ const ItemsPaginationWrapperComponent = (props) => {
 			endIndex = page.totalElements;
 		}
 
-		return 'Showing ' + startIndex + '-' + endIndex + ' of ' + page.totalElements;
+		return 'Showing videos ' + startIndex + '-' + endIndex + ' of ' + page.totalElements;
 	};
 
 	const handleIsGridViewChange = (isGridView) => {
