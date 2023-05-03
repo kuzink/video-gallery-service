@@ -168,7 +168,7 @@ const ItemsPaginationWrapperComponent = (props) => {
 					<div className="container-fluid">
 						<div className="row">
 							<div className="col custom-col">
-								<ul className="pagination mb-0 justify-content-center">
+								<ul className="pagination justify-content-center">
 									{pages.map((p, index) => {
 										if (p === LEFT_PAGE) {
 											return (
