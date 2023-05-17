@@ -57,6 +57,9 @@ body::-webkit-scrollbar{
 .modal-backdrop {
   z-index: 2060;
 }
+.modal-backdrop.show {
+  opacity: .7;
+}
 .modal {
   z-index: 2070;
 }
@@ -156,7 +159,7 @@ video:focus {
   top: 6px;
   left: 7px;
   padding: 3px 8px;
-  background-color: rgba(0,0,0,0.5);
+  background-color: rgba(0,0,0,0.4);
   border-radius: 3px;
   font-size: 11px;
   line-height: 1.15;
