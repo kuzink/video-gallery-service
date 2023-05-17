@@ -137,7 +137,7 @@ public class StartUpDataInitializr {
         final List<ItemEntity> items = new ArrayList<>();
 
         videos.forEach(video -> {
-            final String name = removeFileExtension(video.getName(), true);
+            final String name = removeFileExtension(video.getName(), false);
 
             final List<ThumbnailEntity> thumbnailsForThisVideo = thumbnails.stream()
                     .filter(it -> it.getFolderName().equals(video.getFolderName()) && it.getSubFolderName().equals(name))
