@@ -2,6 +2,7 @@ package com.kuzin.videogalleryservice.service;
 
 import com.kuzin.videogalleryservice.dto.*;
 import com.kuzin.videogalleryservice.repository.domain.SlideEntity;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.*;
@@ -16,22 +17,29 @@ import static java.util.Comparator.comparingInt;
 import static java.util.stream.Collectors.*;
 
 @Service
+@Slf4j
 public class SlideServiceImpl implements SlideService {
 
     private final List<SlideEntity> slides;
     private final List<String> folderNames;
     private final String slidesLocation;
+    private final String girlName;
 
     @Autowired
     public SlideServiceImpl(final List<SlideEntity> slides, final List<String> folderNames,
-                            @Value("${slides.location}") final String slidesLocation) {
+                            @Value("${slides.location}") final String slidesLocation,
+                            @Value("${girl.name}") final String girlName) {
         this.slides = slides;
         this.folderNames = folderNames;
         this.slidesLocation = slidesLocation;
+        this.girlName = girlName;
     }
 
     @Override
     public List<SlideDto> getSlides() {
+        System.out.println("girlName: " + girlName);
+        log.info("girlName: " + girlName);
+
         final List<SlideDto> slidesList = new ArrayList<>();
 
         final String randomSlidesFolder = folderNames.get(new Random().nextInt(folderNames.size()));

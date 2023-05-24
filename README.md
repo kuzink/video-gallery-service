@@ -6,7 +6,8 @@
 3. Run ui-only with live-reload on localhost:3000 -> npm start
 4. Build ui-bundle (will create build folder) -> npm run webpack
 5. Build jar with both ui and backend (from root folder) -> mvn package
-
+6. Build docker image: docker build -t video-gallery-service .
+7. Run docker container: docker run -p 8080:8080 -p 9010:9010 -d video-gallery-service
 
 #TODO:
 1. Header: 
